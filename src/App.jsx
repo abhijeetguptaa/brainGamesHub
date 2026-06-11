@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense, lazy, useRef, useCallback, useMemo } from 'react';
+import { useState, useEffect, Suspense, lazy, useRef, useCallback } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
@@ -17,111 +17,33 @@ import { setScreen } from './utils/analytics';
 import { trackEvent } from './utils/firebaseAnalytics';
 import { exitLearningPathTask } from './utils/learningPathUtils';
 
-const loadAlphabets = () => import('./components/Alphabets.tsx');
-const Alphabets = lazy(loadAlphabets);
-const loadTracingSelection = () => import('./components/TracingSelection.jsx');
-const TracingSelection = lazy(loadTracingSelection);
-const loadTracingGame = () => import('./components/TracingGame.tsx');
-const TracingGame = lazy(loadTracingGame);
 const loadWordSearch = () => import('./components/WordSearch.jsx');
 const WordSearch = lazy(loadWordSearch);
 const loadWordSearchDifficultySelector = () =>
   import('./components/WordSearchDifficultySelector.jsx');
 const WordSearchDifficultySelector = lazy(loadWordSearchDifficultySelector);
-const loadSentenceScramble = () => import('./components/SentenceScramble.tsx');
-const SentenceScramble = lazy(loadSentenceScramble);
-const loadSentenceScrambleDifficultySelector = () =>
-  import('./components/SentenceScrambleDifficultySelector.jsx');
-const SentenceScrambleDifficultySelector = lazy(loadSentenceScrambleDifficultySelector);
 const loadSudoku = () => import('./components/Sudoku.jsx');
 const Sudoku = lazy(loadSudoku);
 const loadSudokuDifficultySelector = () => import('./components/SudokuDifficultySelector.jsx');
 const SudokuDifficultySelector = lazy(loadSudokuDifficultySelector);
 const loadTicTacToe = () => import('./components/TicTacToe.jsx');
 const TicTacToe = lazy(loadTicTacToe);
-const loadCountingExercise = () => import('./components/CountingExercise.tsx');
-const CountingExercise = lazy(loadCountingExercise);
-const loadEnglishWordsSpell = () => import('./components/EnglishWordsSpell.tsx');
-const EnglishWordsSpell = lazy(loadEnglishWordsSpell);
-const loadColorPad = () => import('./components/ColorPad.tsx');
-const ColorPad = lazy(loadColorPad);
-const loadCalculator = () => import('./components/Calculator.jsx');
-const Calculator = lazy(loadCalculator);
-
-const loadQuiz = () => import('./components/Quiz.tsx');
-const Quiz = lazy(loadQuiz);
-const loadQuizDifficultySelector = () => import('./components/QuizDifficultySelector.tsx');
-const QuizDifficultySelector = lazy(loadQuizDifficultySelector);
 const loadSettings = () => import('./components/Settings.jsx');
 const Settings = lazy(loadSettings);
-const loadMaths = () => import('./components/Maths.jsx');
-const Maths = lazy(loadMaths);
-const loadGames = () => import('./components/Games.jsx');
-const Games = lazy(loadGames);
-const loadPuzzle = () => import('./components/Puzzle.jsx');
-const Puzzle = lazy(loadPuzzle);
-const loadColoring = () => import('./components/Coloring.jsx');
-const Coloring = lazy(loadColoring);
-const loadColoringDifficultySelector = () => import('./components/ColoringDifficultySelector.jsx');
-const ColoringDifficultySelector = lazy(loadColoringDifficultySelector);
-const loadCreativity = () => import('./components/Creativity.jsx');
-const Creativity = lazy(loadCreativity);
-const loadJunior = () => import('./components/Junior.jsx');
-const Junior = lazy(loadJunior);
-const loadUtils = () => import('./components/Utils.jsx');
-const Utils = lazy(loadUtils);
-const loadWorksheets = () => import('./components/Worksheets.jsx');
-const Worksheets = lazy(loadWorksheets);
-const loadAddition = () => import('./components/Addition.jsx');
-const Addition = lazy(loadAddition);
-const loadEnglish = () => import('./components/English.jsx');
-const English = lazy(loadEnglish);
-const loadSubtraction = () => import('./components/Subtraction.jsx');
-const Subtraction = lazy(loadSubtraction);
-const loadMultiplication = () => import('./components/Multiplication.jsx');
-const Multiplication = lazy(loadMultiplication);
-const loadDivision = () => import('./components/Division.jsx');
-const Division = lazy(loadDivision);
-const loadComparison = () => import('./components/Comparison.jsx');
-const Comparison = lazy(loadComparison);
-const loadAscending = () => import('./components/Ascending.jsx');
-const Ascending = lazy(loadAscending);
-const loadDescending = () => import('./components/Descending.jsx');
-const Descending = lazy(loadDescending);
 const loadMemoryMatch = () => import('./components/MemoryMatch.jsx');
 const MemoryMatch = lazy(loadMemoryMatch);
 const loadGridMatch = () => import('./components/GridMatch.jsx');
 const GridMatch = lazy(loadGridMatch);
-const loadNotes = () => import('./components/Notes.jsx');
-const Notes = lazy(loadNotes);
-const loadPassageReading = () => import('./components/PassageReading.jsx');
-const PassageReading = lazy(loadPassageReading);
 const loadDifficultySelection = () => import('./components/DifficultySelection.jsx');
 const DifficultySelection = lazy(loadDifficultySelection);
-const loadPassageSelection = () => import('./components/PassageSelection.jsx');
-const PassageSelection = lazy(loadPassageSelection);
 const loadMathDifficultySelector = () => import('./components/MathDifficultySelector.jsx');
 const MathDifficultySelector = lazy(loadMathDifficultySelector);
 const loadSpinWheel = () => import('./components/SpinWheel.tsx');
 const SpinWheel = lazy(loadSpinWheel);
-const loadQuizGame = () => import('./components/QuizGame.tsx');
-const QuizGame = lazy(loadQuizGame);
 const loadSmartMatch = () => import('./components/SmartMatch.tsx');
 const SmartMatch = lazy(loadSmartMatch);
-const loadScratchGame = () => import('./components/ScratchGame.tsx');
-const ScratchGame = lazy(loadScratchGame);
 const loadMentalMath = () => import('./components/MentalMath.tsx');
 const MentalMath = lazy(loadMentalMath);
-const loadTapLearnRoute = () => import('./components/TapLearnRoute.tsx');
-const TapLearnRoute = lazy(loadTapLearnRoute);
-const loadVideoStories = () => import('./components/VideoStories.tsx');
-const VideoStories = lazy(loadVideoStories);
-const loadRhymes = () => import('./components/Rhymes.tsx');
-const Rhymes = lazy(loadRhymes);
-const loadCraft = () => import('./components/Craft.tsx');
-const Craft = lazy(loadCraft);
-const loadLearningPath = () => import('./components/LearningPath.tsx');
-const LearningPath = lazy(loadLearningPath);
 const loadStickerBook = () => import('./components/StickerBook.tsx');
 const StickerBook = lazy(loadStickerBook);
 const loadTileConnect = () => import('./components/TileConnect.tsx');
@@ -170,36 +92,6 @@ function scheduleAfterFirstPaint(task, delay = 0) {
     }
     window.clearTimeout(timeoutId);
   };
-}
-
-const NON_GAME_ROUTES = new Set([
-  '/',
-  '/tiny-steps',
-  '/english',
-  '/maths',
-  '/games',
-  '/creativity',
-  '/junior',
-  '/utils',
-  '/videos',
-  '/rhymes',
-  '/english/wordsearch',
-  '/games/sudoku',
-  '/creativity/coloring',
-  '/creativity/coloring-selection',
-  '/english/passages',
-  '/utils/math-worksheets',
-]);
-
-function isGameplayRoute(pathname) {
-  if (NON_GAME_ROUTES.has(pathname)) return false;
-  if (pathname.startsWith('/english/passages/')) return false;
-  if (pathname.startsWith('/creativity/coloring/')) return true;
-  return true;
-}
-
-function getOrientationLockType(type) {
-  return type.startsWith('landscape') ? 'landscape-primary' : 'portrait-primary';
 }
 
 function Home() {
@@ -321,11 +213,9 @@ export default function App() {
   const lastBackPress = useRef(0);
   const isFirstRoute = useRef(true);
   const pathnameRef = useRef(location.pathname);
-  const hasShownOrientationLockError = useRef(false);
   const hasStartedExperience = useRef(false);
   const hasStartedDeferredServices = useRef(false);
   const hasScheduledNotificationPrompt = useRef(false);
-  const lastOrientationLockRef = useRef('unlocked');
 
   const { checkLogin } = useRetentionStore();
 
@@ -452,22 +342,6 @@ export default function App() {
 
     if (segments.length <= 1) {
       navigate('/', { replace: true });
-      return;
-    }
-
-    if (segments[0] === 'junior') {
-      navigate('/junior', { replace: true });
-      return;
-    }
-
-    if (segments[0] === 'english' && segments[1] === 'passage') {
-      const difficulty = segments[2];
-      navigate(`/english/passages/${difficulty}`, { replace: true });
-      return;
-    }
-
-    if (segments[0] === 'creativity' && segments[1] === 'coloring') {
-      navigate('/creativity/coloring-selection', { replace: true });
       return;
     }
 
@@ -639,38 +513,6 @@ export default function App() {
     };
   }, [navigate, t, isSettingsOpen, startDeferredServices]);
 
-  // ORIENTATION LOCK
-  useEffect(() => {
-    if (!Capacitor.isNativePlatform() || !Capacitor.isPluginAvailable('ScreenOrientation')) return;
-
-    const syncOrientationLock = async () => {
-      try {
-        if (!isGameplayRoute(location.pathname)) {
-          if (lastOrientationLockRef.current !== 'unlocked') {
-            await ScreenOrientation.unlock();
-            lastOrientationLockRef.current = 'unlocked';
-          }
-          return;
-        }
-
-        const type = window.screen?.orientation?.type || 'portrait-primary';
-        const nextLock = getOrientationLockType(type);
-        if (lastOrientationLockRef.current === nextLock) return;
-
-        await ScreenOrientation.lock({ orientation: nextLock });
-        lastOrientationLockRef.current = nextLock;
-      } catch (err) {
-        if (!hasShownOrientationLockError.current) {
-          console.error('Orientation lock failed:', err);
-          hasShownOrientationLockError.current = true;
-        }
-      }
-    };
-
-    const cancelSync = scheduleAfterFirstPaint(syncOrientationLock, 1200);
-    return () => cancelSync();
-  }, [location.pathname]);
-
   // CLICK SOUND ON ROUTE CHANGE
   useEffect(() => {
     if (isFirstRoute.current) {
@@ -686,16 +528,6 @@ export default function App() {
       <Suspense fallback={<div>{t('common.loading')}</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/tiny-steps" element={<LearningPath />} />
-          {/* English */}
-          <Route path="/english" element={<English />} />
-          <Route path="/english/alphabets" element={<Alphabets />} />
-          <Route path="/english/english-words" element={<EnglishWordsSpell />} />
-          <Route
-            path="/english/sentence-scramble"
-            element={<SentenceScrambleDifficultySelector />}
-          />
-          <Route path="/english/sentence-scramble/:difficulty" element={<SentenceScramble />} />
           <Route path="/english/wordsearch" element={<WordSearchDifficultySelector />} />
           <Route path="/english/wordsearch/:difficulty" element={<WordSearch />} />
           <Route
@@ -716,113 +548,38 @@ export default function App() {
               />
             }
           />
-          <Route path="/english/passages/:difficulty" element={<PassageSelection />} />
-          <Route path="/english/passage/:difficulty/:id" element={<PassageReading />} />
-          {/* Maths */}
-          <Route path="/maths" element={<Maths />} />
-          <Route path="/maths/counting" element={<CountingExercise />} />
           <Route path="/maths/addition" element={<MathDifficultySelector operator="Addition" />} />
-          <Route path="/maths/addition/:difficulty" element={<Addition />} />
           <Route
             path="/maths/subtraction"
             element={<MathDifficultySelector operator="Subtraction" />}
           />
-          <Route path="/maths/subtraction/:difficulty" element={<Subtraction />} />
           <Route
             path="/maths/multiplication"
             element={<MathDifficultySelector operator="Multiplication" />}
           />
-          <Route path="/maths/multiplication/:difficulty" element={<Multiplication />} />
           <Route path="/maths/division" element={<MathDifficultySelector operator="Division" />} />
-          <Route path="/maths/division/:difficulty" element={<Division />} />
           <Route
             path="/maths/comparison"
             element={<MathDifficultySelector operator="Comparison" />}
           />
-          <Route path="/maths/comparison/:difficulty" element={<Comparison />} />
           <Route
             path="/maths/ascending"
             element={<MathDifficultySelector operator="Ascending" />}
           />
-          <Route path="/maths/ascending/:difficulty" element={<Ascending />} />
           <Route
             path="/maths/descending"
             element={<MathDifficultySelector operator="Descending" />}
           />
-          <Route path="/maths/descending/:difficulty" element={<Descending />} />
           <Route path="/maths/mental-math" element={<MentalMath />} />
           <Route path="/maths/mental-math/:difficulty" element={<MentalMath />} />
-          {/* Games */}
-          <Route path="/games" element={<Games />} />
           <Route path="/games/sudoku" element={<SudokuDifficultySelector />} />
           <Route path="/games/sudoku/:difficulty" element={<Sudoku />} />
           <Route path="/games/tictactoe" element={<TicTacToe userName={userName} />} />
           <Route path="/games/memory-match" element={<MemoryMatch />} />
           <Route path="/games/tile-connect" element={<TileConnect />} />
           <Route path="/games/gridMatch" element={<GridMatch />} />
-          <Route path="/games/puzzle" element={<Puzzle />} />
           <Route path="/games/spin-wheel" element={<SpinWheel />} />
           <Route path="/games/smart-match" element={<SmartMatch />} />
-          {/* Creativity */}
-          <Route path="/creativity" element={<Creativity />} />
-          <Route path="/creativity/coloring-selection" element={<ColoringDifficultySelector />} />
-          <Route path="/creativity/coloring/:difficulty" element={<Coloring />} />
-          <Route path="/creativity/colorPad" element={<ColorPad />} />
-          <Route path="/creativity/tracing-selection" element={<TracingSelection />} />
-          <Route
-            path="/creativity/tracing-selection/alphabet-tracing"
-            element={<TracingGame mode="alphabets" />}
-          />
-          <Route
-            path="/creativity/tracing-selection/number-tracing"
-            element={<TracingGame mode="numbers" />}
-          />
-          <Route path="/creativity/scratch-cards" element={<ScratchGame />} />
-          {/* Junior */}
-          <Route path="/junior" element={<Junior />} />
-          <Route path="/junior/tap-learn" element={<TapLearnRoute gameType="letters" />} />
-          <Route path="/junior/tap-learn-letters" element={<TapLearnRoute gameType="letters" />} />
-          <Route path="/junior/tap-learn-numbers" element={<TapLearnRoute gameType="numbers" />} />
-          <Route path="/junior/tap-learn-colors" element={<TapLearnRoute gameType="colors" />} />
-          <Route
-            path="/junior/tap-learn-vegetables"
-            element={<TapLearnRoute gameType="vegetables" />}
-          />
-          <Route path="/junior/tap-learn-fruits" element={<TapLearnRoute gameType="fruits" />} />
-          <Route path="/junior/tap-learn-shapes" element={<TapLearnRoute gameType="shapes" />} />
-          <Route
-            path="/junior/tap-learn-farm-animals"
-            element={<TapLearnRoute gameType="farmAnimals" />}
-          />
-          <Route
-            path="/junior/tap-learn-wild-animals"
-            element={<TapLearnRoute gameType="wildAnimals" />}
-          />
-          <Route
-            path="/junior/tap-learn-sea-animals"
-            element={<TapLearnRoute gameType="seaAnimals" />}
-          />
-          <Route path="/junior/tap-learn-insects" element={<TapLearnRoute gameType="insects" />} />
-          <Route
-            path="/junior/tap-learn-vehicles"
-            element={<TapLearnRoute gameType="vehicles" />}
-          />
-          <Route path="/junior/tap-learn-food" element={<TapLearnRoute gameType="food" />} />
-          <Route
-            path="/junior/tap-learn-instruments"
-            element={<TapLearnRoute gameType="instruments" />}
-          />
-          {/* Utils */}
-          <Route path="/utils" element={<Utils />} />
-          <Route path="/utils/calculator" element={<Calculator />} />
-          <Route path="/utils/notes" element={<Notes />} />
-          <Route path="/utils/math-worksheets" element={<Worksheets />} />
-          {/* Others */}
-          <Route path="/quiz" element={<QuizDifficultySelector />} />
-          <Route path="/quiz/:difficulty" element={<Quiz />} />
-          <Route path="/stories" element={<VideoStories />} />{' '}
-          <Route path="/rhymes" element={<Rhymes />} />
-          <Route path="/craft" element={<Craft />} />
           <Route path="/stickers" element={<StickerBook />} />
         </Routes>
       </Suspense>

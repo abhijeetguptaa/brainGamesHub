@@ -7,7 +7,6 @@ import { trackStarsEarned, setScreen } from '../utils/analytics';
 import { useSparkleBurst } from '../hooks/useSparkleBurst';
 import { getRandomItem } from '../utils/utils';
 import { IS_TEST_MODE } from '../constants/appConstants';
-import ParentalGate from './ParentalGate';
 import FlyingStars from './FlyingStars';
 import SuccessModalPetals from './SuccessModalPetals';
 import { showSafeInterstitial } from '../utils/admob';
@@ -30,7 +29,6 @@ const SuccessModal = ({
   const hasAwardedStars = useRef(false);
   const pendingActionRef = useRef<(() => void) | null>(null);
   const { triggerSparkleBurst, SparkleRenderer } = useSparkleBurst();
-  const [parentalGateOpen, setParentalGateOpen] = useState(false);
   const [showMistakes, setShowMistakes] = useState(false);
 
   // TRIGGER INTERSTITIAL AD (Safe Moment: Success Modal Dismissal)
@@ -89,7 +87,7 @@ const SuccessModal = ({
 
   useEffect(() => {
     if (timerRef.current) cancelAnimationFrame(timerRef.current);
-    if (showMistakes || parentalGateOpen || isClosing || animationData) {
+    if (showMistakes || isClosing || animationData) {
       return;
     }
 
@@ -120,7 +118,7 @@ const SuccessModal = ({
       if (timerRef.current) cancelAnimationFrame(timerRef.current);
       timerRef.current = null;
     };
-  }, [showMistakes, parentalGateOpen, isClosing, animationData]);
+  }, [showMistakes, isClosing, animationData]);
 
   const handleRateUs = () => {
     window.open('https://play.google.com/store/apps/details?id=com.abhijeet.kidsapp', '_blank');
@@ -242,7 +240,9 @@ const SuccessModal = ({
                   type="button"
                   className="level-btn btn-hard"
                   disabled={isClosing}
-                  onClick={() => setParentalGateOpen(true)}
+                  onClick={() => {
+                    debugger;
+                  }}
                 >
                   {t('successModal.rateNow')}
                 </button>
@@ -301,16 +301,6 @@ const SuccessModal = ({
           </div>
         </button>
       </div>
-
-      <ParentalGate
-        isOpen={parentalGateOpen}
-        onClose={() => setParentalGateOpen(false)}
-        onConfirm={() => {
-          localStorage.setItem('hasRated', 'true');
-          handleRateUs();
-          handleCloseClick();
-        }}
-      />
     </div>
   );
 };
