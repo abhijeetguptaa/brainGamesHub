@@ -265,6 +265,12 @@ function Home() {
       src: '/mental-math.webp',
       title: t('home.subjects.mentalMath.title'),
     },
+    {
+      to: '/stickers',
+      label: t('home.subjects.stickers.label'),
+      src: '/stickers.webp',
+      title: t('home.subjects.stickers.title'),
+    },
   ];
 
   return (
