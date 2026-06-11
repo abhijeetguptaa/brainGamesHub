@@ -636,7 +636,7 @@
       "title": "Smartes Lernen für Kinder -",
       "failedToSave": "PDF konnte nicht gespeichert werden:",
       "shareTitle": "$t(app.title)",
-      "shareText": "Smart Kids Learning PDF im Anhang.",
+      "shareText": "Brain Games Hub PDF im Anhang.",
       "sharingFailed": "Teilen fehlgeschlagen:",
       "downloadedMessage": "PDF heruntergeladen.",
       "downloadNotSupported": "Herunterladen nicht unterstützt",
@@ -857,7 +857,7 @@
     "success": "Amazing! You traced it perfectly!"
   },
   "welcomeScreen": {
-    "message": "Willkommen bei Smart Kids Learning!",
+    "message": "Willkommen bei Brain Games Hub!",
     "playButton": "Lass uns spielen!"
   },
   "videos": {

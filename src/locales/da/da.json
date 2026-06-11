@@ -636,7 +636,7 @@
       "title": "Smart læring for børn -",
       "failedToSave": "Kunne ikke gemme PDF:",
       "shareTitle": "$t(app.title)",
-      "shareText": "Smart Kids Learning PDF vedhæftet.",
+      "shareText": "Brain Games Hub PDF vedhæftet.",
       "sharingFailed": "Deling mislykkedes:",
       "downloadedMessage": "PDF downloadet.",
       "downloadNotSupported": "Download understøttes ikke",
@@ -857,7 +857,7 @@
     "success": "Amazing! You traced it perfectly!"
   },
   "welcomeScreen": {
-    "message": "Velkommen til Smart Kids Learning!",
+    "message": "Velkommen til Brain Games Hub!",
     "playButton": "Lad os spille!"
   },
   "videos": {

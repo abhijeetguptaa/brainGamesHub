@@ -17,7 +17,7 @@
   "app": {
     "description": "Lihat aplikasi keren ini untuk belajar matematika, bermain puzzle, mewarnai, dan banyak lagi keseruan lainnya!",
     "pressBackToExit": "Tekan kembali lagi untuk keluar",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "Kunci rotasi layar tidak tersedia di perangkat ini."
   },
   "calculator": {
@@ -633,10 +633,10 @@
       "failedToLoad": "Gagal memuat gambar watermark"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "Gagal menyimpan PDF:",
       "shareTitle": "$t(app.title)",
-      "shareText": "PDF Smart Kids Learning terlampir.",
+      "shareText": "PDF Brain Games Hub terlampir.",
       "sharingFailed": "Berbagi gagal:",
       "downloadedMessage": "PDF telah diunduh.",
       "downloadNotSupported": "Unduhan tidak didukung",
@@ -857,7 +857,7 @@
     "success": "Hebat! Kamu menelusurinya dengan sempurna!"
   },
   "welcomeScreen": {
-    "message": "Selamat datang di Smart Kids Learning!",
+    "message": "Selamat datang di Brain Games Hub!",
     "playButton": "Mari Bermain!"
   },
   "videos": {

@@ -63,7 +63,7 @@ export const NUMBER_GENERATION = {
 // UI Text and Labels
 export const APP_TEXT = {
   TITLES: {
-    SMART_KIDS_LEARNING: 'Smart Kids Learning',
+    SMART_KIDS_LEARNING: 'Brain Games Hub',
   },
   BUTTONS: {
     GO_HOME: 'Go Home',
@@ -85,11 +85,11 @@ export const APP_TEXT = {
 
 // File and sharing configuration
 export const FILE_SETTINGS = {
-  DEFAULT_PDF_NAME: 'smart-kids-learning.pdf',
-  DEFAULT_PASSAGE_PDF_NAME: 'smart-kids-learning-passage.pdf',
+  DEFAULT_PDF_NAME: 'brain-games-hub.pdf',
+  DEFAULT_PASSAGE_PDF_NAME: 'brain-games-hub-passage.pdf',
   PDF_TYPE: 'application/pdf',
-  SHARE_TITLE: 'Smart Kids Learning',
-  SHARE_TEXT: 'Smart Kids Learning PDF attached.',
+  SHARE_TITLE: 'Brain Games Hub',
+  SHARE_TEXT: 'Brain Games Hub PDF attached.',
 };
 
 // Modal and UI states

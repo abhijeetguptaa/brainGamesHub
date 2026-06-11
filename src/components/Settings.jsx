@@ -82,7 +82,7 @@ const Settings = ({ userName, onNameSubmit, onClose }) => {
         .share({
           title: t('common.appName'),
           text: t('app.description'),
-          url: 'https://play.google.com/store/apps/details?id=com.abhijeet.kidsapp',
+          url: 'https://play.google.com/store/apps/details?id=com.alphagaming.brainGamesHub',
         })
         .then(() => {
           console.log('Successful share');
@@ -96,7 +96,10 @@ const Settings = ({ userName, onNameSubmit, onClose }) => {
 
   const handleRateUs = () => {
     logEvent('RateUsClick');
-    window.open('https://play.google.com/store/apps/details?id=com.abhijeet.kidsapp', '_blank');
+    window.open(
+      'https://play.google.com/store/apps/details?id=com.alphagaming.brainGamesHub',
+      '_blank',
+    );
   };
 
   const handleFacebook = () => {

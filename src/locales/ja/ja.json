@@ -17,7 +17,7 @@
   "app": {
     "description": "算数を学んだり、パズルで遊んだり、色塗りをしたり、もっとたくさんの楽しみがあるこのクールなアプリをチェックしてください！",
     "pressBackToExit": "もう一度「戻る」を押すと終了します",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "画面の回転ロックはこのデバイスでは利用できません。"
   },
   "calculator": {
@@ -403,7 +403,7 @@
       },
       "calculator": {
         "label": "$t(calculator.title)",
-        "title": "Smart Kids Learningでシンプルな電卓ツールを開く"
+        "title": "Brain Games Hubでシンプルな電卓ツールを開く"
       },
       "notes": {
         "label": "メモ",
@@ -415,7 +415,7 @@
       },
       "wordSearch": {
         "label": "単語探し",
-        "title": "Smart Kids Learningで単語探しパズルゲームをプレイしよう"
+        "title": "Brain Games Hubで単語探しパズルゲームをプレイしよう"
       },
       "sentenceScramble": {
         "label": "Sentence Fun",
@@ -423,47 +423,47 @@
       },
       "sudoku": {
         "label": "数独",
-        "title": "Smart Kids Learningで数独パズルゲームをプレイしよう"
+        "title": "Brain Games Hubで数独パズルゲームをプレイしよう"
       },
       "ticTacToe": {
         "label": "〇✕ゲーム",
-        "title": "Smart Kids Learningで〇✕ゲームをプレイしよう"
+        "title": "Brain Games Hubで〇✕ゲームをプレイしよう"
       },
       "alphabets": {
         "label": "アルファベット",
-        "title": "Smart Kids Learningで音声合成と一緒にアルファベットを学ぼう"
+        "title": "Brain Games Hubで音声合成と一緒にアルファベットを学ぼう"
       },
       "addition": {
         "label": "足し算",
-        "title": "Smart Kids Learningのインタラクティブな練習で足し算の問題を練習しよう"
+        "title": "Brain Games Hubのインタラクティブな練習で足し算の問題を練習しよう"
       },
       "subtraction": {
         "label": "引き算",
-        "title": "Smart Kids Learningのインタラクティブな練習で引き算の問題を練習しよう"
+        "title": "Brain Games Hubのインタラクティブな練習で引き算の問題を練習しよう"
       },
       "multiplication": {
         "label": "掛け算",
-        "title": "Smart Kids Learningのインタラクティブな練習で掛け算の問題を練習しよう"
+        "title": "Brain Games Hubのインタラクティブな練習で掛け算の問題を練習しよう"
       },
       "division": {
         "label": "割り算",
-        "title": "Smart Kids Learningのインタラクティブな練習で割り算の問題を練習しよう"
+        "title": "Brain Games Hubのインタラクティブな練習で割り算の問題を練習しよう"
       },
       "comparison": {
         "label": "比較",
-        "title": "Smart Kids Learningのインタラクティブな練習で比較の問題を練習しよう"
+        "title": "Brain Games Hubのインタラクティブな練習で比較の問題を練習しよう"
       },
       "ascending": {
         "label": "昇順",
-        "title": "Smart Kids Learningのインタラクティブな練習で数字を小さい順に並べる練習をしよう"
+        "title": "Brain Games Hubのインタラクティブな練習で数字を小さい順に並べる練習をしよう"
       },
       "descending": {
         "label": "降順",
-        "title": "Smart Kids Learningのインタラクティブな練習で数字を大きい順に並べる練習をしよう"
+        "title": "Brain Games Hubのインタラクティブな練習で数字を大きい順に並べる練習をしよう"
       },
       "counting": {
         "label": "数える",
-        "title": "Smart Kids Learningの楽しい練習で数を数えることを学ぼう"
+        "title": "Brain Games Hubの楽しい練習で数を数えることを学ぼう"
       },
       "numberTracing": {
         "label": "Number",
@@ -475,11 +475,11 @@
       },
       "spellTheWord": {
         "label": "スペリング",
-        "title": "Smart Kids Learningで絵と一緒に英単語を学ぼう"
+        "title": "Brain Games Hubで絵と一緒に英単語を学ぼう"
       },
       "paintBrush": {
         "label": "ペイントブラシ",
-        "title": "Smart Kids Learningのペイントブラシゲームで絵を描いて色を塗ろう"
+        "title": "Brain Games Hubのペイントブラシゲームで絵を描いて色を塗ろう"
       },
       "gridMatch": {
         "label": "グリッド合わせ",
@@ -633,10 +633,10 @@
       "failedToLoad": "透かし画像の読み込みに失敗しました"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "PDFの保存に失敗しました：",
       "shareTitle": "$t(app.title)",
-      "shareText": "Smart Kids LearningのPDFを添付しました。",
+      "shareText": "Brain Games HubのPDFを添付しました。",
       "sharingFailed": "共有に失敗しました：",
       "downloadedMessage": "PDFをダウンロードしました。",
       "downloadNotSupported": "ダウンロードはサポートされていません",
@@ -857,7 +857,7 @@
     "success": "Amazing! You traced it perfectly!"
   },
   "welcomeScreen": {
-    "message": "Smart Kids Learningへようこそ！",
+    "message": "Brain Games Hubへようこそ！",
     "playButton": "あそぼう！"
   },
   "videos": {

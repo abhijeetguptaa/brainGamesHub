@@ -17,7 +17,7 @@
   "app": {
     "description": "พบกับแอปเจ๋งๆ สำหรับการเรียนคณิตศาสตร์ เล่นปริศนา ระบายสี และความสนุกอีกมากมาย!",
     "pressBackToExit": "กดกลับอีกครั้งเพื่อออก",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "การล็อกการหมุนหน้าจอไม่สามารถใช้งานได้บนอุปกรณ์นี้"
   },
   "calculator": {
@@ -633,7 +633,7 @@
       "failedToLoad": "โหลดรูปภาพลายน้ำไม่สำเร็จ"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "บันทึก PDF ไม่สำเร็จ:",
       "shareTitle": "$t(app.title)",
       "shareText": "แนบไฟล์ PDF",
@@ -857,7 +857,7 @@
     "success": "มหัศจรรย์! คุณลากเส้นได้อย่างสมบูรณ์แบบ!"
   },
   "welcomeScreen": {
-    "message": "ยินดีต้อนรับสู่ Smart Kids Learning!",
+    "message": "ยินดีต้อนรับสู่ Brain Games Hub!",
     "playButton": "มาเล่นกันเลย!"
   },
   "videos": {

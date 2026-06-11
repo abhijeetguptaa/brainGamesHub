@@ -17,7 +17,7 @@
   "app": {
     "description": "¡Echa un vistazo a esta genial aplicación para aprender matemáticas, jugar rompecabezas, colorear y mucha más diversión!",
     "pressBackToExit": "Presiona atrás de nuevo para salir",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "El bloqueo de rotación de pantalla no está disponible en este dispositivo."
   },
   "calculator": {
@@ -633,10 +633,10 @@
       "failedToLoad": "Error al cargar la imagen de la marca de agua"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "Error al guardar el PDF:",
       "shareTitle": "$t(app.title)",
-      "shareText": "Se adjunta el PDF de Smart Kids Learning.",
+      "shareText": "Se adjunta el PDF de Brain Games Hub.",
       "sharingFailed": "Error al compartir:",
       "downloadedMessage": "PDF descargado.",
       "downloadNotSupported": "Descarga no compatible",
@@ -857,7 +857,7 @@
     "success": "Amazing! You traced it perfectly!"
   },
   "welcomeScreen": {
-    "message": "¡Bienvenido a Smart Kids Learning!",
+    "message": "¡Bienvenido a Brain Games Hub!",
     "playButton": "¡A Jugar!"
   },
   "videos": {

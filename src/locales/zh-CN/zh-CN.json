@@ -17,7 +17,7 @@
   "app": {
     "description": "快来看看这个超酷的数学学习应用！玩拼图、涂色，享受更多乐趣挑战",
     "pressBackToExit": "再次按返回键退出",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "此设备不支持屏幕旋转锁定。"
   },
   "calculator": {
@@ -403,7 +403,7 @@
       },
       "calculator": {
         "label": "$t(calculator.title)",
-        "title": "在 Smart Kids Learning 中开启简单的计算器工具"
+        "title": "在 Brain Games Hub 中开启简单的计算器工具"
       },
       "notes": {
         "label": "笔记",
@@ -415,7 +415,7 @@
       },
       "wordSearch": {
         "label": "单词搜索",
-        "title": "在 Smart Kids Learning 中玩单词搜索益智挑战"
+        "title": "在 Brain Games Hub 中玩单词搜索益智挑战"
       },
       "sentenceScramble": {
         "label": "句子排序",
@@ -423,47 +423,47 @@
       },
       "sudoku": {
         "label": "数独",
-        "title": "在 Smart Kids Learning 中玩数独挑战"
+        "title": "在 Brain Games Hub 中玩数独挑战"
       },
       "ticTacToe": {
         "label": "井字棋",
-        "title": "在 Smart Kids Learning 中玩井字棋挑战"
+        "title": "在 Brain Games Hub 中玩井字棋挑战"
       },
       "alphabets": {
         "label": "字母表",
-        "title": "在 Smart Kids Learning 中通过语音合成学习英文字母表"
+        "title": "在 Brain Games Hub 中通过语音合成学习英文字母表"
       },
       "addition": {
         "label": "加法",
-        "title": "在 Smart Kids Learning 中通过互动练习练习加法题"
+        "title": "在 Brain Games Hub 中通过互动练习练习加法题"
       },
       "subtraction": {
         "label": "减法",
-        "title": "在 Smart Kids Learning 中通过互动练习练习减法题"
+        "title": "在 Brain Games Hub 中通过互动练习练习减法题"
       },
       "multiplication": {
         "label": "乘法",
-        "title": "在 Smart Kids Learning 中通过互动练习练习乘法题"
+        "title": "在 Brain Games Hub 中通过互动练习练习乘法题"
       },
       "division": {
         "label": "除法",
-        "title": "在 Smart Kids Learning 中通过互动练习练习除法题"
+        "title": "在 Brain Games Hub 中通过互动练习练习除法题"
       },
       "comparison": {
         "label": "比较",
-        "title": "在 Smart Kids Learning 中通过互动练习练习比较题"
+        "title": "在 Brain Games Hub 中通过互动练习练习比较题"
       },
       "ascending": {
         "label": "升序",
-        "title": "在 Smart Kids Learning 中练习升序排列"
+        "title": "在 Brain Games Hub 中练习升序排列"
       },
       "descending": {
         "label": "降序",
-        "title": "在 Smart Kids Learning 中练习降序排列"
+        "title": "在 Brain Games Hub 中练习降序排列"
       },
       "counting": {
         "label": "计数",
-        "title": "在 Smart Kids Learning 中通过有趣的练习学习计数"
+        "title": "在 Brain Games Hub 中通过有趣的练习学习计数"
       },
       "numberTracing": {
         "label": "数字",
@@ -475,11 +475,11 @@
       },
       "spellTheWord": {
         "label": "单词拼写",
-        "title": "在 Smart Kids Learning 中通过图片学习英语单词"
+        "title": "在 Brain Games Hub 中通过图片学习英语单词"
       },
       "paintBrush": {
         "label": "画笔",
-        "title": "在 Smart Kids Learning 中用画笔挑战绘图和涂色"
+        "title": "在 Brain Games Hub 中用画笔挑战绘图和涂色"
       },
       "gridMatch": {
         "label": "网格匹配",
@@ -633,10 +633,10 @@
       "failedToLoad": "无法加载水印图像"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "无法保存 PDF：",
       "shareTitle": "$t(app.title)",
-      "shareText": "附上来自 Smart Kids Learning 的 PDF 文件。",
+      "shareText": "附上来自 Brain Games Hub 的 PDF 文件。",
       "sharingFailed": "分享失败：",
       "downloadedMessage": "PDF 已下载。",
       "downloadNotSupported": "不支持下载",
@@ -857,7 +857,7 @@
     "success": "太棒了！你描摹得非常完美！"
   },
   "welcomeScreen": {
-    "message": "欢迎来到 Smart Kids Learning！",
+    "message": "欢迎来到 Brain Games Hub！",
     "playButton": "开始玩吧！"
   },
   "videos": {

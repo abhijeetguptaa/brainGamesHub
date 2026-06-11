@@ -17,7 +17,7 @@
   "app": {
     "description": "Pozrite si túto skvelú aplikáciu na učenie matematiky, hranie puzzle, vyfarbovanie a oveľa viac zábavy!",
     "pressBackToExit": "Pre ukončenie stlačte znova späť",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "Zámok otáčania obrazovky nie je na tomto zariadení k dispozícii."
   },
   "calculator": {
@@ -633,10 +633,10 @@
       "failedToLoad": "Nepodarilo sa načítať obrázok vodoznaku"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "Nepodarilo sa uložiť PDF:",
       "shareTitle": "$t(app.title)",
-      "shareText": "Priložené PDF zo Smart Kids Learning.",
+      "shareText": "Priložené PDF zo Brain Games Hub.",
       "sharingFailed": "Zdieľanie zlyhalo:",
       "downloadedMessage": "PDF stiahnuté.",
       "downloadNotSupported": "Sťahovanie nie je podporované",
@@ -857,7 +857,7 @@
     "success": "Amazing! You traced it perfectly!"
   },
   "welcomeScreen": {
-    "message": "Vitajte v Smart Kids Learning!",
+    "message": "Vitajte v Brain Games Hub!",
     "playButton": "Poďme sa hrať!"
   },
   "videos": {

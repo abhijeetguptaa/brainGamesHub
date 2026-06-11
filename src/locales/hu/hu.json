@@ -17,7 +17,7 @@
   "app": {
     "description": "Nézd meg ezt a szuper alkalmazást a matematika tanulásához, rejtvényekhez, színezéshez és még sok más mókához!",
     "pressBackToExit": "Nyomja meg újra a vissza gombot a kilépéshez",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "A képernyőforgatás zárolása nem érhető el ezen az eszközön."
   },
   "calculator": {
@@ -403,7 +403,7 @@
       },
       "calculator": {
         "label": "$t(calculator.title)",
-        "title": "Nyisd meg az egyszerű számológépet a Smart Kids Learningben"
+        "title": "Nyisd meg az egyszerű számológépet a Brain Games Hubben"
       },
       "notes": {
         "label": "Jegyzetek",
@@ -415,7 +415,7 @@
       },
       "wordSearch": {
         "label": "Szókereső",
-        "title": "Játssz szókereső játékot a Smart Kids Learningben"
+        "title": "Játssz szókereső játékot a Brain Games Hubben"
       },
       "sentenceScramble": {
         "label": "Mondatjáték",
@@ -423,47 +423,47 @@
       },
       "sudoku": {
         "label": "Sudoku",
-        "title": "Játssz Sudokut a Smart Kids Learningben"
+        "title": "Játssz Sudokut a Brain Games Hubben"
       },
       "ticTacToe": {
         "label": "Amőba",
-        "title": "Játssz Amőbát a Smart Kids Learningben"
+        "title": "Játssz Amőbát a Brain Games Hubben"
       },
       "alphabets": {
         "label": "Ábécé",
-        "title": "Tanuld meg az angol ábécét beszédszintézissel a Smart Kids Learningben"
+        "title": "Tanuld meg az angol ábécét beszédszintézissel a Brain Games Hubben"
       },
       "addition": {
         "label": "Összeadás",
-        "title": "Gyakorold az összeadást interaktív feladatokkal a Smart Kids Learningben"
+        "title": "Gyakorold az összeadást interaktív feladatokkal a Brain Games Hubben"
       },
       "subtraction": {
         "label": "Kivonás",
-        "title": "Gyakorold a kivonást interaktív feladatokkal a Smart Kids Learningben"
+        "title": "Gyakorold a kivonást interaktív feladatokkal a Brain Games Hubben"
       },
       "multiplication": {
         "label": "Szorzás",
-        "title": "Gyakorold a szorzást interaktív feladatokkal a Smart Kids Learningben"
+        "title": "Gyakorold a szorzást interaktív feladatokkal a Brain Games Hubben"
       },
       "division": {
         "label": "Osztás",
-        "title": "Gyakorold az osztást interaktív feladatokkal a Smart Kids Learningben"
+        "title": "Gyakorold az osztást interaktív feladatokkal a Brain Games Hubben"
       },
       "comparison": {
         "label": "Összehasonlítás",
-        "title": "Gyakorold az összehasonlítást interaktív feladatokkal a Smart Kids Learningben"
+        "title": "Gyakorold az összehasonlítást interaktív feladatokkal a Brain Games Hubben"
       },
       "ascending": {
         "label": "Növekvő",
-        "title": "Gyakorold a növekvő sorrendet a Smart Kids Learningben"
+        "title": "Gyakorold a növekvő sorrendet a Brain Games Hubben"
       },
       "descending": {
         "label": "Csökkenő",
-        "title": "Gyakorold a csökkenő sorrendet a Smart Kids Learningben"
+        "title": "Gyakorold a csökkenő sorrendet a Brain Games Hubben"
       },
       "counting": {
         "label": "Számolás",
-        "title": "Tanulj meg számolni szórakoztató feladatokkal a Smart Kids Learningben"
+        "title": "Tanulj meg számolni szórakoztató feladatokkal a Brain Games Hubben"
       },
       "numberTracing": {
         "label": "Number",
@@ -475,11 +475,11 @@
       },
       "spellTheWord": {
         "label": "Betűzés",
-        "title": "Tanulj angol szavakat képekkel a Smart Kids Learningben"
+        "title": "Tanulj angol szavakat képekkel a Brain Games Hubben"
       },
       "paintBrush": {
         "label": "Ecset",
-        "title": "Rajzolj és fess az ecset játékkal a Smart Kids Learningben"
+        "title": "Rajzolj és fess az ecset játékkal a Brain Games Hubben"
       },
       "gridMatch": {
         "label": "Rács párosító",
@@ -633,10 +633,10 @@
       "failedToLoad": "A vízjel kép betöltése sikertelen"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "PDF mentése sikertelen:",
       "shareTitle": "$t(app.title)",
-      "shareText": "Smart Kids Learning PDF csatolva.",
+      "shareText": "Brain Games Hub PDF csatolva.",
       "sharingFailed": "Megosztás sikertelen:",
       "downloadedMessage": "PDF letöltve.",
       "downloadNotSupported": "A letöltés nem támogatott",
@@ -857,7 +857,7 @@
     "success": "Amazing! You traced it perfectly!"
   },
   "welcomeScreen": {
-    "message": "Üdvözlünk a Smart Kids Learningben!",
+    "message": "Üdvözlünk a Brain Games Hubben!",
     "playButton": "Gyerünk játszani!"
   },
   "videos": {

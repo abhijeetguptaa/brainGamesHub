@@ -17,7 +17,7 @@
   "app": {
     "description": "Matematik öğrenmek, bulmaca oynamak, boyama yapmak ve çok daha fazla eğlence için bu harika uygulamaya göz atın!",
     "pressBackToExit": "Çıkmak için tekrar geri tuşuna basın",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "Ekran döndürme kilidi bu cihazda mevcut değil."
   },
   "calculator": {
@@ -403,7 +403,7 @@
       },
       "calculator": {
         "label": "$t(calculator.title)",
-        "title": "Smart Kids Learning'de basit bir hesap makinesi aracı aç"
+        "title": "Brain Games Hub'de basit bir hesap makinesi aracı aç"
       },
       "notes": {
         "label": "Notlar",
@@ -415,7 +415,7 @@
       },
       "wordSearch": {
         "label": "Kelime Bulmaca",
-        "title": "Smart Kids Learning'de bir kelime bulma oyunu oyna"
+        "title": "Brain Games Hub'de bir kelime bulma oyunu oyna"
       },
       "sentenceScramble": {
         "label": "Cümle Eğlencesi",
@@ -423,47 +423,47 @@
       },
       "sudoku": {
         "label": "Sudoku",
-        "title": "Smart Kids Learning'de bir Sudoku oyunu oyna"
+        "title": "Brain Games Hub'de bir Sudoku oyunu oyna"
       },
       "ticTacToe": {
         "label": "XOX Oyunu",
-        "title": "Smart Kids Learning'de bir XOX (Tic Tac Toe) oyunu oyna"
+        "title": "Brain Games Hub'de bir XOX (Tic Tac Toe) oyunu oyna"
       },
       "alphabets": {
         "label": "Alfabe",
-        "title": "Smart Kids Learning'de ses sentezi ile İngilizce alfabeyi öğren"
+        "title": "Brain Games Hub'de ses sentezi ile İngilizce alfabeyi öğren"
       },
       "addition": {
         "label": "Toplama",
-        "title": "Smart Kids Learning'de etkileşimli alıştırmalarla toplama işlemleri yap"
+        "title": "Brain Games Hub'de etkileşimli alıştırmalarla toplama işlemleri yap"
       },
       "subtraction": {
         "label": "Çıkarma",
-        "title": "Smart Kids Learning'de etkileşimli alıştırmalarla çıkarma işlemleri yap"
+        "title": "Brain Games Hub'de etkileşimli alıştırmalarla çıkarma işlemleri yap"
       },
       "multiplication": {
         "label": "Çarpma",
-        "title": "Smart Kids Learning'de etkileşimli alıştırmalarla çarpma işlemleri yap"
+        "title": "Brain Games Hub'de etkileşimli alıştırmalarla çarpma işlemleri yap"
       },
       "division": {
         "label": "Bölme",
-        "title": "Smart Kids Learning'de etkileşimli alıştırmalarla bölme işlemleri yap"
+        "title": "Brain Games Hub'de etkileşimli alıştırmalarla bölme işlemleri yap"
       },
       "comparison": {
         "label": "Karşılaştırma",
-        "title": "Smart Kids Learning'de etkileşimli alıştırmalarla karşılaştırma yap"
+        "title": "Brain Games Hub'de etkileşimli alıştırmalarla karşılaştırma yap"
       },
       "ascending": {
         "label": "Artan Sıra",
-        "title": "Smart Kids Learning'de etkileşimli alıştırmalarla artan sıralama yap"
+        "title": "Brain Games Hub'de etkileşimli alıştırmalarla artan sıralama yap"
       },
       "descending": {
         "label": "Azalan Sıra",
-        "title": "Smart Kids Learning'de etkileşimli alıştırmalarla azalan sıralama yap"
+        "title": "Brain Games Hub'de etkileşimli alıştırmalarla azalan sıralama yap"
       },
       "counting": {
         "label": "Sayma",
-        "title": "Smart Kids Learning'de eğlenceli alıştırmalarla saymayı öğren"
+        "title": "Brain Games Hub'de eğlenceli alıştırmalarla saymayı öğren"
       },
       "numberTracing": {
         "label": "Sayı",
@@ -475,11 +475,11 @@
       },
       "spellTheWord": {
         "label": "Kelimeyi Yaz",
-        "title": "Smart Kids Learning'de resimlerle İngilizce kelimeleri öğren"
+        "title": "Brain Games Hub'de resimlerle İngilizce kelimeleri öğren"
       },
       "paintBrush": {
         "label": "Boya Fırçası",
-        "title": "Smart Kids Learning'de boya fırçası oyunuyla çizim yap ve boya"
+        "title": "Brain Games Hub'de boya fırçası oyunuyla çizim yap ve boya"
       },
       "gridMatch": {
         "label": "Izgara Eşleştirme",
@@ -633,10 +633,10 @@
       "failedToLoad": "Filigran resmi yüklenemedi"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "PDF kaydedilemedi:",
       "shareTitle": "$t(app.title)",
-      "shareText": "Smart Kids Learning PDF dosyası ektedir.",
+      "shareText": "Brain Games Hub PDF dosyası ektedir.",
       "sharingFailed": "Paylaşım başarısız oldu:",
       "downloadedMessage": "PDF indirildi.",
       "downloadNotSupported": "İndirme desteklenmiyor",
@@ -857,7 +857,7 @@
     "success": "Harika! Mükemmel bir şekilde çizdin!"
   },
   "welcomeScreen": {
-    "message": "Smart Kids Learning'e Hoş Geldiniz!",
+    "message": "Brain Games Hub'e Hoş Geldiniz!",
     "playButton": "Hadi Oynayalım!"
   },
   "videos": {

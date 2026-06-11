@@ -17,7 +17,7 @@
   "app": {
     "description": "Sprawdź tę fajną aplikację do nauki matematyki, układania puzzli, kolorowania i wielu innych zabaw!",
     "pressBackToExit": "Naciśnij ponownie wstecz, aby wyjść",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "Blokada obrotu ekranu nie jest dostępna na tym urządzeniu."
   },
   "calculator": {
@@ -633,10 +633,10 @@
       "failedToLoad": "Nie udało się załadować obrazu znaku wodnego"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "Nie udało się zapisać pliku PDF:",
       "shareTitle": "$t(app.title)",
-      "shareText": "Załączono plik PDF Smart Kids Learning.",
+      "shareText": "Załączono plik PDF Brain Games Hub.",
       "sharingFailed": "Udostępnianie nie powiodło się:",
       "downloadedMessage": "Plik PDF został pobrany.",
       "downloadNotSupported": "Pobieranie nie jest obsługiwane",
@@ -857,7 +857,7 @@
     "success": "Amazing! You traced it perfectly!"
   },
   "welcomeScreen": {
-    "message": "Welcome to Smart Kids Learning!",
+    "message": "Welcome to Brain Games Hub!",
     "playButton": "Let's Play!"
   },
   "videos": {

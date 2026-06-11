@@ -17,7 +17,7 @@
   "app": {
     "description": "Kolla in denna coola app för att lära dig matte, lägga pussel, färglägga och mycket mer kul!",
     "pressBackToExit": "Tryck på tillbaka igen för att avsluta",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "Skärmrotationslås är inte tillgängligt på den här enheten."
   },
   "calculator": {
@@ -633,10 +633,10 @@
       "failedToLoad": "Det gick inte att ladda vattenstämpelbilden"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "Det gick inte att spara PDF:",
       "shareTitle": "$t(app.title)",
-      "shareText": "Smart Kids Learning PDF bifogas.",
+      "shareText": "Brain Games Hub PDF bifogas.",
       "sharingFailed": "Delning misslyckades:",
       "downloadedMessage": "PDF har laddats ner.",
       "downloadNotSupported": "Nedladdning stöds inte",
@@ -857,7 +857,7 @@
     "success": "Fantastiskt! Du spårade det perfekt!"
   },
   "welcomeScreen": {
-    "message": "Välkommen till Smart Kids Learning!",
+    "message": "Välkommen till Brain Games Hub!",
     "playButton": "Låt oss spela!"
   },
   "videos": {

@@ -1,4 +1,4 @@
-package com.abhijeet.kidsapp;
+package com.alphagaming.brainGamesHub;
 
 import android.app.Activity;
 import android.app.Application;

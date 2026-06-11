@@ -17,7 +17,7 @@
   "app": {
     "description": "Sjekk ut denne kule appen for å lære matematikk, legge puslespill, fargelegge og mye mer moro!",
     "pressBackToExit": "Trykk på tilbake igjen for å avslutte",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "Skjermrotasjonslås er ikke tilgjengelig på denne enheten."
   },
   "calculator": {
@@ -633,10 +633,10 @@
       "failedToLoad": "Failed to load watermark image"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "Failed to save PDF:",
       "shareTitle": "$t(app.title)",
-      "shareText": "Smart Kids Learning PDF attached.",
+      "shareText": "Brain Games Hub PDF attached.",
       "sharingFailed": "Sharing failed:",
       "downloadedMessage": "PDF downloaded.",
       "downloadNotSupported": "Nedlasting støttes ikke",
@@ -857,7 +857,7 @@
     "success": "Amazing! You traced it perfectly!"
   },
   "welcomeScreen": {
-    "message": "Welcome to Smart Kids Learning!",
+    "message": "Welcome to Brain Games Hub!",
     "playButton": "Let's Play!"
   },
   "videos": {

@@ -17,7 +17,7 @@
   "app": {
     "description": "Hãy xem ứng dụng thú vị này để học toán, chơi Giải đố, Tô màu và nhiều niềm vui khác",
     "pressBackToExit": "Nhấn quay lại lần nữa để thoát",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "Khóa xoay màn hình không khả dụng trên thiết bị này."
   },
   "calculator": {
@@ -633,10 +633,10 @@
       "failedToLoad": "Không tải được hình ảnh hình mờ"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "Không lưu được PDF:",
       "shareTitle": "$t(app.title)",
-      "shareText": "Tệp PDF Smart Kids Learning được đính kèm.",
+      "shareText": "Tệp PDF Brain Games Hub được đính kèm.",
       "sharingFailed": "Chia sẻ thất bại:",
       "downloadedMessage": "Đã tải xuống PDF.",
       "downloadNotSupported": "Không hỗ trợ tải xuống",
@@ -857,7 +857,7 @@
     "success": "Tuyệt vời! Bạn đã tô nó một cách hoàn hảo!"
   },
   "welcomeScreen": {
-    "message": "Chào mừng bạn đến với Smart Kids Learning!",
+    "message": "Chào mừng bạn đến với Brain Games Hub!",
     "playButton": "Cùng chơi nào!"
   },
   "videos": {

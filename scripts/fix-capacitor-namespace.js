@@ -33,13 +33,13 @@ if (fs.existsSync(buildGradlePath)) {
   let content = fs.readFileSync(buildGradlePath, 'utf8');
 
   // Check if namespace is already present
-  if (!content.includes('namespace "com.abhijeet.kidsapp.capacitorcordova"')) {
+  if (!content.includes('namespace "com.alphagaming.brainGamesHub.capacitorcordova"')) {
     // Check if android block exists
     if (content.includes('android {')) {
       // Add namespace right after 'android {' line
       content = content.replace(
         /(android\s*\{)/,
-        `$1\n    namespace "com.abhijeet.kidsapp.capacitorcordova"`,
+        `$1\n    namespace "com.alphagaming.brainGamesHub.capacitorcordova"`,
       );
 
       // Also ensure androidxAppCompatVersion is available in ext block

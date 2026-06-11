@@ -1,4 +1,4 @@
-package com.abhijeet.kidsapp;
+package com.alphagaming.brainGamesHub;
 
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;

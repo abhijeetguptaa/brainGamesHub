@@ -1,6 +1,6 @@
 {
-  "appId": "com.abhijeet.kidsapp",
-  "appName": "Smart Kids Learning",
+  "appId": "com.alphagaming.brainGamesHub",
+  "appName": "Brain Games Hub",
   "webDir": "dist",
   "plugins": {
     "StatusBar": {

@@ -17,7 +17,7 @@
   "app": {
     "description": "Découvrez cette super application pour apprendre les maths, faire des puzzles, colorier et bien d'autres plaisirs !",
     "pressBackToExit": "Appuyez à nouveau sur retour pour quitter",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "Le verrouillage de la rotation de l'écran n'est pas disponible sur cet appareil."
   },
   "calculator": {
@@ -633,10 +633,10 @@
       "failedToLoad": "Échec du chargement de l'image en filigrane"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "Échec de l'enregistrement du PDF :",
       "shareTitle": "$t(app.title)",
-      "shareText": "Veuillez trouver ci-joint le PDF de Smart Kids Learning.",
+      "shareText": "Veuillez trouver ci-joint le PDF de Brain Games Hub.",
       "sharingFailed": "Échec du partage :",
       "downloadedMessage": "PDF téléchargé.",
       "downloadNotSupported": "Téléchargement non pris en charge",

@@ -17,7 +17,7 @@
   "app": {
     "description": "Tutustu tähän mahtavaan sovellukseen matematiikan oppimiseen, palapelien pelaamiseen, värittämiseen ja moneen muuhun hauskaan!",
     "pressBackToExit": "Paina takaisin uudelleen poistuaksesi",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "Näytön kierron lukitus ei ole käytettävissä tässä laitteessa."
   },
   "calculator": {
@@ -415,7 +415,7 @@
       },
       "wordSearch": {
         "label": "WordFun",
-        "title": "Pelaa sanajahtia Smart Kids Learningissa"
+        "title": "Pelaa sanajahtia Brain Games Hubissa"
       },
       "sentenceScramble": {
         "label": "Lauseleikki",
@@ -423,47 +423,47 @@
       },
       "sudoku": {
         "label": "Sudoku",
-        "title": "Pelaa Sudokua Smart Kids Learningissa"
+        "title": "Pelaa Sudokua Brain Games Hubissa"
       },
       "ticTacToe": {
         "label": "TicTac",
-        "title": "Pelaa risti nollaa Smart Kids Learningissa"
+        "title": "Pelaa risti nollaa Brain Games Hubissa"
       },
       "alphabets": {
         "label": "Aakkoset",
-        "title": "Opi englannin aakkoset puhesynteesin avulla Smart Kids Learningissa"
+        "title": "Opi englannin aakkoset puhesynteesin avulla Brain Games Hubissa"
       },
       "addition": {
         "label": "Lisää",
-        "title": "Harjoittele yhteenlaskua interaktiivisilla tehtävillä Smart Kids Learningissa"
+        "title": "Harjoittele yhteenlaskua interaktiivisilla tehtävillä Brain Games Hubissa"
       },
       "subtraction": {
         "label": "Vähennä",
-        "title": "Harjoittele vähennyslaskua interaktiivisilla tehtävillä Smart Kids Learningissa"
+        "title": "Harjoittele vähennyslaskua interaktiivisilla tehtävillä Brain Games Hubissa"
       },
       "multiplication": {
         "label": "Kerro",
-        "title": "Harjoittele kertolaskua interaktiivisilla tehtävillä Smart Kids Learningissa"
+        "title": "Harjoittele kertolaskua interaktiivisilla tehtävillä Brain Games Hubissa"
       },
       "division": {
         "label": "Jaa",
-        "title": "Harjoittele jakolaskua interaktiivisilla tehtävillä Smart Kids Learningissa"
+        "title": "Harjoittele jakolaskua interaktiivisilla tehtävillä Brain Games Hubissa"
       },
       "comparison": {
         "label": "Vertaa",
-        "title": "Harjoittele vertailua interaktiivisilla tehtävillä Smart Kids Learningissa"
+        "title": "Harjoittele vertailua interaktiivisilla tehtävillä Brain Games Hubissa"
       },
       "ascending": {
         "label": "UpFun",
-        "title": "Harjoittele nousevaa järjestystä Smart Kids Learningissa"
+        "title": "Harjoittele nousevaa järjestystä Brain Games Hubissa"
       },
       "descending": {
         "label": "DownFun",
-        "title": "Harjoittele laskevaa järjestystä Smart Kids Learningissa"
+        "title": "Harjoittele laskevaa järjestystä Brain Games Hubissa"
       },
       "counting": {
         "label": "Numerot",
-        "title": "Opi laskemaan hauskoilla harjoituksilla Smart Kids Learningissa"
+        "title": "Opi laskemaan hauskoilla harjoituksilla Brain Games Hubissa"
       },
       "numberTracing": {
         "label": "Number",
@@ -475,11 +475,11 @@
       },
       "spellTheWord": {
         "label": "SpellPlay",
-        "title": "Opi englannin sanoja kuvien avulla Smart Kids Learningissa"
+        "title": "Opi englannin sanoja kuvien avulla Brain Games Hubissa"
       },
       "paintBrush": {
         "label": "Sivellin",
-        "title": "Piirrä ja maalaa sivellinpelillä Smart Kids Learningissa"
+        "title": "Piirrä ja maalaa sivellinpelillä Brain Games Hubissa"
       },
       "gridMatch": {
         "label": "GridPlay",
@@ -633,10 +633,10 @@
       "failedToLoad": "Vesileimakuvan lataaminen epäonnistui"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "PDF:n tallennus epäonnistui:",
       "shareTitle": "$t(app.title)",
-      "shareText": "Smart Kids Learning PDF liitteenä.",
+      "shareText": "Brain Games Hub PDF liitteenä.",
       "sharingFailed": "Jakaminen epäonnistui:",
       "downloadedMessage": "PDF ladattu.",
       "downloadNotSupported": "Lataaminen ei ole tuettu",
@@ -857,7 +857,7 @@
     "success": "Amazing! You traced it perfectly!"
   },
   "welcomeScreen": {
-    "message": "Tervetuloa Smart Kids Learningiin!",
+    "message": "Tervetuloa Brain Games Hubiin!",
     "playButton": "Pelataan!"
   },
   "videos": {

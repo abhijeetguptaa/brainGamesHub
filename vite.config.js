@@ -17,7 +17,7 @@ export default defineConfig({
         '*.png',
       ],
       manifest: {
-        name: 'Smart Kids Learning',
+        name: 'Brain Games Hub',
         short_name: 'SmartKids',
         description: 'Fun and interactive learning app for kids',
         theme_color: '#3b82f6',

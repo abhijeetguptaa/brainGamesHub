@@ -636,7 +636,7 @@
       "title": "Chytré učení pro děti -",
       "failedToSave": "Nepodařilo se uložit PDF:",
       "shareTitle": "$t(app.title)",
-      "shareText": "Přiloženo PDF Smart Kids Learning.",
+      "shareText": "Přiloženo PDF Brain Games Hub.",
       "sharingFailed": "Sdílení selhalo:",
       "downloadedMessage": "PDF staženo.",
       "downloadNotSupported": "Stahování není podporováno",
@@ -857,7 +857,7 @@
     "success": "Amazing! You traced it perfectly!"
   },
   "welcomeScreen": {
-    "message": "Vítejte ve Smart Kids Learning!",
+    "message": "Vítejte ve Brain Games Hub!",
     "playButton": "Pojďme hrát!"
   },
   "videos": {

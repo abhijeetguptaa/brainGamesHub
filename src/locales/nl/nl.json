@@ -633,7 +633,7 @@
       "failedToLoad": "Watermerkafbeelding kon niet worden geladen"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "Opslaan van PDF mislukt:",
       "shareTitle": "$t(app.title)",
       "shareText": "PDF van Slim Leren voor en toegevoegd.",

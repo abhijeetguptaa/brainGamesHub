@@ -17,7 +17,7 @@
   "app": {
     "description": "בדוק את האפליקציה המגניבה הזו ללימוד מתמטיקה, משחק בפאזלים, צביעה ועוד הרבה כיף!",
     "pressBackToExit": "לחץ שוב על חזור כדי לצאת",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "נעילת סיבוב מסך אינה זמינה במכשיר זה."
   },
   "calculator": {
@@ -403,7 +403,7 @@
       },
       "calculator": {
         "label": "$t(calculator.title)",
-        "title": "פתח כלי מחשבון פשוט ב-Smart Kids Learning"
+        "title": "פתח כלי מחשבון פשוט ב-Brain Games Hub"
       },
       "notes": {
         "label": "הערות",
@@ -415,7 +415,7 @@
       },
       "wordSearch": {
         "label": "תפזורת",
-        "title": "שחק משחק תפזורת מילים ב-Smart Kids Learning"
+        "title": "שחק משחק תפזורת מילים ב-Brain Games Hub"
       },
       "sentenceScramble": {
         "label": "Sentence Fun",
@@ -423,47 +423,47 @@
       },
       "sudoku": {
         "label": "סודוקו",
-        "title": "שחק משחק סודוקו ב-Smart Kids Learning"
+        "title": "שחק משחק סודוקו ב-Brain Games Hub"
       },
       "ticTacToe": {
         "label": "איקס עיגול",
-        "title": "שחק איקס עיגול ב-Smart Kids Learning"
+        "title": "שחק איקס עיגול ב-Brain Games Hub"
       },
       "alphabets": {
         "label": "אלף-בית",
-        "title": "למד אלף-בית באנגלית עם הקראת קול ב-Smart Kids Learning"
+        "title": "למד אלף-בית באנגלית עם הקראת קול ב-Brain Games Hub"
       },
       "addition": {
         "label": "חיבור",
-        "title": "תרגל בעיות חיבור עם תרגילים אינטראקטיביים ב-Smart Kids Learning"
+        "title": "תרגל בעיות חיבור עם תרגילים אינטראקטיביים ב-Brain Games Hub"
       },
       "subtraction": {
         "label": "חיסור",
-        "title": "תרגל בעיות חיסור עם תרגילים אינטראקטיביים ב-Smart Kids Learning"
+        "title": "תרגל בעיות חיסור עם תרגילים אינטראקטיביים ב-Brain Games Hub"
       },
       "multiplication": {
         "label": "כפל",
-        "title": "תרגל בעיות כפל עם תרגילים אינטראקטיביים ב-Smart Kids Learning"
+        "title": "תרגל בעיות כפל עם תרגילים אינטראקטיביים ב-Brain Games Hub"
       },
       "division": {
         "label": "חילוק",
-        "title": "תרגל בעיות חילוק עם תרגילים אינטראקטיביים ב-Smart Kids Learning"
+        "title": "תרגל בעיות חילוק עם תרגילים אינטראקטיביים ב-Brain Games Hub"
       },
       "comparison": {
         "label": "השוואה",
-        "title": "תרגל בעיות השוואה עם תרגילים אינטראקטיביים ב-Smart Kids Learning"
+        "title": "תרגל בעיות השוואה עם תרגילים אינטראקטיביים ב-Brain Games Hub"
       },
       "ascending": {
         "label": "סדר עולה",
-        "title": "תרגל בעיות סדר עולה עם תרגילים אינטראקטיביים ב-Smart Kids Learning"
+        "title": "תרגל בעיות סדר עולה עם תרגילים אינטראקטיביים ב-Brain Games Hub"
       },
       "descending": {
         "label": "סדר יורד",
-        "title": "תרגל בעיות סדר יורד עם תרגילים אינטראקטיביים ב-Smart Kids Learning"
+        "title": "תרגל בעיות סדר יורד עם תרגילים אינטראקטיביים ב-Brain Games Hub"
       },
       "counting": {
         "label": "ספירה",
-        "title": "למד לספור עם תרגילים מהנים ב-Smart Kids Learning"
+        "title": "למד לספור עם תרגילים מהנים ב-Brain Games Hub"
       },
       "numberTracing": {
         "label": "Number",
@@ -475,11 +475,11 @@
       },
       "spellTheWord": {
         "label": "איית את המילה",
-        "title": "למד מילים באנגלית עם תמונות ב-Smart Kids Learning"
+        "title": "למד מילים באנגלית עם תמונות ב-Brain Games Hub"
       },
       "paintBrush": {
         "label": "מברשת צבע",
-        "title": "צייר וצבע עם משחק מברשת צבע ב-Smart Kids Learning"
+        "title": "צייר וצבע עם משחק מברשת צבע ב-Brain Games Hub"
       },
       "gridMatch": {
         "label": "התאמת רשת",
@@ -633,10 +633,10 @@
       "failedToLoad": "נכשל בטעינת תמונת סימן המים"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "נכשל בשמירת PDF:",
       "shareTitle": "$t(app.title)",
-      "shareText": "מצורף PDF של Smart Kids Learning.",
+      "shareText": "מצורף PDF של Brain Games Hub.",
       "sharingFailed": "השיתוף נכשל:",
       "downloadedMessage": "ה-PDF הורד.",
       "downloadNotSupported": "הורדה אינה נתמכת",
@@ -857,7 +857,7 @@
     "success": "Amazing! You traced it perfectly!"
   },
   "welcomeScreen": {
-    "message": "ברוכים הבאים ל-Smart Kids Learning!",
+    "message": "ברוכים הבאים ל-Brain Games Hub!",
     "playButton": "בואו נשחק!"
   },
   "videos": {

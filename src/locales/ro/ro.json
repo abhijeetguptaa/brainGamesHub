@@ -17,7 +17,7 @@
   "app": {
     "description": "Descoperă această aplicație grozavă pentru a învăța matematica, a rezolva puzzle-uri, a colora și multe alte activități distractive!",
     "pressBackToExit": "Apasă din nou înapoi pentru a ieși",
-    "title": "Smart Kids Learning",
+    "title": "Brain Games Hub",
     "orientationLockError": "Blocarea rotației ecranului nu este disponibilă pe acest dispozitiv."
   },
   "calculator": {
@@ -633,10 +633,10 @@
       "failedToLoad": "Nu s-a putut încărca imaginea de fundal"
     },
     "pdf": {
-      "title": "Smart Kids Learning -",
+      "title": "Brain Games Hub -",
       "failedToSave": "Nu s-a putut salva PDF-ul:",
       "shareTitle": "$t(app.title)",
-      "shareText": "PDF Smart Kids Learning atașat.",
+      "shareText": "PDF Brain Games Hub atașat.",
       "sharingFailed": "Partajarea a eșuat:",
       "downloadedMessage": "PDF descărcat.",
       "downloadNotSupported": "Descărcarea nu este acceptată",
@@ -857,7 +857,7 @@
     "success": "Amazing! You traced it perfectly!"
   },
   "welcomeScreen": {
-    "message": "Bun venit la Smart Kids Learning!",
+    "message": "Bun venit la Brain Games Hub!",
     "playButton": "Să ne jucăm!"
   },
   "videos": {
