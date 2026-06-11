@@ -4,7 +4,6 @@ import '../styles/Sudoku.scss';
 import SuccessModal from './SuccessModal';
 import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import { useLearningPathStore } from '../store/useLearningPathStore';
 import useUnlockModalStore from '../store/useUnlockModalStore';
 import { Toast } from '@capacitor/toast';
 import { formatElapsedTime } from '../utils/timeUtils';
@@ -16,7 +15,6 @@ import {
   getSudokuNumberStats,
   isSudokuSolved,
 } from '../utils/sudokuUtils';
-import { finishLearningPathTask, isLearningPathTaskActive } from '../utils/learningPathUtils';
 import { setScreen, trackExerciseComplete } from '../utils/analytics';
 
 const Sudoku = () => {
@@ -24,19 +22,11 @@ const Sudoku = () => {
   const { difficulty } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  const { currentActiveTask, completeTask, setActiveTask, setIsTaskReadyToComplete } =
-    useLearningPathStore();
   const { openModal } = useUnlockModalStore();
 
   useEffect(() => {
     setScreen('SudokuGame');
   }, []);
-
-  const isTinySteps = isLearningPathTaskActive(
-    currentActiveTask,
-    location.pathname,
-    location.search,
-  );
 
   const [board, setBoard] = useState(() => createSudokuBoard());
   const [notes, setNotes] = useState(() => createSudokuNotes());
@@ -57,7 +47,7 @@ const Sudoku = () => {
   const handleNewPuzzle = useCallback(() => {
     const { puzzle, solution } = generateSudoku(difficulty);
     if (!puzzle) {
-      navigate('/games/sudoku');
+      navigate('/sudoku');
       return;
     }
     setBoard(puzzle);
@@ -71,24 +61,11 @@ const Sudoku = () => {
     setSelected({ row: null, col: null });
     firstMoveMade.current = false;
     setWinMessageVisible(false);
-    setIsTaskReadyToComplete(false);
-  }, [difficulty, navigate, setIsTaskReadyToComplete]);
+  }, [difficulty, navigate]);
 
   useEffect(() => {
     handleNewPuzzle();
   }, [difficulty, handleNewPuzzle]);
-
-  const handleSkipLevel = () => {
-    const target = currentActiveTask?.targetScore || 1;
-    openModal(t('common.actions.skip'), 100, () => {
-      if (isTinySteps && currentActiveTask) {
-        setSolvedCount(target);
-        setGameStatus('won');
-        setWinMessageVisible(true);
-        setIsTaskReadyToComplete(true);
-      }
-    });
-  };
 
   useEffect(() => {
     if (timerRafRef.current) cancelAnimationFrame(timerRafRef.current);
@@ -210,26 +187,8 @@ const Sudoku = () => {
       const nextSolved = solvedCount + 1;
       setSolvedCount(nextSolved);
       trackExerciseComplete('sudoku', difficulty, 0);
-
-      if (isTinySteps && currentActiveTask) {
-        const target = currentActiveTask?.targetScore || 1;
-        if (nextSolved >= target) {
-          completeTask(currentActiveTask.id);
-          setIsTaskReadyToComplete(true);
-        }
-      }
     }
-  }, [
-    board,
-    solution,
-    gameStatus,
-    solvedCount,
-    isTinySteps,
-    currentActiveTask,
-    completeTask,
-    setIsTaskReadyToComplete,
-    difficulty,
-  ]);
+  }, [board, solution, gameStatus, solvedCount, difficulty]);
 
   useEffect(() => {
     if (gameStatus === 'won') {
@@ -238,40 +197,16 @@ const Sudoku = () => {
   }, [gameStatus]);
 
   const handleWinModalClose = () => {
-    const isCurrentLearningPathTask = isLearningPathTaskActive(
-      currentActiveTask,
-      location.pathname,
-      location.search,
-    );
-    if (isCurrentLearningPathTask) {
-      const target = currentActiveTask?.targetScore || 1;
-      if (solvedCount >= target) {
-        finishLearningPathTask({
-          currentActiveTask,
-          completeTask,
-          setActiveTask,
-          navigate,
-        });
-      } else {
-        handleNewPuzzle();
-      }
-    } else {
-      const segments = location.pathname.split('/').filter(Boolean);
+    const segments = location.pathname.split('/').filter(Boolean);
     if (segments.length > 1) {
       const parentRoute = `/${segments.slice(0, -1).join('/')}`;
       navigate(parentRoute, { replace: true });
     } else {
       navigate('/', { replace: true });
     }
-    }
   };
   return (
     <div className="sudoku-container">
-      {isTinySteps && currentActiveTask && (
-        <div className="task-progress-banner">
-          {t('common.progress')}: {solvedCount} / {currentActiveTask.targetScore || 1}
-        </div>
-      )}
       <div className="w-full d-flex justify-content-around align-items-center my-2">
         <button className="btn btn-primary" onClick={handleNewPuzzle}>
           {t('common.newGame')}
@@ -285,15 +220,6 @@ const Sudoku = () => {
           📝
         </button>
       </div>
-      {isTinySteps && (
-        <button
-          className="btn-skip-level"
-          onClick={handleSkipLevel}
-          title={t('common.actions.skip')}
-        >
-          <span className="skip-icon">⏭️</span> {t('common.actions.skip')}
-        </button>
-      )}
 
       <div className="sudoku-game-wrapper">
         <SudokuBoard

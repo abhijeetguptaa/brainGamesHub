@@ -53,7 +53,7 @@ const WordSearchDifficultySelector = () => {
     },
   ];
 
-  return <DifficultySelection difficulties={wordSearchDifficulties} baseRoute="/english/wordsearch" />;
+  return <DifficultySelection difficulties={wordSearchDifficulties} baseRoute="/wordsearch" />;
 };
 
 export default WordSearchDifficultySelector;

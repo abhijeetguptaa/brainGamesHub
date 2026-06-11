@@ -13,13 +13,7 @@ import { playCorrectSound, playIncorrectSound, stopSpeech } from '../utils/sound
 import { useCallback, useState, useEffect, useRef } from 'react';
 import { useSparkleBurst } from '@/hooks/useSparkleBurst';
 import { trackExerciseStart, trackExerciseComplete } from '../utils/analytics';
-import { useLearningPathStore } from '../store/useLearningPathStore';
 import { useNavigate, useLocation } from 'react-router-dom';
-import {
-  exitLearningPathTask,
-  finishLearningPathTask,
-  isLearningPathTaskActive,
-} from '../utils/learningPathUtils';
 
 const COMPARISON_OPTIONS = ['=', '<', '>'] as const;
 
@@ -46,14 +40,6 @@ const QuestionBox = ({ operator, complexity }) => {
   const emojiRef = useRef<HTMLSpanElement | null>(null);
   const usedQuestionIdsRef = useRef<Set<string>>(new Set());
   const pendingPostEmojiActionRef = useRef<(() => void) | null>(null);
-
-  const {
-    currentActiveTask,
-    completeTask,
-    setActiveTask,
-    completedTasks,
-    setIsTaskReadyToComplete,
-  } = useLearningPathStore();
 
   /* ---------------------------------- helpers ---------------------------------- */
 
@@ -159,7 +145,6 @@ const QuestionBox = ({ operator, complexity }) => {
     setshowWinModal(false);
     usedQuestionIdsRef.current.clear();
     setQuestionKey((k) => k + 1);
-    setIsTaskReadyToComplete(false);
   };
   useEffect(() => {
     resetStates();
@@ -217,19 +202,10 @@ const QuestionBox = ({ operator, complexity }) => {
 
         const finalIncorrectCount = incorrectAnswersCount + (isCorrect ? 0 : 1);
         const didPassSession = 2 * finalIncorrectCount <= QUIZ_ROUNDS;
-        const isCurrentLearningPathTask = isLearningPathTaskActive(
-          currentActiveTask,
-          location.pathname,
-          location.search,
-        );
 
         if (!didPassSession) {
           setshowLooseModal(true);
         } else {
-          if (isCurrentLearningPathTask && currentActiveTask) {
-            completeTask(currentActiveTask.id);
-            setIsTaskReadyToComplete(true);
-          }
           setshowWinModal(true);
         }
       } else {
@@ -243,13 +219,13 @@ const QuestionBox = ({ operator, complexity }) => {
   const isSorting = operator === 'Ascending' || operator === 'Descending';
 
   const handleModalClose = () => {
-    exitLearningPathTask({
-      currentActiveTask,
-      pathname: location.pathname,
-      search: location.search,
-      setActiveTask,
-      navigate,
-    });
+    const segments = location.pathname.split('/').filter(Boolean);
+    if (segments.length > 1) {
+      const parentRoute = `/${segments.slice(0, -1).join('/')}`;
+      navigate(parentRoute, { replace: true });
+    } else {
+      navigate('/', { replace: true });
+    }
   };
   const questionText = (() => {
     if (!currentQuestion) return t('questionBox.loadingQuestion');
@@ -283,17 +259,6 @@ const QuestionBox = ({ operator, complexity }) => {
     }
   };
 
-  const handleSkipTask = () => {
-    if (isTinySteps && currentActiveTask) {
-      finishLearningPathTask({
-        currentActiveTask,
-        completeTask,
-        setActiveTask,
-        navigate,
-      });
-    }
-  };
-
   const handleEmojiAnimationEnd = () => {
     setIsEmojiVisible(false);
     const action = pendingPostEmojiActionRef.current;
@@ -301,9 +266,7 @@ const QuestionBox = ({ operator, complexity }) => {
     action?.();
   };
 
-  const isTinySteps = !!currentActiveTask;
-  const isAlreadyCompleted =
-    isTinySteps && currentActiveTask && completedTasks[currentActiveTask.id];
+  const isTinySteps = false;
 
   useEffect(() => {
     return () => {
@@ -383,9 +346,8 @@ const QuestionBox = ({ operator, complexity }) => {
             quizRounds: QUIZ_ROUNDS,
           })}
           starsWon={correctAnswersCount}
-          skipStarAward={isAlreadyCompleted}
           incorrectQuestions={incorrectQuestions}
-          showNewGame={!isTinySteps}
+          showNewGame={true}
           onNewGame={resetStates}
         />
       )}
@@ -398,10 +360,8 @@ const QuestionBox = ({ operator, complexity }) => {
           })}
           onWatchAdReward={handleRewardSuccess}
           incorrectQuestions={incorrectQuestions}
-          showNewGame={!isTinySteps}
+          showNewGame={true}
           onNewGame={resetStates}
-          isTinySteps={isTinySteps}
-          onSkipTask={handleSkipTask}
         />
       )}
     </div>

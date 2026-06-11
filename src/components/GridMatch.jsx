@@ -3,12 +3,10 @@ import '../styles/GridMatch.scss';
 import { playTapSound } from '../utils/soundUtils';
 import { GRID_SIZE, COLORS, PATTERNS } from '../constants/GridMatch';
 import SuccessModal from './SuccessModal';
-import { useLearningPathStore } from '../store/useLearningPathStore';
 import useUnlockModalStore from '../store/useUnlockModalStore';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { setScreen, trackExerciseComplete } from '../utils/analytics';
-import { finishLearningPathTask } from '../utils/learningPathUtils';
 
 // helper
 const buildGrid = (idx) =>
@@ -25,8 +23,6 @@ export default function GridMatch() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { currentActiveTask, completeTask, setActiveTask, setIsTaskReadyToComplete } =
-    useLearningPathStore();
   const { openModal } = useUnlockModalStore();
 
   const [currentPatternIndex, setCurrentPatternIndex] = useState(() =>
@@ -43,23 +39,6 @@ export default function GridMatch() {
   const [showHint, setShowHint] = useState(false);
 
   const successModalRef = useRef(null);
-
-  const isCurrentLearningPathTask =
-    !!currentActiveTask && (location.pathname + location.search).includes(currentActiveTask.path);
-
-  const handleSkipLevel = () => {
-    const target = currentActiveTask?.targetScore || 1;
-    const cost = 100;
-
-    openModal(t('common.actions.skip'), cost, () => {
-      if (isCurrentLearningPathTask) {
-        setDone(true);
-        setSolvedCount(target);
-        setIsTaskReadyToComplete(true);
-        trackExerciseComplete('GridMatch', 'normal', target);
-      }
-    });
-  };
 
   // New loadPattern function
   const loadPattern = useCallback((index) => {
@@ -83,34 +62,13 @@ export default function GridMatch() {
       const nextSolved = solvedCount + 1;
       setSolvedCount(nextSolved);
       trackExerciseComplete('GridMatch', 'normal', nextSolved);
-
-      const target = currentActiveTask?.targetScore || 1;
-
-      if (
-        currentActiveTask &&
-        (location.pathname + location.search).includes(currentActiveTask.path)
-      ) {
-        if (nextSolved >= target) {
-          setIsTaskReadyToComplete(true);
-        }
-      }
     }
-  }, [
-    player,
-    reference,
-    done,
-    solvedCount,
-    currentActiveTask,
-    location.pathname,
-    location.search,
-    setIsTaskReadyToComplete,
-  ]);
+  }, [player, reference, done, solvedCount]);
 
   const handleModalClose = useCallback(() => {
     setDone(false);
     // Reset player immediately to prevent race condition with auto-check useEffect
     setPlayer(Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(COLORS.empty)));
-    // Note: setIsTaskReadyToComplete is handled in handleWinModalClose
     setCurrentPatternIndex((prevIndex) => {
       let nextIndex;
       do {
@@ -121,43 +79,15 @@ export default function GridMatch() {
   }, []);
 
   const handleWinModalClose = useCallback(() => {
-    const isCurrentLearningPathTask =
-      !!currentActiveTask && (location.pathname + location.search).includes(currentActiveTask.path);
-    const target = currentActiveTask?.targetScore || 1;
-
-    if (isCurrentLearningPathTask) {
-      if (solvedCount >= target) {
-        finishLearningPathTask({
-          currentActiveTask,
-          completeTask,
-          setActiveTask,
-          navigate,
-        });
-        setIsTaskReadyToComplete(false);
-      } else {
-        handleModalClose();
-      }
+    // Free play: X means back
+    const segments = location.pathname.split('/').filter(Boolean);
+    if (segments.length > 1) {
+      const parentRoute = `/${segments.slice(0, -1).join('/')}`;
+      navigate(parentRoute, { replace: true });
     } else {
-      // Free play: X means back
-      const segments = location.pathname.split('/').filter(Boolean);
-      if (segments.length > 1) {
-        const parentRoute = `/${segments.slice(0, -1).join('/')}`;
-        navigate(parentRoute, { replace: true });
-      } else {
-        navigate('/', { replace: true });
-      }
+      navigate('/', { replace: true });
     }
-  }, [
-    currentActiveTask,
-    navigate,
-    handleModalClose,
-    location.pathname,
-    location.search,
-    solvedCount,
-    completeTask,
-    setActiveTask,
-    setIsTaskReadyToComplete,
-  ]);
+  }, [navigate, location.pathname]);
 
   const paint = (r, c) => {
     if (done) return;
@@ -188,26 +118,6 @@ export default function GridMatch() {
 
   return (
     <div className="gridMatch">
-      {isCurrentLearningPathTask && (
-        <>
-          <div className="task-progress-banner">
-            {t('common.progress')}: {solvedCount} / {currentActiveTask.targetScore}
-          </div>
-          <button
-            className="btn-skip-level"
-            onClick={handleSkipLevel}
-            title={t('common.actions.skip')}
-            style={{
-              position: 'absolute',
-              top: '60px',
-              right: '10px',
-              zIndex: 1,
-            }}
-          >
-            <span className="skip-icon">⏭️</span> {t('common.actions.skip')}
-          </button>
-        </>
-      )}
       {/* TARGET BOARD */}
 
       <div className="target-board">
@@ -322,7 +232,7 @@ export default function GridMatch() {
           handleClose={handleWinModalClose}
           message=""
           starsWon={2}
-          showNewGame={!isCurrentLearningPathTask}
+          showNewGame={true}
           onNewGame={handleModalClose}
         />
       )}

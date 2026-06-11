@@ -13,10 +13,8 @@ import { useTranslation } from 'react-i18next';
 import { playCorrectSound, playIncorrectSound, stopSpeech } from '../utils/soundUtils';
 import { useCallback, useState, useEffect, useRef } from 'react';
 import { trackExerciseStart, trackExerciseComplete } from '../utils/analytics';
-import { useLearningPathStore } from '../store/useLearningPathStore';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useSparkleBurst } from '@/hooks/useSparkleBurst';
-import { finishLearningPathTask, exitLearningPathTask } from '../utils/learningPathUtils';
 import useStarStore from '../store/useStarStore';
 import { Toast } from '@capacitor/toast';
 
@@ -25,8 +23,6 @@ const MentalMathQuestionBox = ({ complexity }: { complexity: string }) => {
   const { stars, spendStars } = useStarStore();
   const navigate = useNavigate();
   const location = useLocation();
-  const { currentActiveTask, completeTask, setActiveTask, setIsTaskReadyToComplete } =
-    useLearningPathStore();
   const [selectedAnswer, setSelectedAnswer] = useState<number | string | null>(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
   const [isEmojiVisible, setIsEmojiVisible] = useState(false);
@@ -99,7 +95,6 @@ const MentalMathQuestionBox = ({ complexity }: { complexity: string }) => {
     setQuestionKey((k) => k + 1);
     setIsTimerRunning(false);
     setGameKey((k) => k + 1);
-    setIsTaskReadyToComplete(false);
   };
 
   useEffect(() => {
@@ -245,15 +240,6 @@ const MentalMathQuestionBox = ({ complexity }: { complexity: string }) => {
       if (currentRound === QUIZ_ROUNDS) {
         trackExerciseComplete('MentalMath', complexity, newCorrectCount);
 
-        const isCurrentLearningPathTask =
-          !!currentActiveTask &&
-          (location.pathname + location.search).includes(currentActiveTask.path);
-
-        if (isCurrentLearningPathTask && currentActiveTask) {
-          completeTask(currentActiveTask.id);
-          setIsTaskReadyToComplete(true);
-        }
-
         // Calculate best time using clickTime
         const storedBest = localStorage.getItem(`mental_math_best_time_${complexity}`);
         const currentBest = storedBest ? parseFloat(storedBest) : Infinity;
@@ -284,21 +270,12 @@ const MentalMathQuestionBox = ({ complexity }: { complexity: string }) => {
   };
 
   const handleWinModalClose = () => {
-    if (
-      !finishLearningPathTask({
-        currentActiveTask,
-        completeTask,
-        setActiveTask,
-        navigate,
-      })
-    ) {
-      const segments = location.pathname.split('/').filter(Boolean);
+    const segments = location.pathname.split('/').filter(Boolean);
     if (segments.length > 1) {
       const parentRoute = `/${segments.slice(0, -1).join('/')}`;
       navigate(parentRoute, { replace: true });
     } else {
       navigate('/', { replace: true });
-    }
     }
   };
   const questionText = currentQuestion
@@ -318,7 +295,7 @@ const MentalMathQuestionBox = ({ complexity }: { complexity: string }) => {
     setIsTimerRunning(true);
   };
 
-  const isTinySteps = !!currentActiveTask;
+  const isTinySteps = false;
 
   useEffect(() => {
     return () => {

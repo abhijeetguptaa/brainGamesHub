@@ -19,7 +19,7 @@ const SudokuDifficultySelector = () => {
   const handleUnlock = (key, cost) => {
     openModal(t(`common.levels.${key}`), cost, () => {
       unlockLevel(key);
-      navigate(`/games/sudoku/${key}`);
+      navigate(`/sudoku/${key}`);
     });
   };
 
@@ -56,7 +56,7 @@ const SudokuDifficultySelector = () => {
     },
   ];
 
-  return <DifficultySelection difficulties={sudokuDifficulties} baseRoute="/games/sudoku" />;
+  return <DifficultySelection difficulties={sudokuDifficulties} baseRoute="/sudoku" />;
 };
 
 export default SudokuDifficultySelector;

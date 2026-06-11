@@ -23,9 +23,7 @@ import LooseModal from './LooseModal';
 import SmartMatchBoard from './SmartMatchBoard';
 import useUnlockModalStore from '../store/useUnlockModalStore';
 import '../styles/SmartMatch.scss';
-import { useLearningPathStore } from '../store/useLearningPathStore';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { finishLearningPathTask } from '../utils/learningPathUtils';
 import { setScreen, trackExerciseComplete } from '../utils/analytics';
 import { debounce } from '../utils/utils';
 
@@ -48,15 +46,10 @@ const SmartMatch: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
-  const { currentActiveTask, completeTask, setActiveTask, setIsTaskReadyToComplete } =
-    useLearningPathStore();
   const { triggerSparkleBurst, SparkleRenderer } = useSparkleBurst();
   const { openModal } = useUnlockModalStore();
 
   const [isLandscape, setIsLandscape] = useState(window.innerWidth > window.innerHeight);
-
-  const isLearningPathTask =
-    !!currentActiveTask && (location.pathname + location.search).includes(currentActiveTask.path);
 
   useEffect(() => {
     const handleResize = debounce(() => {
@@ -131,45 +124,11 @@ const SmartMatch: React.FC = () => {
   const cellRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const hintTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Listen for the back button click from App.jsx via a custom event
-  useEffect(() => {
-    const handleTrigger = () => {
-      if (isLearningPathTask) {
-        trackExerciseComplete('SmartMatch');
-        finishLearningPathTask({
-          currentActiveTask,
-          completeTask,
-          setActiveTask,
-          navigate,
-        });
-      }
-    };
-    window.addEventListener('trigger-task-completion', handleTrigger);
-    return () => {
-      window.removeEventListener('trigger-task-completion', handleTrigger);
-      setIsTaskReadyToComplete(false);
-    };
-  }, [
-    isLearningPathTask,
-    currentActiveTask,
-    completeTask,
-    setActiveTask,
-    navigate,
-    setIsTaskReadyToComplete,
-  ]);
-
   // Skip Level with Modal
   const handleSkipLevel = () => {
     if (isProcessing) return;
 
     openModal(t('home.subjects.smartMatch.skipLevel'), 100, () => {
-      // On Success (Stars or Ad): Skip level
-      if (isLearningPathTask) {
-        setShowSuccess(true);
-        setIsTaskReadyToComplete(true);
-        return;
-      }
-
       if (levelIndex < LEVELS.length - 1) {
         setLevelIndex((prev) => prev + 1);
       } else {
@@ -192,14 +151,6 @@ const SmartMatch: React.FC = () => {
 
   // Load state from local storage
   useEffect(() => {
-    if (isLearningPathTask) {
-      if (currentActiveTask && (currentActiveTask as any).targetScore) {
-        setLevelIndex((currentActiveTask as any).targetScore - 1);
-      }
-      setIsLoaded(true);
-      return;
-    }
-
     const savedState = localStorage.getItem('smartMatchState');
     if (savedState) {
       try {
@@ -231,12 +182,11 @@ const SmartMatch: React.FC = () => {
       }
     }
     setIsLoaded(true);
-  }, [ROWS, COLS, isLearningPathTask, currentActiveTask]);
+  }, [ROWS, COLS]);
 
   // Save state to local storage
   useEffect(() => {
-    if (!isLoaded || isLearningPathTask || showSuccess || showFailure || !grid || grid.length === 0)
-      return;
+    if (!isLoaded || showSuccess || showFailure || !grid || grid.length === 0) return;
 
     const stateToSave = {
       grid,
@@ -246,17 +196,7 @@ const SmartMatch: React.FC = () => {
       movesLeft,
     };
     localStorage.setItem('smartMatchState', JSON.stringify(stateToSave));
-  }, [
-    grid,
-    score,
-    collectedItems,
-    levelIndex,
-    movesLeft,
-    isLoaded,
-    showSuccess,
-    showFailure,
-    isLearningPathTask,
-  ]);
+  }, [grid, score, collectedItems, levelIndex, movesLeft, isLoaded, showSuccess, showFailure]);
 
   const generateCleanGrid = useCallback(() => {
     let newGrid: (SmartMatchItem | null)[][] = Array.from({ length: ROWS }, () =>
@@ -759,9 +699,6 @@ const SmartMatch: React.FC = () => {
           if (scoreMet && itemsMet && !showSuccess) {
             setShowSuccess(true);
             playCorrectSound();
-            if (isLearningPathTask) {
-              setIsTaskReadyToComplete(true);
-            }
           } else {
             // Check if game is lost
             if (finalMovesLeft <= 0) {
@@ -792,14 +729,12 @@ const SmartMatch: React.FC = () => {
       findMatches,
       findPossibleMoves,
       getRandomItem,
-      isLearningPathTask,
       movesLeft,
       showFailure,
       showSuccess,
       t,
       resolveSpecialEffects,
       generateCleanGrid,
-      setIsTaskReadyToComplete,
     ],
   );
 
@@ -1052,21 +987,12 @@ const SmartMatch: React.FC = () => {
           handleClose={() => {
             trackExerciseComplete('SmartMatch');
             setShowSuccess(false);
-            if (
-              !finishLearningPathTask({
-                currentActiveTask,
-                completeTask,
-                setActiveTask,
-                navigate,
-              })
-            ) {
-              if (levelIndex < LEVELS.length - 1) {
-                setLevelIndex((prev) => prev + 1);
-              } else {
-                setLevelIndex(0); // Loop back or show final message
-              }
-              setGameId((prev) => prev + 1);
+            if (levelIndex < LEVELS.length - 1) {
+              setLevelIndex((prev) => prev + 1);
+            } else {
+              setLevelIndex(0); // Loop back or show final message
             }
+            setGameId((prev) => prev + 1);
           }}
           message={t('home.subjects.smartMatch.levelComplete', {
             level: currentLevel.id,

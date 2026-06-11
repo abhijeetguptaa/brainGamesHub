@@ -15,9 +15,7 @@ import { useSpinWheel } from '../hooks/useSpinWheel';
 import { useSparkleBurst } from '../hooks/useSparkleBurst';
 import { COLORING_CONFIG } from '../constants/coloringConstants';
 import { getRandomInt } from '../utils/utils';
-import { useLearningPathStore } from '../store/useLearningPathStore';
 import { useNavigate } from 'react-router-dom';
-import { finishLearningPathTask } from '../utils/learningPathUtils';
 import { setScreen } from '../utils/analytics';
 
 interface WheelOption {
@@ -34,15 +32,11 @@ const SpinWheel: React.FC = () => {
   useEffect(() => {
     setScreen('SpinWheelGame');
   }, []);
-  const { currentActiveTask, completeTask, setActiveTask, setIsTaskReadyToComplete } =
-    useLearningPathStore();
+
   const addStar = useStarStore((state) => state.addStar);
   const openModal = useUnlockModalStore((state) => state.openModal);
   const { spinsLeft, decrementSpins, incrementSpins, resetSpins } = useSpinWheel();
   const { triggerSparkleBurst, SparkleRenderer } = useSparkleBurst();
-
-  const isLearningPathTask =
-    !!currentActiveTask && window.location.pathname.includes(currentActiveTask.path);
 
   const [isSpinning, setIsSpinning] = useState(false);
   const [rotation, setRotation] = useState(0);
@@ -74,32 +68,11 @@ const SpinWheel: React.FC = () => {
   );
 
   useEffect(() => {
-    const handleTrigger = () => {
-      if (isLearningPathTask) {
-        finishLearningPathTask({
-          currentActiveTask,
-          completeTask,
-          setActiveTask,
-          navigate,
-        });
-      }
-    };
-    window.addEventListener('trigger-task-completion', handleTrigger);
-
     return () => {
       if (messageTimeoutRef.current) clearTimeout(messageTimeoutRef.current);
       pendingRotationRef.current = null;
-      window.removeEventListener('trigger-task-completion', handleTrigger);
-      setIsTaskReadyToComplete(false);
     };
-  }, [
-    isLearningPathTask,
-    currentActiveTask,
-    completeTask,
-    setActiveTask,
-    navigate,
-    setIsTaskReadyToComplete,
-  ]);
+  }, []);
 
   const spin = () => {
     if (isSpinning) return;
@@ -148,10 +121,6 @@ const SpinWheel: React.FC = () => {
     handleResult(result);
     setIsSpinning(false);
     pendingRotationRef.current = null;
-
-    if (isLearningPathTask) {
-      setIsTaskReadyToComplete(true);
-    }
   };
 
   const handleResult = (result: WheelOption) => {

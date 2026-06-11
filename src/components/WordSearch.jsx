@@ -9,10 +9,8 @@ import SuccessModal from './SuccessModal.tsx';
 import DifficultySelection from './DifficultySelection'; // Import DifficultySelection
 import { speakText, playCorrectSound } from '../utils/soundUtils.js';
 import { useSparkleBurst } from '../hooks/useSparkleBurst.tsx';
-import { useLearningPathStore } from '../store/useLearningPathStore';
 import { wordToEmoji } from '../data/iconMapping';
 import { formatElapsedTime } from '../utils/timeUtils';
-import { finishLearningPathTask, isLearningPathTaskActive } from '../utils/learningPathUtils';
 import { setScreen, trackExerciseComplete, trackExerciseStart } from '../utils/analytics';
 
 function getRandomWordsFromAlphabet(count = 5) {
@@ -94,20 +92,12 @@ const WordSearch = () => {
   const timerRafRef = useRef(null);
   const matchedEmojiRafRef = useRef(null);
   const colorPalette = WORD_SEARCH_CONSTANTS.COLOR_PALETTE;
-  const { currentActiveTask, completeTask, setActiveTask, setIsTaskReadyToComplete } =
-    useLearningPathStore();
-
-  const isLearningPathTask = isLearningPathTaskActive(
-    currentActiveTask,
-    location.pathname,
-    location.search,
-  );
 
   const startGame = useCallback(
     (difficulty) => {
       const difficultySettings = WORD_SEARCH_CONSTANTS.DIFFICULTY_LEVELS[difficulty.toUpperCase()];
       if (!difficultySettings) {
-        navigate('/english/wordsearch');
+        navigate('/wordsearch');
         return;
       }
 
@@ -129,9 +119,8 @@ const WordSearch = () => {
 
   useEffect(() => {
     startGame(difficulty);
-    setIsTaskReadyToComplete(false);
     trackExerciseStart('WordSearch', difficulty);
-  }, [difficulty, startGame, setIsTaskReadyToComplete]);
+  }, [difficulty, startGame]);
 
   useEffect(() => {
     setScreen('WordSearch');
@@ -280,43 +269,11 @@ const WordSearch = () => {
       trackExerciseComplete('WordSearch', difficulty, 4);
       const nextSolved = solvedCount + 1;
       setSolvedCount(nextSolved);
-
-      if (isLearningPathTask) {
-        const target = currentActiveTask?.targetScore || 1;
-        if (nextSolved >= target) {
-          completeTask(currentActiveTask.id);
-          setIsTaskReadyToComplete(true);
-        }
-      }
     }
-  }, [
-    foundWords,
-    placedWords,
-    currentActiveTask,
-    completeTask,
-    isLearningPathTask,
-    setIsTaskReadyToComplete,
-    solvedCount,
-    win,
-    difficulty,
-  ]);
+  }, [foundWords, placedWords, solvedCount, win, difficulty]);
 
   const handleWinModalClose = () => {
-    if (isLearningPathTask) {
-      const target = currentActiveTask?.targetScore || 1;
-      if (solvedCount >= target) {
-        finishLearningPathTask({
-          currentActiveTask,
-          completeTask,
-          setActiveTask,
-          navigate,
-        });
-      } else {
-        restartGame();
-      }
-    } else {
-      restartGame();
-    }
+    restartGame();
   };
 
   const getCellFromTouch = useCallback(
@@ -469,11 +426,6 @@ const WordSearch = () => {
 
   return (
     <div className="py-md-4 vertical-center wordsearch-container">
-      {isLearningPathTask && (
-        <div className="task-progress-banner">
-          {t('common.progress')}: {solvedCount} / {currentActiveTask.targetScore || 1}
-        </div>
-      )}
       <div className="row justify-content-center w-100">
         <div className="col-12 col-md-10 col-lg-8">
           {win && <SuccessModal handleClose={handleWinModalClose} message="" starsWon={4} />}

@@ -1,7 +1,6 @@
 import { useState, useEffect, Suspense, lazy, useRef, useCallback } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
-import { ScreenOrientation } from '@capacitor/screen-orientation';
 import './index.css'; // Tailwind first
 import './App.scss';
 import { useTranslation } from 'react-i18next';
@@ -11,11 +10,9 @@ import WelcomeScreen from './components/WelcomeScreen';
 import { STORAGE_KEYS } from './constants/appConstants';
 import { getPlayStoreAgeSignal, isKnownMinor } from './services/ageVerification';
 import useRetentionStore from './store/useRetentionStore';
-import { useLearningPathStore } from './store/useLearningPathStore';
 import { getCategoryBGColor, getCategoryColor } from './constants/colors';
 import { setScreen } from './utils/analytics';
 import { trackEvent } from './utils/firebaseAnalytics';
-import { exitLearningPathTask } from './utils/learningPathUtils';
 
 const loadWordSearch = () => import('./components/WordSearch.jsx');
 const WordSearch = lazy(loadWordSearch);
@@ -34,10 +31,6 @@ const loadMemoryMatch = () => import('./components/MemoryMatch.jsx');
 const MemoryMatch = lazy(loadMemoryMatch);
 const loadGridMatch = () => import('./components/GridMatch.jsx');
 const GridMatch = lazy(loadGridMatch);
-const loadDifficultySelection = () => import('./components/DifficultySelection.jsx');
-const DifficultySelection = lazy(loadDifficultySelection);
-const loadMathDifficultySelector = () => import('./components/MathDifficultySelector.jsx');
-const MathDifficultySelector = lazy(loadMathDifficultySelector);
 const loadSpinWheel = () => import('./components/SpinWheel.tsx');
 const SpinWheel = lazy(loadSpinWheel);
 const loadSmartMatch = () => import('./components/SmartMatch.tsx');
@@ -103,65 +96,65 @@ function Home() {
 
   const subjects = [
     {
-      to: '/games/memory-match',
-      label: t('home.subjects.memoryMatch.label'),
+      to: '/memory-match',
+      label: t('memoryMatch.label'),
       src: '/memoryMatch.webp',
-      title: t('home.subjects.memoryMatch.title'),
+      title: t('memoryMatch.title'),
     },
     {
-      to: '/games/sudoku',
-      label: t('home.subjects.sudoku.label'),
+      to: '/sudoku',
+      label: t('sudoku.label'),
       src: '/sudoku.webp',
-      title: t('home.subjects.sudoku.title'),
+      title: t('sudoku.title'),
     },
     {
-      to: '/games/tictactoe',
-      label: t('home.subjects.ticTacToe.label'),
+      to: '/tictactoe',
+      label: t('ticTacToe.label'),
       src: '/tic_tac_toe.webp',
-      title: t('home.subjects.ticTacToe.title'),
+      title: t('ticTacToe.title'),
     },
     {
-      to: '/games/gridMatch',
-      label: t('home.subjects.gridMatch.label'),
+      to: '/gridMatch',
+      label: t('gridMatch.label'),
       src: '/gridMatch.webp',
-      title: t('home.subjects.gridMatch.title'),
+      title: t('gridMatch.title'),
     },
     {
-      to: '/games/tile-connect',
-      label: t('home.subjects.tileConnect.label', 'Tile Connect'),
+      to: '/tile-connect',
+      label: t('tileConnect.label', 'Tile Connect'),
       src: '/tile-connect.webp',
-      title: t('home.subjects.tileConnect.title', 'Tile Connect'),
+      title: t('tileConnect.title', 'Tile Connect'),
     },
 
     {
-      to: '/games/spin-wheel',
-      label: t('home.subjects.spinWheel.label'),
+      to: '/spin-wheel',
+      label: t('spinWheel.label'),
       src: '/spinWheel.webp',
-      title: t('home.subjects.spinWheel.title'),
+      title: t('spinWheel.title'),
     },
     {
-      to: '/games/smart-match',
-      label: t('home.subjects.smartMatch.label'),
+      to: '/smart-match',
+      label: t('smartMatch.label'),
       src: '/smartMatch.webp',
-      title: t('home.subjects.smartMatch.title'),
+      title: t('smartMatch.title'),
     },
     {
-      to: '/english/wordsearch',
-      label: t('home.subjects.wordSearch.label'),
+      to: '/wordsearch',
+      label: t('wordSearch.label'),
       src: '/match_the_word.webp',
-      title: t('home.subjects.wordSearch.title'),
+      title: t('wordSearch.title'),
     },
     {
-      to: '/maths/mental-math',
-      label: t('home.subjects.mentalMath.label'),
+      to: '/mental-math',
+      label: t('mentalMath.label'),
       src: '/mental-math.webp',
-      title: t('home.subjects.mentalMath.title'),
+      title: t('mentalMath.title'),
     },
     {
       to: '/stickers',
-      label: t('home.subjects.stickers.label'),
+      label: t('stickers.label'),
       src: '/stickers.webp',
-      title: t('home.subjects.stickers.title'),
+      title: t('stickers.title'),
     },
   ];
 
@@ -198,7 +191,6 @@ export default function App() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
-  const isAnimating = useLearningPathStore((state) => state.isAnimating);
 
   const [userName, setUserName] = useState(
     () => localStorage.getItem(USER_NAME_KEY) || t('common.defaultUserName'),
@@ -260,7 +252,18 @@ export default function App() {
 
     // Preload critical Home screen icons
     scheduleAfterFirstPaint(() => {
-      const criticalIcons = ['tiny-steps', 'junior', 'stories', 'rhymes', 'craft'];
+      const criticalIcons = [
+        'memoryMatch',
+        'sudoku',
+        'tic_tac_toe',
+        'gridMatch',
+        'tile-connect',
+        'spinWheel',
+        'smartMatch',
+        'match_the_word',
+        'mental-math',
+        'stickers',
+      ];
       criticalIcons.forEach((icon) => {
         const img = new Image();
         img.src = `/${icon}.webp`;
@@ -317,26 +320,6 @@ export default function App() {
       stopAllTones();
       stopSpeech();
     });
-
-    const { isTaskReadyToComplete, currentActiveTask, setActiveTask } =
-      useLearningPathStore.getState();
-
-    if (currentActiveTask && isTaskReadyToComplete) {
-      window.dispatchEvent(new CustomEvent('trigger-task-completion'));
-      return;
-    }
-
-    if (
-      exitLearningPathTask({
-        currentActiveTask,
-        pathname: location.pathname,
-        setActiveTask,
-        navigate,
-        fallback: null,
-      })
-    ) {
-      return;
-    }
 
     const segments = location.pathname.split('/').filter(Boolean);
 
@@ -422,11 +405,7 @@ export default function App() {
       Promise.all([loadSoundUtils(), loadBgMusicManager()]).then(
         ([{ stopAllTones, stopSpeech }, { playMusic, pauseMusic }]) => {
           if (isActive) {
-            const isVideoSection =
-              pathnameRef.current === '/stories' ||
-              pathnameRef.current === '/rhymes' ||
-              pathnameRef.current === '/craft';
-            if (!isVideoSection) playMusic();
+            playMusic();
           } else {
             pauseMusic();
             stopAllTones();
@@ -441,8 +420,6 @@ export default function App() {
         setIsSettingsOpen(false);
         return;
       }
-      if (useLearningPathStore.getState().isAnimating && pathnameRef.current === '/tiny-steps')
-        return;
 
       const [{ stopSpeech, stopAllTones }, { pauseMusic }] = await Promise.all([
         loadSoundUtils(),
@@ -452,25 +429,6 @@ export default function App() {
       stopAllTones();
       pauseMusic();
 
-      const { currentActiveTask, isTaskReadyToComplete } = useLearningPathStore.getState();
-
-      if (currentActiveTask && isTaskReadyToComplete) {
-        window.dispatchEvent(new CustomEvent('trigger-task-completion'));
-        return;
-      }
-
-      if (
-        exitLearningPathTask({
-          currentActiveTask,
-          pathname: pathnameRef.current,
-          setActiveTask: useLearningPathStore.getState().setActiveTask,
-          navigate,
-          fallback: null,
-        })
-      ) {
-        return;
-      }
-
       const segments = pathnameRef.current.split('/').filter(Boolean);
 
       if (segments.length <= 1) {
@@ -479,17 +437,6 @@ export default function App() {
           return;
         }
       } else {
-        if (segments[0] === 'english' && segments[1] === 'passage') {
-          const difficulty = segments[2];
-          navigate(`/english/passages/${difficulty}`, { replace: true });
-          return;
-        }
-
-        if (segments[0] === 'creativity' && segments[1] === 'coloring') {
-          navigate('/creativity/coloring-selection', { replace: true });
-          return;
-        }
-
         const parentRoute = `/${segments.slice(0, -1).join('/')}`;
         navigate(parentRoute, { replace: true });
         return;
@@ -528,76 +475,28 @@ export default function App() {
       <Suspense fallback={<div>{t('common.loading')}</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/english/wordsearch" element={<WordSearchDifficultySelector />} />
-          <Route path="/english/wordsearch/:difficulty" element={<WordSearch />} />
-          <Route
-            path="/english/passages"
-            element={
-              <DifficultySelection
-                difficulties={[
-                  { key: 'easy', label: t('common.levels.easy'), emoji: '🐣', color: '#60a5fa' },
-                  {
-                    key: 'medium',
-                    label: t('common.levels.medium'),
-                    emoji: '🐼',
-                    color: '#f59e0b',
-                  },
-                  { key: 'hard', label: t('common.levels.hard'), emoji: '🐘', color: '#ef4444' },
-                ]}
-                baseRoute="/english/passages"
-              />
-            }
-          />
-          <Route path="/maths/addition" element={<MathDifficultySelector operator="Addition" />} />
-          <Route
-            path="/maths/subtraction"
-            element={<MathDifficultySelector operator="Subtraction" />}
-          />
-          <Route
-            path="/maths/multiplication"
-            element={<MathDifficultySelector operator="Multiplication" />}
-          />
-          <Route path="/maths/division" element={<MathDifficultySelector operator="Division" />} />
-          <Route
-            path="/maths/comparison"
-            element={<MathDifficultySelector operator="Comparison" />}
-          />
-          <Route
-            path="/maths/ascending"
-            element={<MathDifficultySelector operator="Ascending" />}
-          />
-          <Route
-            path="/maths/descending"
-            element={<MathDifficultySelector operator="Descending" />}
-          />
-          <Route path="/maths/mental-math" element={<MentalMath />} />
-          <Route path="/maths/mental-math/:difficulty" element={<MentalMath />} />
-          <Route path="/games/sudoku" element={<SudokuDifficultySelector />} />
-          <Route path="/games/sudoku/:difficulty" element={<Sudoku />} />
-          <Route path="/games/tictactoe" element={<TicTacToe userName={userName} />} />
-          <Route path="/games/memory-match" element={<MemoryMatch />} />
-          <Route path="/games/tile-connect" element={<TileConnect />} />
-          <Route path="/games/gridMatch" element={<GridMatch />} />
-          <Route path="/games/spin-wheel" element={<SpinWheel />} />
-          <Route path="/games/smart-match" element={<SmartMatch />} />
+          <Route path="/wordsearch" element={<WordSearchDifficultySelector />} />
+          <Route path="/wordsearch/:difficulty" element={<WordSearch />} />
+          <Route path="/mental-math" element={<MentalMath />} />
+          <Route path="/mental-math/:difficulty" element={<MentalMath />} />
+          <Route path="/sudoku" element={<SudokuDifficultySelector />} />
+          <Route path="/sudoku/:difficulty" element={<Sudoku />} />
+          <Route path="/tictactoe" element={<TicTacToe userName={userName} />} />
+          <Route path="/memory-match" element={<MemoryMatch />} />
+          <Route path="/tile-connect" element={<TileConnect />} />
+          <Route path="/gridMatch" element={<GridMatch />} />
+          <Route path="/spin-wheel" element={<SpinWheel />} />
+          <Route path="/smart-match" element={<SmartMatch />} />
           <Route path="/stickers" element={<StickerBook />} />
         </Routes>
       </Suspense>
 
       {location.pathname === '/' ? (
-        <button
-          className="nav-button nav-button--setting"
-          onClick={() => setIsSettingsOpen(true)}
-          disabled={isAnimating && location.pathname === '/tiny-steps'}
-        >
+        <button className="nav-button nav-button--setting" onClick={() => setIsSettingsOpen(true)}>
           <img src="/setting.webp" alt={t('settings.title')} />
         </button>
       ) : (
-        <button
-          className="nav-button nav-button--home"
-          onClick={handleBackClick}
-          disabled={isAnimating && location.pathname === '/tiny-steps'}
-        >
+        <button className="nav-button nav-button--home" onClick={handleBackClick}>
           <span className="homeButton">⇦</span>
         </button>
       )}

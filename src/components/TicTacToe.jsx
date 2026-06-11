@@ -9,17 +9,13 @@ import TicTacToeSetup from './TicTacToeSetup';
 import TicTacToeBoard from './TicTacToeBoard';
 import { createInitialBoard, getWinner, getAiMove } from '../utils/ticTacToeUtils';
 
-import { useLearningPathStore } from '../store/useLearningPathStore';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { finishLearningPathTask } from '../utils/learningPathUtils';
 import { setScreen, trackExerciseComplete } from '../utils/analytics';
 
 const TicTacToe = ({ userName }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
-  const { currentActiveTask, completeTask, setActiveTask, setIsTaskReadyToComplete } =
-    useLearningPathStore();
 
   useEffect(() => {
     setScreen('TicTacToeGame');
@@ -62,24 +58,10 @@ const TicTacToe = ({ userName }) => {
     setTimer(TTT_TIMER_DURATION);
     gameHandledRef.current = false;
     setShowModal(false);
-    setIsTaskReadyToComplete(false);
   };
 
   const handleWinModalClose = () => {
-    if (modalConfig.type === 'success') {
-      if (
-        !finishLearningPathTask({
-          currentActiveTask,
-          completeTask,
-          setActiveTask,
-          navigate,
-        })
-      ) {
-        handleRestartGame();
-      }
-    } else {
-      handleRestartGame();
-    }
+    handleRestartGame();
   };
 
   const handleRestartGame = () => {
@@ -102,9 +84,6 @@ const TicTacToe = ({ userName }) => {
 
         if (mode === 'pvai') {
           if (winnerInfo.winner === symbol) {
-            if (currentActiveTask && location.pathname.includes(currentActiveTask.path)) {
-              setIsTaskReadyToComplete(true);
-            }
             trackExerciseComplete('tictactoe', difficulty, starsWon);
             setModalConfig({
               type: 'success',
@@ -147,9 +126,6 @@ const TicTacToe = ({ userName }) => {
     oLabel,
     t,
     difficulty,
-    currentActiveTask,
-    location.pathname,
-    setIsTaskReadyToComplete,
   ]);
 
   const handleTimeout = useCallback(() => {

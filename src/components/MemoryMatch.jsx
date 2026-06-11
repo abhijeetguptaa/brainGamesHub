@@ -6,32 +6,12 @@ import { useTranslation } from 'react-i18next';
 import { MEMORY_MATCH_CONFIG, getMemoryMatchIcons } from '../constants/memoryMatchConstants';
 import { shuffleArray } from '../utils/utils';
 import { useSparkleBurst } from '../hooks/useSparkleBurst';
-import { useLearningPathStore } from '../store/useLearningPathStore';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { finishLearningPathTask, isLearningPathTaskActive } from '../utils/learningPathUtils';
 import { setScreen, trackExerciseComplete } from '../utils/analytics';
 
 const MemoryMatch = () => {
   const { t } = useTranslation();
-
-  const navigate = useNavigate();
-  const location = useLocation();
-  const {
-    currentActiveTask,
-    completeTask,
-    setActiveTask,
-    completedTasks,
-    setIsTaskReadyToComplete,
-  } = useLearningPathStore();
   const { triggerSparkleBurst, SparkleRenderer } = useSparkleBurst();
 
-  const isLearningPathTask = isLearningPathTaskActive(
-    currentActiveTask,
-    location.pathname,
-    location.search,
-  );
-  const isAlreadyCompleted =
-    isLearningPathTask && currentActiveTask && completedTasks[currentActiveTask.id];
   const questionMarkLabel = useMemo(() => t('common.questionMark'), [t]);
 
   /** ✅ Memoized so it doesn't recreate every render */
@@ -223,21 +203,7 @@ const MemoryMatch = () => {
   /** Close success modal + next level */
   const handleClose = () => {
     setShowSuccessMessage(false);
-    const target = currentActiveTask?.targetScore || 1;
-    if (isLearningPathTask) {
-      if (solvedCount >= target) {
-        finishLearningPathTask({
-          currentActiveTask,
-          completeTask,
-          setActiveTask,
-          navigate,
-        });
-      } else {
-        handleNextLevel();
-      }
-    } else {
-      handleNextLevel();
-    }
+    handleNextLevel();
   };
 
   const handleNextLevel = useCallback(() => {
@@ -260,30 +226,12 @@ const MemoryMatch = () => {
 
       trackExerciseComplete('memory-match', 'default', cards.length / 2);
 
-      const target = currentActiveTask?.targetScore || 1;
-
-      if (isLearningPathTask && nextSolved >= target) {
-        setIsTaskReadyToComplete(true);
-      }
-
       setShowSuccessMessage(true);
     }
-  }, [
-    allMatched,
-    currentActiveTask?.targetScore,
-    isLearningPathTask,
-    setIsTaskReadyToComplete,
-    solvedCount,
-    cards.length,
-  ]);
+  }, [allMatched, solvedCount, cards.length]);
 
   return (
     <div className="card-game-container">
-      {isLearningPathTask && currentActiveTask && (
-        <div className="task-progress-banner">
-          {t('common.progress')}: {solvedCount} / {currentActiveTask.targetScore}
-        </div>
-      )}
       <div ref={gameBoardRef} className="game-board">
         {cards.map((card, i) => (
           <Card
@@ -299,12 +247,7 @@ const MemoryMatch = () => {
       </div>
 
       {showSuccessMessage && (
-        <SuccessModal
-          handleClose={handleClose}
-          message={''}
-          starsWon={cards?.length / 2}
-          skipStarAward={isAlreadyCompleted}
-        />
+        <SuccessModal handleClose={handleClose} message={''} starsWon={cards?.length / 2} />
       )}
       <SparkleRenderer />
     </div>

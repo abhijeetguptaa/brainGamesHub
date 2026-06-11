@@ -57,7 +57,7 @@ const MentalMath = () => {
   ];
 
   if (!difficulty) {
-    return <DifficultySelection difficulties={difficulties} baseRoute="/maths/mental-math" />;
+    return <DifficultySelection difficulties={difficulties} baseRoute="/mental-math" />;
   }
 
   return (

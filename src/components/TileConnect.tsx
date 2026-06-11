@@ -7,9 +7,7 @@ import SuccessModal from './SuccessModal';
 import useUnlockModalStore from '../store/useUnlockModalStore';
 import UnlockModal from './UnlockModal';
 import { setScreen, trackExerciseStart } from '../utils/analytics';
-import { useLearningPathStore } from '../store/useLearningPathStore';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { finishLearningPathTask, isLearningPathTaskActive } from '../utils/learningPathUtils';
 
 const TileConnect: React.FC = () => {
   const { t } = useTranslation();
@@ -17,13 +15,6 @@ const TileConnect: React.FC = () => {
   const location = useLocation();
   const { level, isLevelComplete, resetGame, nextLevel } = useTileConnectStore();
   const { openModal } = useUnlockModalStore();
-  const { currentActiveTask, completeTask, setActiveTask } = useLearningPathStore();
-
-  const isLearningPathTask = isLearningPathTaskActive(
-    currentActiveTask,
-    location.pathname,
-    location.search,
-  );
 
   const boardRef = useRef<TileConnectBoardHandle>(null);
 
@@ -53,16 +44,7 @@ const TileConnect: React.FC = () => {
 
   const handleNextLevel = () => {
     setIsGridReady(false);
-    if (isLearningPathTask) {
-      finishLearningPathTask({
-        currentActiveTask,
-        completeTask,
-        setActiveTask,
-        navigate,
-      });
-    } else {
-      nextLevel();
-    }
+    nextLevel();
   };
 
   return (
@@ -88,29 +70,27 @@ const TileConnect: React.FC = () => {
       />
 
       {/* UI Overlay - Kid Friendly Level Header */}
-      {!isLearningPathTask && (
-        <div className="absolute inset-0 flex justify-center items-start pointer-events-none p-4">
-          <motion.div
-            initial={{ y: -50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            className="pointer-events-auto h-fit"
-          >
-            <div className="relative group">
-              {/* Playful Multi-color Glow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 rounded-[2.5rem] blur opacity-50 group-hover:opacity-100 transition duration-1000" />
+      <div className="absolute inset-0 flex justify-center items-start pointer-events-none p-4">
+        <motion.div
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+          className="pointer-events-auto h-fit"
+        >
+          <div className="relative group">
+            {/* Playful Multi-color Glow */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 rounded-[2.5rem] blur opacity-50 group-hover:opacity-100 transition duration-1000" />
 
-              <div className="relative bg-white px-8 py-2 rounded-[2rem] shadow-[0_6px_0_rgba(236,72,153,0.3)] border-[6px] border-pink-400 flex items-center gap-3 transform -rotate-1 active:scale-95 transition-transform">
-                <span className="text-3xl filter drop-shadow-sm">✨</span>
-                <span className="bg-gradient-to-br from-pink-600 to-purple-600 bg-clip-text text-transparent font-black text-2xl sm:text-3xl tracking-wide uppercase">
-                  {t('common.level', 'Level')} {level}
-                </span>
-                <span className="text-3xl filter drop-shadow-sm">✨</span>
-              </div>
+            <div className="relative bg-white px-8 py-2 rounded-[2rem] shadow-[0_6px_0_rgba(236,72,153,0.3)] border-[6px] border-pink-400 flex items-center gap-3 transform -rotate-1 active:scale-95 transition-transform">
+              <span className="text-3xl filter drop-shadow-sm">✨</span>
+              <span className="bg-gradient-to-br from-pink-600 to-purple-600 bg-clip-text text-transparent font-black text-2xl sm:text-3xl tracking-wide uppercase">
+                {t('common.level', 'Level')} {level}
+              </span>
+              <span className="text-3xl filter drop-shadow-sm">✨</span>
             </div>
-          </motion.div>
-        </div>
-      )}
+          </div>
+        </motion.div>
+      </div>
 
       {/* Level Complete Screen */}
       <AnimatePresence>
