@@ -1,0 +1,23 @@
+.sparkle {
+  position: absolute;
+  pointer-events: none;
+  color: var(--sparkle-color, white);
+  font-size: 20px;
+  text-shadow: 0 0 10px var(--sparkle-color, rgba(255, 255, 255, 0.8));
+  animation: sparkle-burst 0.6s ease-out forwards;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes sparkle-burst {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) scale(1.5);
+    opacity: 0;
+  }
+}

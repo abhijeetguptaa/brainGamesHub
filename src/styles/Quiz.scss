@@ -1,0 +1,546 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use './route_shared';
+
+// =============================================================================
+// QUIZ PAGE
+// =============================================================================
+.quiz-page {
+  @include flex-center(column, $spacing-md);
+  padding: $spacing-sm;
+  min-height: 100vh;
+  background-image: url('/quiz.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  .quiz-container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+
+    @media (orientation: landscape) and (max-height: 550px) {
+      gap: $spacing-sm;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // QUIZ HEADER (Progress & Score)
+  // ---------------------------------------------------------------------------
+
+  .quiz-header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    background: rgba(255, 255, 255, 0.9);
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-2xl;
+    box-shadow: $shadow-md;
+    border: 3px solid $color-primary-light;
+
+    @media (orientation: landscape) and (max-height: 550px) {
+      padding: 4px $spacing-md;
+      border-radius: $radius-xl;
+      gap: $spacing-sm;
+    }
+
+    .progress-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      @media (orientation: landscape) and (max-height: 550px) {
+        flex-direction: row;
+        align-items: center;
+        gap: $spacing-md;
+      }
+
+      .progress-text {
+        font-family: $font-family-primary;
+        font-weight: bold;
+        color: $color-primary-dark;
+        font-size: 1.1rem;
+
+        @media (orientation: landscape) and (max-height: 550px) {
+          font-size: 0.9rem;
+          white-space: nowrap;
+        }
+      }
+
+      .progress-bar-wrapper {
+        height: 16px;
+        background: $color-gray-200;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+
+        @media (orientation: landscape) and (max-height: 550px) {
+          height: 10px;
+          flex: 1;
+        }
+
+        .progress-bar-fill {
+          height: 100%;
+          background: linear-gradient(90deg, $color-primary, $color-accent-green);
+          transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+      }
+    }
+
+    .score-badge {
+      background: $color-secondary;
+      color: $color-primary-dark;
+      font-weight: bold;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $radius-xl;
+      font-family: $font-family-primary;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      border: 2px solid $color-white;
+      box-shadow: $shadow-sm;
+
+      @media (orientation: landscape) and (max-height: 550px) {
+        font-size: 1rem;
+        padding: 2px 8px;
+
+        .star-icon {
+          font-size: 1.1rem;
+        }
+      }
+
+      .star-icon {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // EMOJI ANIMATION
+  // ---------------------------------------------------------------------------
+
+  .emoji-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    pointer-events: none;
+
+    .emoji-animation {
+      font-size: 6rem;
+      animation: pop-emoji 1s ease-out forwards;
+
+      @media (orientation: landscape) and (max-height: 550px) {
+        font-size: 4rem;
+      }
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // QUIZ CARD
+  // ---------------------------------------------------------------------------
+
+  .quiz-card {
+    background: $color-white;
+    border-radius: 20px;
+    padding: $spacing-xl $spacing-lg;
+    box-shadow: 0 15px 35px $shadow-lg;
+    border: 6px solid $color-primary-light;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, $color-primary, $color-accent-pink, $color-secondary);
+    }
+
+    &.completed {
+      text-align: center;
+      padding: $spacing-3xl $spacing-xl;
+
+      @media (orientation: landscape) and (max-height: 550px) {
+        padding: $spacing-lg;
+      }
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      padding: $spacing-lg;
+      border-width: 4px;
+    }
+
+    @media (orientation: landscape) and (max-height: 550px) {
+      padding: $spacing-sm;
+      border-width: 3px;
+    }
+  }
+
+  .question-section {
+    @include flex-center(row, $spacing-md);
+    margin-bottom: $spacing-xl;
+    position: relative;
+
+    @media (orientation: landscape) and (max-height: 550px) {
+      margin: $spacing-lg 0;
+    }
+
+    .question-text {
+      margin: 0;
+      font-size: 2.2rem;
+      color: $color-primary-dark;
+      font-family: $font-family-primary;
+      line-height: 1.2;
+      flex: 1;
+
+      @media (max-width: $breakpoint-sm) {
+        font-size: 1.6rem;
+      }
+
+      @media (orientation: landscape) and (max-height: 550px) {
+        font-size: 1.4rem;
+      }
+    }
+
+    .speak-button {
+      @include button-base($color-primary, $color-white, $radius-full, $shadow-md);
+      width: 55px;
+      height: 55px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      border: 4px solid white;
+      transition: all 0.2s ease;
+
+      @media (orientation: landscape) and (max-height: 550px) {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+        border-width: 2px;
+      }
+
+      &:hover {
+        background-color: $color-primary-dark;
+        transform: scale(1.1) rotate(5deg);
+      }
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // OPTIONS
+  // ---------------------------------------------------------------------------
+
+  .quiz-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+
+    @media (max-width: 400px) {
+      grid-template-columns: 1fr;
+    }
+
+    @media (orientation: landscape) and (max-height: 550px) {
+      gap: $spacing-sm;
+    }
+  }
+
+  .quiz-option {
+    @include button-base($color-white, $color-text-primary, $radius-2xl, $shadow-md);
+    border: 4px solid transparent;
+    padding: $spacing-md;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+
+    @media (orientation: landscape) and (max-height: 550px) {
+      min-height: 45px;
+      padding: $spacing-xs $spacing-md;
+      border-radius: $radius-xl;
+      border-width: 3px;
+    }
+
+    .option-label {
+      width: 35px;
+      height: 35px;
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: $radius-full;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-family: $font-family-primary;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+
+      @media (orientation: landscape) and (max-height: 550px) {
+        width: 24px;
+        height: 24px;
+        font-size: 0.8rem;
+      }
+    }
+
+    .option-text {
+      font-size: 1.4rem;
+      font-weight: 600;
+      flex: 1;
+    }
+
+    // Colors for different options
+    &.color-0 {
+      border-color: $color-primary;
+      .option-label {
+        color: $color-primary;
+      }
+    }
+    &.color-1 {
+      border-color: $color-accent-pink;
+      .option-label {
+        color: $color-accent-pink;
+      }
+    }
+    &.color-2 {
+      border-color: $color-accent-orange;
+      .option-label {
+        color: $color-accent-orange;
+      }
+    }
+    &.color-3 {
+      border-color: #9a69f0;
+      .option-label {
+        color: $color-accent-green;
+      }
+    }
+
+    &:hover:not(:disabled) {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 20px $shadow-lg;
+      background: $color-gray-100;
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(2px);
+    }
+
+    &.correct {
+      background: $color-success-bg !important;
+      color: $color-success-text !important;
+      border-color: $color-success-border !important;
+      animation: bounce 0.6s ease;
+      box-shadow: 0 0 20px rgba(0, 230, 118, 0.4);
+
+      .option-label {
+        background: $color-success-border;
+        color: $color-white;
+      }
+    }
+
+    &.incorrect {
+      background: $color-error-bg !important;
+      color: $color-error-text !important;
+      border-color: $color-error-border !important;
+      animation: shake 0.5s ease;
+
+      .option-label {
+        background: $color-error-border;
+        color: $color-white;
+      }
+    }
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.7;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      min-height: 70px;
+      padding: $spacing-sm $spacing-md;
+    }
+  }
+
+  .fifty-fifty-container {
+    margin-top: $spacing-md;
+    display: flex;
+    justify-content: center;
+
+    @media (orientation: landscape) and (max-height: 550px) {
+      margin-top: $spacing-sm;
+    }
+
+    .fifty-fifty-btn {
+      background: linear-gradient(180deg, $color-primary-light 0%, $color-primary 100%);
+      color: $color-white;
+      padding: 8px 24px;
+      border-radius: $radius-2xl;
+      border: 3px solid $color-white;
+      box-shadow:
+        0 4px 0 $color-primary-dark,
+        0 6px 10px $shadow-md;
+      font-weight: 800;
+      font-size: 1.1rem;
+      font-family: $font-family-primary;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+
+      @media (orientation: landscape) and (max-height: 550px) {
+        padding: 4px 16px;
+        font-size: 0.9rem;
+        border-width: 2px;
+      }
+
+      &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow:
+          0 6px 0 $color-primary-dark,
+          0 8px 15px $shadow-md;
+      }
+
+      &:active:not(:disabled) {
+        transform: translateY(2px);
+        box-shadow:
+          0 2px 0 $color-primary-dark,
+          0 4px 6px $shadow-md;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        filter: grayscale(0.5);
+      }
+
+      .ad-badge-small {
+        background: #fef3c7;
+        color: #92400e;
+        font-size: 0.65rem;
+        padding: 1px 6px;
+        border-radius: 4px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border: 1px solid #fde68a;
+      }
+
+      .count-badge {
+        background: $color-error-border;
+        color: $color-white;
+        font-size: 0.75rem;
+        width: 22px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: $radius-full;
+        border: 2px solid $color-white;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .quiz-completed-text {
+    font-size: 2.5rem;
+    color: $color-primary-dark;
+    font-weight: bold;
+    font-family: $font-family-primary;
+    margin: 0;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+// =============================================================================
+// ANIMATIONS
+// =============================================================================
+
+.animate-in {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop-emoji {
+  0% {
+    transform: scale(0) translateY(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5) translateY(-20px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2) translateY(-40px);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-12px);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(-6px);
+  }
+  80% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+}

@@ -1,0 +1,115 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use './route_shared';
+
+// =============================================================================
+// COUNTING EXERCISE COMPONENT
+// =============================================================================
+
+.counting-exercise {
+  @include flex-center(column);
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  padding: 70px 0;
+  gap: $spacing-lg;
+  @media (orientation: landscape) {
+    padding: 0px;
+  }
+}
+
+.counting-header {
+  text-align: center;
+  color: var(--color-text-primary, $color-accent-green);
+  cursor: pointer;
+}
+
+.counting-main {
+  @include flex-center(column);
+  width: 100%;
+  text-align: center;
+  gap: 10px;
+}
+
+.counting-subtitle {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+// =============================================================================
+// OBJECTS GRID
+// =============================================================================
+
+.objects-container {
+  @include flex-center(column);
+  flex: 1;
+  width: 100%;
+  padding-inline: 1.5rem;
+  position: relative;
+  z-index: 1; // High z-index to stay on top of any overflows
+}
+
+.objects-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  @media (orientation: landscape) {
+    gap: 0.1rem;
+  }
+
+  .object-item {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    transition:
+      transform 0.2s,
+      opacity 0.3s;
+
+    &:active {
+      transform: scale(0.9);
+    }
+
+    &.counted {
+      opacity: 0.6;
+      transform: scale(0.8);
+      // Removed pointer-events: none to ensure it still catches clicks
+      // and stops them from hitting the number-display behind it.
+    }
+  }
+}
+
+.object-image {
+  inline-size: 50px;
+  block-size: 50px;
+}
+
+// =============================================================================
+// NUMBER DISPLAY
+// =============================================================================
+
+.number-display {
+  padding-inline: $spacing-lg;
+  cursor: pointer;
+  position: relative;
+  z-index: 1; // Lower than objects
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  margin-top: $spacing-md;
+  user-select: none;
+  -webkit-user-select: none;
+  overflow: visible; // Allow text to be seen but hit-box is 120px
+}
+
+.current-number {
+  margin: 0;
+  font-size: 8rem;
+  line-height: 1;
+  pointer-events: none; // Crucial: clicks go to .number-display container ONLY
+}

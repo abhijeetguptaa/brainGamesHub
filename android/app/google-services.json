@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "597655057",
+    "project_id": "smart-kids-learning-4f7ed",
+    "storage_bucket": "smart-kids-learning-4f7ed.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597655057:android:ca3071b730c074c84ebbb0",
+        "android_client_info": {
+          "package_name": "com.abhijeet.kidsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCspjvIZ-vWdJqJ92grevNHl8HndTg1CWU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

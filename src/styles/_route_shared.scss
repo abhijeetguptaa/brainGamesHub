@@ -1,0 +1,58 @@
+@use './variables' as *;
+
+.vertical-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.white-bg-card {
+  padding: 0.3rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  border-radius: 12px;
+}
+
+.black-bg-card {
+  padding: 0.2rem 1rem;
+  background: #fff;
+  backdrop-filter: blur(5px);
+  width: 100%;
+  border-radius: 12px;
+}
+
+.task-progress-banner {
+  position: fixed;
+  top: calc(var(--notch-padding, 0px) + 10px);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #2563eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  border: 2px solid #3b82f6;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &::before {
+    content: '🎯';
+    font-size: 1.2rem;
+  }
+
+  @media (orientation: landscape) {
+    top: 5px;
+    padding: 4px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+.text-rebecca {
+  color: $color-primary;
+}

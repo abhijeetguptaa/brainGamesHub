@@ -1,0 +1,83 @@
+.scratch-game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  background-color: #f0f4f8;
+  position: relative;
+  overflow: hidden;
+
+  .scratch-canvas-wrapper {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .scratch-canvas-bg {
+      z-index: 1;
+    }
+
+    .scratch-canvas-fg {
+      z-index: 1;
+      cursor: crosshair;
+    }
+  }
+
+  .navigation-controls {
+    display: flex;
+    gap: 40px;
+    z-index: 1;
+
+    .nav-control-button {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: transform 0.2s;
+
+      &:hover:not(:disabled) {
+        transform: scale(1.1);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .backButton {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .canvas-screenshot {
+    margin-top: 20px;
+    max-width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+}

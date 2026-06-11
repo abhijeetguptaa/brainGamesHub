@@ -1,0 +1,523 @@
+@use 'sass:math';
+@use 'sass:list';
+@use './variables' as *;
+@use './mixins' as *;
+@use './animations' as *;
+@use './modal_variations' as *;
+@use './result_modals' as *;
+@use './utilities' as *;
+
+.success-overlay {
+  @include modal-overlay;
+  @include overlay-blur-style;
+  @include flex-center(column);
+  animation: overlayFadeIn 0.5s ease-in-out;
+
+  &.transparent-overlay {
+    background: transparent;
+    backdrop-filter: none;
+    pointer-events: none;
+  }
+}
+
+.success-message {
+  @extend .modal-variant-success;
+  --result-accent: #ff4081;
+  --result-accent-soft: #fff0f5;
+  --result-primary-bg: #4caf50;
+  --result-primary-shadow: #388e3c;
+  min-height: 200px;
+  overflow: visible;
+
+  @media (orientation: landscape) {
+    min-height: auto;
+    max-height: 75vh;
+    overflow-y: auto;
+    width: 85%;
+    padding: $spacing-sm $spacing-md;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #ff4081;
+      border-radius: 3px;
+    }
+  }
+
+  h2.applause {
+    display: flex;
+    font-size: 2.2rem;
+    color: #ff4081;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+    @media (orientation: landscape) {
+      font-size: 1.8rem;
+      margin-top: $spacing-sm;
+      margin-bottom: $spacing-xs;
+    }
+  }
+
+  p.success-desc {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0 0 $spacing-sm;
+    font-weight: 600;
+
+    @media (orientation: landscape) {
+      font-size: 1rem;
+      margin-bottom: $spacing-xs;
+    }
+  }
+
+  .best-time-modal {
+    @include flex-center(row, $spacing-xs);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #4b5563;
+    margin-bottom: $spacing-md;
+    background: rgba(255, 255, 255, 0.8);
+    padding: $spacing-sm;
+    border-radius: 20px;
+    border: 2px solid #e5e7eb;
+
+    .time-value {
+      color: #059669;
+    }
+
+    &.new-best {
+      color: #db2777;
+      background: #fdf2f8;
+      border-color: #fbcfe8;
+      animation: bounce 1s ease-in-out infinite alternate;
+      font-size: 1.5rem;
+
+      .time-value {
+        color: #be185d;
+      }
+    }
+
+    @media (orientation: landscape) {
+      font-size: 1.1rem;
+      margin-bottom: $spacing-xs;
+      padding: 2px $spacing-md;
+
+      &.new-best {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .success-stars {
+    @include flex-center(row, $spacing-md);
+
+    @media (orientation: landscape) {
+      margin-bottom: $spacing-xs;
+      gap: $spacing-sm;
+      span {
+        font-size: 2rem;
+      }
+    }
+
+    span {
+      font-size: 3rem;
+      filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+      display: inline-block;
+      animation: star-bounce 1s ease-in-out infinite alternate;
+    }
+  }
+
+  .success-actions {
+    @include flex-center(row, $spacing-md);
+    margin: $spacing-md 0;
+    flex-wrap: wrap;
+
+    @media (orientation: landscape) {
+      margin: $spacing-xs 0;
+      gap: $spacing-sm;
+    }
+  }
+
+  .success-content-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+
+    @media (orientation: landscape) {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: $spacing-xl;
+      padding: $spacing-sm;
+    }
+  }
+
+  .success-main-info {
+    @include flex-center(column);
+    flex: 1;
+    width: 100%;
+  }
+
+  .success-children-column {
+    @include flex-center(column);
+    flex: 1;
+    width: 100%;
+    max-width: 400px;
+
+    @media (orientation: landscape) {
+      max-width: none;
+    }
+  }
+
+  .new-game-button {
+    @extend %result-primary-button;
+  }
+
+  .show-mistakes-toggle {
+    @extend %result-secondary-button;
+  }
+
+  &.show-mistakes-mode {
+    width: 90%;
+    max-width: 600px;
+    padding: $spacing-lg;
+
+    @media (orientation: landscape) {
+      width: 80%;
+      max-height: 85vh;
+    }
+  }
+
+  .mistakes-container {
+    @extend %result-mistakes-container;
+  }
+
+  &.has-rate-us {
+    @media (orientation: landscape) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-md;
+      padding: $spacing-md $spacing-lg;
+      width: 90%;
+
+      .success-content-wrapper {
+        flex: 1.2;
+        padding: 0;
+        gap: $spacing-md;
+      }
+
+      .rate-us-section {
+        flex: 0.8;
+        margin-top: 0;
+        align-self: center;
+        max-width: 300px;
+      }
+    }
+  }
+
+  .rate-us-section {
+    background: #fdf2f8;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 2px dashed #f472b6;
+    margin-top: 1rem;
+    @include flex-center(column);
+  }
+
+  .rate-us-text {
+    font-size: 1.1rem;
+    color: #be185d;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+}
+
+.letter {
+  display: inline-block;
+  animation: waveText 1.5s ease-in-out infinite;
+}
+
+.close-button {
+  @include close-button(#ff4081);
+  @media (orientation: landscape) {
+    top: 5px;
+    right: 5px;
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.7;
+  }
+
+  .close-timer-ring {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @include flex-center();
+
+    svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .ring-bg {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.3);
+      stroke-width: 3.5;
+    }
+
+    .ring-fg {
+      fill: none;
+      stroke: #fff;
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      transition: stroke-dasharray 1s linear;
+    }
+
+    .close-x {
+      position: absolute;
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #fff;
+    }
+  }
+}
+
+.trymore-message {
+  margin-top: 40px;
+  font-size: $font-size-xl;
+  color: $color-white;
+}
+
+.canvas-screenshot {
+  width: 70%;
+  border: 4px solid #ff4081;
+  border-radius: $radius-xl;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+
+  @media (orientation: landscape) {
+    width: 60%;
+    max-height: 50vh;
+    margin: 0 auto;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; // Ensure full image is visible
+    display: block;
+  }
+}
+
+.petal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.success-collection-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(70vw, 320px);
+  opacity: 1;
+  z-index: 1;
+  pointer-events: none;
+
+  @media (orientation: landscape) {
+    width: min(50vh, 200px);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.petal,
+.heart,
+.star-symbol,
+.candy,
+.sym-sparkle,
+.sym-burst,
+.sym-dot,
+.sym-note,
+.sym-star-2,
+.sym-flower {
+  position: absolute;
+  opacity: 0.8;
+  animation: petal-fall linear infinite;
+  pointer-events: none;
+}
+
+.petal {
+  border-radius: 150% 0 150% 0;
+}
+
+.heart {
+  width: 20px;
+  height: 20px;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 16px;
+    border-radius: 10px 10px 0 0;
+    background: inherit;
+  }
+  &::before {
+    left: 10px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  &::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+}
+
+.star-symbol {
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.candy::before {
+  content: '🍬';
+  font-size: 1.2rem;
+  display: block;
+  color: inherit;
+}
+
+.sym-sparkle::before {
+  content: '🞼';
+  font-size: 1.5rem;
+  display: block;
+  color: inherit;
+}
+.sym-burst::before {
+  content: '✧';
+  font-size: 1.5rem;
+  display: block;
+  color: inherit;
+}
+.sym-dot::before {
+  content: '🟑';
+  font-size: 1.2rem;
+  display: block;
+  color: inherit;
+}
+.sym-note::before {
+  content: '♬';
+  font-size: 1.5rem;
+  display: block;
+  color: inherit;
+}
+.sym-star-2::before {
+  content: '✯';
+  font-size: 1.5rem;
+  display: block;
+  color: inherit;
+}
+.sym-flower::before {
+  content: '❀';
+  font-size: 1.5rem;
+  display: block;
+  color: inherit;
+}
+
+@for $i from 1 through 60 {
+  .petal:nth-child(#{$i}),
+  .heart:nth-child(#{$i}),
+  .star-symbol:nth-child(#{$i}),
+  .candy:nth-child(#{$i}),
+  .sym-sparkle:nth-child(#{$i}),
+  .sym-burst:nth-child(#{$i}),
+  .sym-dot:nth-child(#{$i}),
+  .sym-note:nth-child(#{$i}),
+  .sym-star-2:nth-child(#{$i}),
+  .sym-flower:nth-child(#{$i}) {
+    $size: math.random(20) + 15 + px; // Slightly larger
+    width: $size;
+    height: $size;
+    left: math.random(100) + 0%;
+    $duration: math.random(3) + 2 + s; // Much faster: 2-5s
+    $delay: math.random(5) * -1 + s;
+    $drift: (math.random(300) - 150) + px; // More drift
+    animation-duration: $duration;
+    animation-delay: $delay;
+    --drift-x: #{$drift};
+
+    // Shining color variants
+    $petal-colors: (#ff9a9e, #a1c4fd, #84fab0, #f6d365, #e0c3fc, #ffecd2, #d4fc79, #cfd9df);
+
+    $petal-gradients: (
+      radial-gradient(circle at 30% 30%, #ff9a9e 0%, #fecfef 99%, #fecfef 100%),
+      radial-gradient(circle at 30% 30%, #a1c4fd 0%, #c2e9fb 100%),
+      radial-gradient(circle at 30% 30%, #84fab0 0%, #8fd3f4 100%),
+      radial-gradient(circle at 30% 30%, #f6d365 0%, #fda085 100%),
+      radial-gradient(circle at 30% 30%, #e0c3fc 0%, #8ec5fc 100%),
+      radial-gradient(circle at 30% 30%, #ffecd2 0%, #fcb69f 100%),
+      radial-gradient(circle at 30% 30%, #d4fc79 0%, #96e6a1 100%),
+      radial-gradient(circle at 30% 30%, #cfd9df 0%, #e2ebf0 100%)
+    );
+
+    $random-index: math.random(list.length($petal-colors));
+    $color: list.nth($petal-colors, $random-index);
+    $gradient: list.nth($petal-gradients, $random-index);
+
+    color: $color;
+    // Apply gradient only to shapes that use background
+    &.petal,
+    &.heart,
+    &.star-symbol {
+      background: $gradient;
+    }
+  }
+}
+
+@keyframes petal-fall {
+  0% {
+    top: -10%;
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    top: 110%;
+    transform: translateX(var(--drift-x)) rotate(720deg);
+  }
+}

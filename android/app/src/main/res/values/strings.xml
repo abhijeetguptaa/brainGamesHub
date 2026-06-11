@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Smart Kids Learning</string>
+    <string name="title_activity_main">Smart Kids Learning</string>
+    <string name="package_name">com.abhijeet.kidsapp</string>
+    <string name="custom_url_scheme">com.abhijeet.kidsapp</string>
+    <string name="facebook_app_id">1925390955005187</string>
+    <string name="facebook_client_token">3dfd02a774c604938a80ac5628fb5054</string>
+    <string name="fb_login_protocol_scheme">fb1925390955005187</string>
+</resources>

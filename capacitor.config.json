@@ -1,0 +1,11 @@
+{
+  "appId": "com.abhijeet.kidsapp",
+  "appName": "Smart Kids Learning",
+  "webDir": "dist",
+  "plugins": {
+    "StatusBar": {
+      "overlay": true,
+      "style": "light"
+    }
+  }
+}

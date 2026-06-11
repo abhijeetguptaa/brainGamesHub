@@ -1,0 +1,150 @@
+@use './variables' as *;
+
+%result-primary-button {
+  padding: $spacing-sm $spacing-lg;
+  background: var(--result-primary-bg);
+  color: $color-white;
+  border: none;
+  border-radius: $radius-xl;
+  font-weight: 700;
+  font-size: $font-size-md;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 0 var(--result-primary-shadow);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 var(--result-primary-shadow);
+  }
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--result-primary-shadow);
+  }
+
+  @media (orientation: landscape) {
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-sm;
+  }
+}
+
+%result-secondary-button {
+  margin: 0;
+  padding: $spacing-sm $spacing-lg;
+  background: $color-white;
+  border: 2px solid var(--result-accent);
+  color: var(--result-accent);
+  border-radius: $radius-xl;
+  font-weight: 700;
+  font-size: $font-size-md;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  &:hover {
+    background: var(--result-accent-soft);
+    transform: scale(1.05);
+  }
+
+  @media (orientation: landscape) {
+    margin: $spacing-xs 0;
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-sm;
+  }
+}
+
+%result-mistakes-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    font-size: $font-size-xl;
+    color: var(--result-accent);
+    margin-bottom: $spacing-md;
+
+    @media (orientation: landscape) {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-xs;
+    }
+  }
+
+  .mistakes-list {
+    width: 100%;
+    max-height: 40vh;
+    overflow-y: auto;
+    margin-bottom: $spacing-md;
+    padding-right: $spacing-xs;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--result-accent);
+      border-radius: 3px;
+    }
+
+    @media (orientation: landscape) {
+      max-height: 35vh;
+    }
+  }
+
+  .incorrect-question-item {
+    background: var(--result-accent-soft);
+    border: 1px solid var(--result-accent);
+    border-radius: $radius-lg;
+    padding: $spacing-sm;
+    margin-bottom: $spacing-sm;
+    text-align: left;
+    font-size: $font-size-md;
+
+    @media (orientation: landscape) {
+      font-size: $font-size-sm;
+      padding: $spacing-xs $spacing-sm;
+    }
+
+    .incorrect-question-text {
+      color: #333;
+      margin-bottom: 4px;
+      text-align: center;
+
+      strong {
+        color: var(--result-accent);
+      }
+    }
+
+    .incorrect-answer {
+      color: #dc2626;
+
+      strong {
+        color: #dc2626;
+      }
+    }
+
+    .correct-answer {
+      color: #16a34a;
+
+      strong {
+        color: #16a34a;
+      }
+    }
+  }
+
+  .back-to-stats {
+    padding: $spacing-sm $spacing-lg;
+    background: var(--result-accent);
+    color: $color-white;
+    border: none;
+    border-radius: $radius-xl;
+    font-weight: 700;
+    cursor: pointer;
+
+    @media (orientation: landscape) {
+      padding: $spacing-xs $spacing-md;
+    }
+  }
+}

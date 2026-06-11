@@ -1,0 +1,137 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use './modal_variations' as *;
+
+.unlock-modal-overlay {
+  @include modal-overlay;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.unlock-modal-content {
+  @extend .modal-variant-info;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  @media (orientation: landscape) {
+    max-width: 85vw;
+    width: 65%;
+    padding: $spacing-md;
+
+    h2 {
+      font-size: $font-size-xl;
+      margin-bottom: $spacing-xs;
+    }
+
+    p {
+      margin: $spacing-xs 0;
+      font-size: $font-size-md;
+    }
+
+    .unlock-modal-actions {
+      margin-top: $spacing-md;
+    }
+
+    .google-play-ad {
+      margin-top: $spacing-sm;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  @media (max-height: 500px) and (orientation: landscape) {
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-sm $spacing-lg;
+
+    h2 {
+      font-size: $font-size-lg;
+    }
+
+    p {
+      font-size: $font-size-sm;
+      margin: 2px 0;
+    }
+
+    .unlock-modal-actions {
+      margin-top: $spacing-sm;
+      button {
+        padding: 0.4rem 0.8rem;
+        font-size: $font-size-sm;
+      }
+    }
+
+    .google-play-ad {
+      margin-top: $spacing-xs;
+      padding: 0.4rem 0.8rem;
+      font-size: $font-size-sm;
+    }
+  }
+
+  .unlock-modal-actions {
+    @include flex-center(row, $spacing-md);
+    justify-content: space-around;
+    margin-top: $spacing-xl;
+
+    button {
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: $radius-sm;
+      cursor: pointer;
+      font-size: $font-size-md;
+      transition: background-color $transition-fast;
+
+      &.cancel-button {
+        background-color: $color-gray-200;
+        color: $color-gray-800;
+
+        &:hover {
+          background-color: $color-gray-300;
+        }
+      }
+
+      &.confirm-button {
+        background-color: #4caf50;
+        color: $color-white;
+
+        &:hover {
+          background-color: #45a049;
+        }
+
+        &:disabled {
+          background-color: #a5d6a7;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  .google-play-ad {
+    @include flex-center(row, $spacing-sm);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    font-size: $font-size-md;
+    color: $color-white;
+    background: linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    transition: opacity $transition-fast;
+    margin-top: $spacing-md;
+    width: 100%;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+.text-red {
+  color: #ff1744 !important;
+}

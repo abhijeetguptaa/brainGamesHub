@@ -1,0 +1,389 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use './route_shared';
+
+// =============================================================================
+// ENGLISH WORDS SPELL COMPONENT
+// =============================================================================
+
+.english-words-spell {
+  @include flex-center(column);
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  background: radial-gradient(circle at top left, #f4d163 0%, #fff0f5 50%, #94d0ec 100%);
+  font-family: $font-family-primary;
+  overflow-x: hidden;
+}
+
+.task-progress-banner {
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.8);
+  padding: $spacing-xs $spacing-lg;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px $shadow-sm;
+  font-weight: bold;
+  color: $color-primary-dark;
+  border: 2px solid $color-primary-light;
+  margin-top: $spacing-md;
+}
+
+.spell-main {
+  @include flex-center(column);
+  width: 100%;
+  text-align: center;
+  gap: $spacing-xl;
+  padding: $spacing-sm;
+  z-index: 1;
+
+  &-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+}
+
+// =============================================================================
+// SHARED PLACEHOLDERS
+// =============================================================================
+
+%bubbly-box {
+  inline-size: 54px;
+  block-size: 60px;
+  border-radius: $radius-2xl;
+  @include flex-center(row);
+  user-select: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+// =============================================================================
+// IMAGE CONTAINER
+// =============================================================================
+
+.image-container {
+  background: white;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; // Organic shape
+  border: 8px solid white;
+  box-shadow: 0 15px 35px $shadow-lg;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.word-image {
+  inline-size: 160px;
+  block-size: 160px;
+  object-fit: contain;
+  font-size: 160px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+}
+
+// =============================================================================
+// LETTER SLOTS
+// =============================================================================
+
+.letter-slots-container {
+  width: 100%;
+  @include flex-center(column);
+}
+
+.letter-slots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem;
+  width: 100%;
+}
+
+.letter-slot {
+  @extend %bubbly-box;
+  background: white;
+  border: 3px dashed #ffd93d;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+
+  &.filled {
+    border-style: solid;
+    border-color: #ff9800;
+    background: #fff3e0;
+    box-shadow: 0 8px 15px rgba(255, 152, 0, 0.2);
+    transform: translateY(-5px);
+
+    .dropped-letter {
+      color: #e65100;
+      text-shadow: 0 2px 0 rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &.correct {
+    background: $color-success-bg;
+    border-color: $color-success-border;
+    animation: bounce 0.5s ease;
+
+    .dropped-letter {
+      color: $color-success-text;
+    }
+  }
+
+  &.error {
+    background: $color-error-bg;
+    border-color: $color-error-border;
+    animation: shake 0.4s ease;
+
+    .dropped-letter {
+      color: $color-error-text;
+    }
+  }
+}
+
+.dropped-letter {
+  font-size: $font-size-3xl;
+  color: $color-text-primary;
+}
+
+// =============================================================================
+// SELECTABLE LETTERS
+// =============================================================================
+
+.letters-container {
+  width: 100%;
+  @include flex-center;
+}
+
+.letters-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.selectable-letter {
+  @extend %bubbly-box;
+  font-size: $font-size-2xl;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &.disabled {
+    opacity: 0.3;
+    transform: scale(0.9) !important;
+    box-shadow: none !important;
+    filter: grayscale(0.5);
+    cursor: not-allowed;
+  }
+}
+
+// =============================================================================
+// GAME CONTROLS
+// =============================================================================
+
+.game-controls {
+  @include flex-center(row, $spacing-lg);
+  gap: $spacing-md;
+  margin-top: $spacing-md;
+}
+
+.level-btn {
+  @include button-base();
+  padding: $spacing-sm $spacing-xl;
+  font-size: $font-size-lg;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &.btn-complex {
+    background: #ffeb3b;
+    color: #f57f17;
+    border: 3px solid #fbc02d;
+  }
+
+  &.btn-easy {
+    background: #ff7043;
+    color: white;
+    border: 3px solid #e64a19;
+  }
+}
+
+// =============================================================================
+// HINT
+// =============================================================================
+
+.hint-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.hint-display {
+  background: white;
+  position: relative;
+  padding: $spacing-2xl;
+  border-radius: $radius-2xl;
+  border: 8px solid #ffd54f;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
+
+  .close-button {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: #ef5350;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    @include flex-center;
+    font-weight: bold;
+    border: 4px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      background: #d32f2f;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.hint-text {
+  margin: 0;
+  font-size: $font-size-2xl;
+  color: #5d4037;
+  font-family: 'Fredoka One', sans-serif;
+  strong {
+    color: #fbc02d;
+    font-size: $font-size-xl;
+    display: block;
+    margin-top: $spacing-sm;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+}
+
+// =============================================================================
+// LANDSCAPE ORIENTATION
+// =============================================================================
+
+@media (orientation: landscape) {
+  .spell-main {
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: $spacing-lg;
+  }
+
+  .image-container {
+    flex-shrink: 0;
+    margin-top: $spacing-xl;
+  }
+
+  .spell-main-button-container {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .letter-slots {
+    justify-content: flex-start;
+  }
+
+  .letters-grid {
+    justify-content: flex-start;
+  }
+
+  .game-controls {
+    justify-content: flex-start;
+  }
+}
+
+// =============================================================================
+// ANIMATIONS
+// =============================================================================
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+// =============================================================================
+// ERRORS
+// =============================================================================
+
+.spelling-error-line {
+  margin-top: $spacing-md;
+  color: #e53935;
+  font-weight: bold;
+  font-size: $font-size-lg;
+  animation: pop-in 0.3s ease;
+}

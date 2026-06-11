@@ -1,0 +1,209 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use './route_shared';
+
+// =============================================================================
+// CARD GAME CONTAINER
+// =============================================================================
+
+.card-game-container {
+  @include flex-center(column);
+  gap: $spacing-md;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(255, 255, 255, 0.92) 0 6%, transparent 7%),
+    radial-gradient(circle at 82% 14%, rgba(255, 255, 255, 0.85) 0 5%, transparent 6%),
+    radial-gradient(circle at 24% 82%, rgba(255, 255, 255, 0.8) 0 7%, transparent 8%),
+    linear-gradient(135deg, #fff2b8 0%, #ffd7e6 28%, #c9f6ff 62%, #dff9e4 100%);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(255, 255, 255, 0.32) 0 10%, transparent 11%),
+      radial-gradient(circle, rgba(255, 255, 255, 0.14) 0 10%, transparent 11%);
+    background-size: 88px 88px;
+    background-position:
+      0 0,
+      44px 44px;
+    opacity: 0.75;
+    pointer-events: none;
+  }
+
+  h1 {
+    font-size: $font-size-xl;
+    color: var(--color-text-primary);
+  }
+
+  h2 {
+    font-size: $font-size-lg;
+    color: var(--color-text-secondary);
+  }
+
+  @media (orientation: landscape) {
+    padding: $spacing-sm;
+    gap: $spacing-sm;
+    justify-content: center;
+  }
+
+  // =============================================================================
+  // GAME BOARD
+  // =============================================================================
+
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    gap: $spacing-sm;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: $spacing-sm;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(6px);
+
+    @media (orientation: landscape) {
+      gap: $spacing-sm;
+      min-width: 50%;
+      max-width: 95%;
+      // Ensure it doesn't get too tall
+      max-height: 85vh;
+      justify-content: center;
+    }
+  }
+}
+
+// =============================================================================
+// CARD
+// =============================================================================
+
+.card {
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 0.7;
+  background: transparent;
+  container-type: size; // Enable container queries based on card size
+  transform-origin: center center;
+  transform: rotate(var(--card-tilt, 0deg));
+  transition:
+    transform 0.18s ease,
+    opacity 0.2s ease;
+
+  @media (orientation: landscape) {
+    // width: 70px;
+    margin: 0 auto;
+  }
+
+  &:hover {
+    transform: rotate(var(--card-tilt, 0deg)) translateY(-2px) scale(1.02);
+  }
+
+  &.matched {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  // ---------------------------------------------------------------------------
+  // CARD INNER
+  // ---------------------------------------------------------------------------
+
+  .card-inner {
+    position: relative;
+    inline-size: 100%;
+    block-size: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+    box-shadow: $shadow-md;
+    border-radius: 8%;
+  }
+
+  // ---------------------------------------------------------------------------
+  // CARD FACES
+  // ---------------------------------------------------------------------------
+
+  %card-face {
+    position: absolute;
+    inset: 0;
+    @include flex-center;
+    border-radius: $radius-md;
+    border: 2px solid var(--color-border-primary);
+    backface-visibility: hidden;
+
+    background-image: url('/cardBG_1.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .card-front {
+    @extend %card-face;
+    font-size: min(60cqw, 60cqh); // Responsive question mark
+    transform: rotateY(0deg);
+  }
+
+  .card-back {
+    @extend %card-face;
+    color: var(--color-text-primary);
+    transform: rotateY(180deg);
+
+    span {
+      // Use !important to override inline styles from createCustomIcon
+      // Limit to 80% of the smallest dimension of the card
+      font-size: min(60cqw, 60cqh) !important;
+      line-height: 1;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+// =============================================================================
+// MATCH POPUP
+// =============================================================================
+
+.match-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); // Darker overlay
+  z-index: 10; // Ensure it's above other game elements
+  @include flex-center(column);
+  // Reusing existing animation from App.scss if available, otherwise just instant appearance
+  // If not defined globally, we might need to define it here or in a common place
+}
+
+.match-popup-message {
+  @include glass-effect(); // Using the mixin
+  border-radius: $radius-xl;
+  padding: 20px 40px;
+  background: $color-primary; // Using primary color for consistency
+  border: 3px solid $color-primary-dark; // A slightly darker border
+  text-align: center;
+  width: 90%; // Adjust size as needed
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); // Stronger shadow
+  color: $color-white; // White text for readability
+
+  .match-popup-icon {
+    font-size: 4rem; // Large icon
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 2rem; // Prominent spelling
+    margin: 0;
+  }
+}

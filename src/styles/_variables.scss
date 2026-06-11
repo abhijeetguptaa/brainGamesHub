@@ -1,0 +1,314 @@
+// =============================================================================
+// SHADOW VARIABLES
+// =============================================================================
+
+$shadow-xs: rgba(0, 0, 0, 0.05);
+$shadow-sm: rgba(0, 0, 0, 0.1);
+$shadow-md: rgba(0, 0, 0, 0.15);
+$shadow-lg: rgba(0, 0, 0, 0.2);
+$shadow-xl: rgba(0, 0, 0, 0.25);
+$shadow-2xl: rgba(0, 0, 0, 0.3);
+$shadow-text: rgba(0, 0, 0, 0.4);
+$shadow-white: rgba(255, 255, 255, 0.3);
+$shadow-glass: rgba(31, 38, 135, 0.37);
+
+// =============================================================================
+// SPACING VARIABLES
+// =============================================================================
+
+$spacing-xs: 0.25rem; // 4px
+$spacing-sm: 0.5rem; // 8px
+$spacing-md: 1rem; // 16px
+$spacing-lg: 1.5rem; // 24px
+$spacing-xl: 2rem; // 32px
+$spacing-2xl: 3rem; // 48px
+$spacing-3xl: 4rem; // 64px
+
+// =============================================================================
+// BORDER RADIUS VARIABLES
+// =============================================================================
+
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-2xl: 20px;
+$radius-full: 50%;
+
+// =============================================================================
+// FONT FAMILY VARIABLES
+// =============================================================================
+
+$font-family-primary: 'Baloo 2', 'Fredoka One', 'Comic Sans MS', sans-serif;
+
+// =============================================================================
+// FONT SIZE VARIABLES
+// =============================================================================
+
+$font-size-xs: 0.98rem; // 16px (was 0.75rem)
+$font-size-sm: 1.13rem; // 18px (was 0.875rem)
+$font-size-md: 1.15rem; // 18px (was 0.875rem)
+$font-size-base: 1.3rem; // 21px (was 1rem)
+$font-size-lg: 1.46rem; // 23px (was 1.125rem)
+$font-size-xl: 1.63rem; // 26px (was 1.25rem)
+$font-size-2xl: 1.95rem; // 31px (was 1.5rem)
+$font-size-3xl: 2.44rem; // 39px (was 1.875rem)
+$font-size-4xl: 2.93rem; // 47px (was 2.25rem)
+$font-size-5xl: 3.9rem; // 62px (was 3rem)
+
+// =============================================================================
+// FONT WEIGHT VARIABLES
+// =============================================================================
+
+// =============================================================================
+// TRANSITION VARIABLES
+// =============================================================================
+
+$transition-fast: 0.15s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// =============================================================================
+// Z-INDEX VARIABLES
+// =============================================================================
+
+$z-index-dropdown: 2;
+$z-index-sticky: 4;
+$z-index-fixed: 6;
+$z-index-modal-backdrop: 12;
+$z-index-modal: 15;
+$z-index-popover: 8;
+$z-index-tooltip: 10;
+
+// =============================================================================
+// BREAKPOINT VARIABLES
+// =============================================================================
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-2xl: 1400px;
+
+// =============================================================================
+// COLOR VARIABLES
+// =============================================================================
+
+// Primary Colors
+$color-primary: #4fc3f7; // bright blue
+$color-primary-light: #81d4fa;
+$color-primary-dark: #0288d1;
+$color-secondary: #ffd600; // bright yellow
+$color-secondary-light: #fff59d;
+$color-secondary-dark: #ffb300;
+
+// Accent Colors
+$color-accent-pink: #ff80ab;
+$color-accent-green: #69f0ae;
+$color-accent-orange: #ffab40;
+
+// Neutral Colors
+$color-white: #fff;
+$color-black: #000;
+$color-gray-100: #f8f9fa;
+$color-gray-200: #e9ecef;
+$color-gray-300: #dee2e6;
+$color-gray-400: #ced4da;
+$color-gray-500: #adb5bd;
+$color-gray-600: #6c757d;
+$color-gray-700: #495057;
+$color-gray-800: #343a40;
+$color-gray-900: #212529;
+
+// Text Colors
+$color-text-primary: #000;
+$color-text-secondary: #000;
+$color-text-muted: #000;
+$color-text-light: #000;
+
+// Background Colors
+$color-bg-light: #ffeeee;
+$color-bg-dark: #212529;
+$color-bg-light-hover: #e0e4e8;
+$color-bg-glass: rgba(255, 255, 255, 0.95);
+$color-bg-glass-border: rgba(255, 255, 255, 0.18);
+
+// Cursive Letter Colors
+$color-cursive-capital: #f8f9fa;
+$color-cursive-small: #e9ecef;
+
+// Status Colors
+$color-success-bg: #b9f6ca; // vivid green
+$color-success-text: #00695c;
+$color-success-border: #00e676;
+$color-error-bg: #ff8a80; // vivid red
+$color-error-text: #b71c1c;
+$color-error-border: #ff1744;
+$color-warning-bg: #ffe57f; // vivid yellow
+$color-warning-text: #ff6f00;
+$color-warning-border: #ffd600;
+
+// Border Colors
+$color-border-primary: #ccc;
+$color-border-light: #eee;
+$color-border-dark: #999;
+
+// Calculator Colors
+$color-calculator-bg-start: #191d23;
+$color-calculator-bg-end: #111318;
+$color-calculator-text: #fdfdfd;
+$color-calculator-text-muted: rgba(255, 255, 255, 0.8);
+$color-calculator-operation: rgba(255, 255, 255, 0.55);
+$color-calculator-error: #ff7676;
+$color-calculator-history-bg: rgba(15, 18, 24, 0.85);
+$color-calculator-history-border: rgba(255, 255, 255, 0.06);
+$color-calculator-key-bg: #262b33;
+$color-calculator-key-bg-active: #20252c;
+$color-calculator-key-util-bg: #343a43;
+$color-calculator-key-op-bg: #3b4e3b;
+$color-calculator-key-op-text: #b5ffb5;
+$color-calculator-key-equals-bg: #27ae60;
+
+// Download Modal Colors
+$color-modal-border: #4a90e2;
+$color-modal-bg: #f9fafd;
+$color-modal-title: #2d3a4a;
+$color-modal-footer-border: #e3e6ea;
+$color-modal-footer-bg: #f2f7fb;
+$color-modal-option-label: #3a4a5a;
+$color-modal-dropdown-bg: #f5f8fa;
+$color-modal-dropdown-border: #b5c6d6;
+$color-modal-dropdown-text: #2d3a4a;
+
+// English Colors
+$color-animation-overlay-bg: rgba(0, 0, 0, 0.7);
+$color-letter-bg: #fff5e6;
+$color-modal-overlay-bg: rgba(0, 0, 0, 0.45);
+
+// English Words Spell Colors
+$color-image-container-bg: rgba(255, 255, 255, 0.15);
+$color-image-container-border: rgba(255, 255, 255, 0.2);
+$color-control-button-bg: rgba(0, 0, 0, 0.4);
+$color-control-button-border: rgba(255, 255, 255, 0.2);
+$color-hint-bg: rgba(0, 0, 0, 0.6);
+$color-hint-border: rgba(255, 193, 7, 0.3);
+$color-hint-text-strong: #ffd700;
+$color-success-overlay-bg: rgba(0, 0, 0, 0.7);
+$color-success-message-border: rgba(255, 255, 255, 0.3);
+$color-spelling-error: #e53935;
+
+// Links and shop Colors
+$color-links-bg-start: #f5f7fa;
+$color-links-bg-end: #c3cfe2;
+$color-link-item-bg: #{$color-white};
+$color-link-item-shadow: rgba(0, 0, 0, 0.05);
+$color-link-item-hover-shadow: rgba(0, 0, 0, 0.1);
+$color-link-label: #333;
+
+// Music Toggle Colors
+$color-music-toggle-bg: rgba(24, 24, 37, 0.85);
+$color-music-toggle-border: #00fff7;
+$color-music-toggle-shadow: rgba(0, 255, 247, 0.4);
+$color-music-toggle-hover-bg: rgba(0, 255, 247, 0.2);
+$color-music-toggle-hover-shadow: rgba(0, 255, 247, 0.6);
+
+// PaintBrush Colors
+$color-paintbrush-bg: #f5f5f5;
+$color-paintbrush-controls-bg: #{$color-white};
+$color-paintbrush-controls-shadow: rgba(0, 0, 0, 0.1);
+$color-brush-types-bg: #f0f0f0;
+$color-brush-types-scrollbar-thumb: #ccc;
+$color-brush-type-button-bg: #{$color-white};
+$color-brush-type-button-hover-bg: #e9ecef;
+$color-paintbrush-color-preview-border: #eee;
+$color-paintbrush-color-preview-shadow: rgba(0, 0, 0, 0.1);
+$color-paintbrush-color-picker-bg: #{$color-white};
+$color-paintbrush-color-picker-shadow: rgba(0, 0, 0, 0.2);
+$color-paintbrush-color-picker-border: #ddd;
+$color-paintbrush-color-option-border: rgba(0, 0, 0, 0.1);
+$color-btn-clear-bg: #f44336;
+$color-btn-clear-hover-bg: #d32f2f;
+$color-btn-refresh-bg: #2196f3;
+$color-btn-refresh-hover-bg: #1976d2;
+
+// Question Box Colors
+$color-option-button-border-default: #000;
+
+// Splash Screen Colors
+$color-splash-bg-start: #74ebd5;
+$color-splash-bg-end: #acb6e5;
+$color-splash-content-bg: rgba(255, 255, 255, 0.95);
+$color-splash-content-shadow: rgba(0, 0, 0, 0.2);
+$color-splash-title: #2c3e50;
+$color-splash-description: #7f8c8d;
+$color-name-input-border: #dfe6e9;
+$color-name-input-color: #2d3436;
+$color-name-input-focus-border: #74ebd5;
+$color-name-input-focus-shadow: rgba(116, 235, 213, 0.2);
+$color-error-message: #e74c3c;
+$color-start-button-bg-start: #6dd5ed;
+$color-start-button-bg-end: #2193b0;
+$color-start-button-shadow: rgba(33, 147, 176, 0.4);
+$color-start-button-hover-shadow: rgba(33, 147, 176, 0.5);
+
+// Status Generator Colors
+$color-status-text-overlay-bg: rgba(0, 0, 0, 0.3);
+$color-filter-item-bg: #333;
+$color-status-text-bg: rgba(95, 116, 56, 0.5);
+$color-status-text: beige;
+$color-status-generator-input-border: #333;
+$color-status-generator-input-bg: #2a2d35;
+$color-status-generator-input-color: #fdfdfd;
+$color-status-generator-input-focus-border: #4a90e2;
+$color-crop-container-bg: rgba(0, 0, 0, 0.8);
+
+// Sudoku Colors
+$color-sudoku-win-message-shadow: rgba(0, 0, 0, 0.12);
+$color-sudoku-board-border: #888;
+$color-sudoku-board-shadow: rgba(0, 0, 0, 0.08);
+$color-sudoku-cell-border: #ccc;
+$color-sudoku-cell-selected-bg: #e3f2fd;
+$color-sudoku-cell-highlighted-bg: #ffe082;
+$color-sudoku-cell-wrong-bg: #ff8a80;
+$color-sudoku-cell-value: #1976d2;
+$color-sudoku-cell-value-given: #222;
+$color-sudoku-cell-notes: #888;
+
+// Table Colors
+$color-table-heading: #00ffd0;
+
+// Tic Tac Toe Colors
+$color-ttt-strike: #fff200;
+
+// User Name Display Colors
+$color-user-name-badge-bg: rgba(255, 255, 255, 0.9);
+$color-user-name-badge-shadow: rgba(0, 0, 0, 0.1);
+$color-user-name-badge-border: #a29bfe;
+$color-user-name-badge-text: #2d3436;
+$color-user-name-greeting: #6c5ce7;
+$color-user-name: #fd79a8;
+
+// Word Search Colors
+$color-wordsearch-cell-border: #dee2e6;
+$color-wordsearch-cell-selected-shadow: var(--color-primary-light, #81c784);
+$color-wordsearch-cell-found-shadow: var(--color-success-bg, #b9f6ca);
+$color-wordsearch-cell-found-underline: #43a047;
+$color-wordsearch-selection-overlay-bg: rgba(0, 123, 255, 0.25);
+$color-wordsearch-selection-overlay-shadow: rgba(0, 123, 255, 0.18);
+$color-wordsearch-table-bg: rgba(255, 255, 255, 0.85);
+$color-wordsearch-table-shadow: $shadow-lg;
+$color-wordsearch-win-button-border: #000;
+$color-wordsearch-win-button-bg: #{$color-white};
+$color-wordsearch-backdrop-bg: rgba(0, 0, 0, 0.5);
+
+// Neon Blue Colors
+$color-neon-green-start: #00251a; // A bright cyan-green
+$color-glacial-white-end: #e9fbf8; // glacial white
+
+:root {
+  --color-dropdown-bg: var(--color-bg-light, #fff);
+  --color-dropdown-text: var(--color-text-primary, #222);
+  --color-dropdown-border: var(--color-primary, #4caf50);
+  --color-dropdown-hover-bg: var(--color-primary-light, #81c784);
+  --color-dropdown-hover-text: var(--color-white, #fff);
+}

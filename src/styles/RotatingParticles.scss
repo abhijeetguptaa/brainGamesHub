@@ -1,0 +1,57 @@
+.spiral-particles-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50; // Above wheel, below some modals
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .spiral-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    animation: rotate-out 6s linear forwards;
+    will-change: transform;
+  }
+
+  .spiral-particle {
+    position: absolute;
+    opacity: 0;
+    animation: move-out 6s cubic-bezier(0.1, 0, 0.4, 1) forwards;
+    will-change: transform, opacity;
+  }
+}
+
+@keyframes rotate-out {
+  0% {
+    transform: rotate(var(--start-angle));
+  }
+  100% {
+    transform: rotate(calc(var(--start-angle) + 720deg));
+  }
+}
+
+@keyframes move-out {
+  0% {
+    transform: translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    // Reduced from 120vw to 35vw to keep particles visible on screen
+    transform: translateX(90vw) scale(2);
+    opacity: 0;
+  }
+}
