@@ -30,6 +30,8 @@
     "scoreMessage": "You have scored {{correctAnswersCount}}/{{quizRounds}}",
     "best": "Best",
     "defaultUserName": "Little Explorer",
+    "player2": "Player 2",
+    "newBestTime": "New Best Time",
     "accessibility": {
       "subjectSelection": "Subject Selection"
     },

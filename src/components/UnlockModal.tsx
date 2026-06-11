@@ -5,8 +5,6 @@ import useUnlockModalStore from '../store/useUnlockModalStore';
 import useStarStore from '../store/useStarStore';
 import '../styles/UnlockModal.scss';
 import { useTranslation } from 'react-i18next';
-// import { showSafeRewarded } from '../utils/admob.js';
-import { Toast } from '@capacitor/toast';
 import { trackFeatureUnlocked } from '../utils/analytics';
 
 const UnlockModal: React.FC = () => {
@@ -19,36 +17,6 @@ const UnlockModal: React.FC = () => {
   if (!isOpen) {
     return null;
   }
-
-  /*
-  const handleGoogleAd = async () => {
-    if (isAdLoading) return;
-    setIsAdLoading(true);
-
-    try {
-      await showSafeRewarded(); // show rewarded ad first
-      closeModal(); // Close modal AFTER ad is finished
-      onConfirm(); // Unlock the feature after ad is closed (and reward is earned)
-      trackFeatureUnlocked(featureName, 0); // Cost is 0 if unlocked via Ad
-      await Toast.show({
-        text: t('unlockModal.featureUnlocked'),
-      });
-    } catch (err) {
-      console.log('Ad failed or skipped:', err);
-      const errorCode = (err as any).code || '';
-      const message =
-        (err as any).code === 'REWARDED_NOT_EARNED'
-          ? t('unlockModal.watchFullAd')
-          : t('unlockModal.adFailed', { code: errorCode });
-
-      await Toast.show({
-        text: message,
-      });
-    } finally {
-      setIsAdLoading(false);
-    }
-  };
-  */
 
   const handleConfirm = () => {
     if (isSpendingStars) return;
@@ -84,13 +52,6 @@ const UnlockModal: React.FC = () => {
             {t('unlockModal.unlockWithStars', { cost: fixedCost })}
           </button>
         </div>
-        {/* 
-        <div className="google-play-link">
-          <button onClick={handleGoogleAd} className="google-play-ad" disabled={isAdLoading}>
-            🎬 {isAdLoading ? t('unlockModal.loadingAd') : t('unlockModal.watchAd')}
-          </button>
-        </div>
-        */}
       </div>
     </div>
   );

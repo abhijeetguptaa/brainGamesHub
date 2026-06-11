@@ -10,11 +10,6 @@
   position: relative;
   overflow: hidden;
 
-  @media (orientation: landscape) {
-    padding: $spacing-xs 0;
-    justify-content: center;
-  }
-
   &::before {
     content: '';
     position: absolute;
@@ -59,24 +54,11 @@
       max-width: 450px;
       animation: celebrate 0.6s ease-out;
 
-      @media (orientation: landscape) {
-        padding: $spacing-md $spacing-2xl;
-        border-width: 6px;
-      }
-
       p {
         font-size: 1.8rem;
         color: $color-primary-dark;
         font-weight: 900;
         margin: 0;
-
-        @media (orientation: landscape) {
-          font-size: 1.4rem;
-        }
-
-        @media (max-height: 480px) {
-          font-size: 1.2rem;
-        }
       }
 
       .multiplier-badge {
@@ -99,11 +81,6 @@
           text-transform: uppercase;
           letter-spacing: 1px;
         }
-
-        @media (max-height: 480px) {
-          font-size: 1.3rem;
-          padding: 5px 15px;
-        }
       }
     }
   }
@@ -119,11 +96,6 @@
     box-shadow:
       0 18px 40px rgba(255, 142, 80, 0.18),
       inset 0 0 15px rgba(0, 0, 0, 0.05);
-
-    @media (orientation: landscape) {
-      width: min(85vmin, 380px);
-      height: min(85vmin, 380px);
-    }
 
     // Outer glowing ring
     &::before {
@@ -147,19 +119,11 @@
       filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
       pointer-events: none;
 
-      @media (max-height: 480px) {
-        top: -10px;
-      }
-
       &::after {
         content: '👇';
         font-size: 60px;
         display: block;
         animation: finger-tap 1s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
-
-        @media (max-height: 480px) {
-          font-size: 40px;
-        }
       }
     }
 
@@ -217,10 +181,6 @@
             font-size: 2rem;
             filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.2));
             transition: transform 0.3s ease;
-
-            @media (max-height: 480px) {
-              font-size: 1.5rem;
-            }
           }
 
           .option-label {
@@ -229,10 +189,6 @@
             color: $color-white;
             background-color: transparent;
             padding: 0;
-
-            @media (max-height: 480px) {
-              font-size: 0.8rem;
-            }
           }
         }
 
@@ -282,22 +238,12 @@
       @include flex-center();
       transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-      @media (max-height: 480px) {
-        width: 70px;
-        height: 70px;
-        border-width: 6px;
-      }
-
       .center-content {
         .center-icon {
           font-size: 2.2rem;
           font-weight: 900;
           color: #ff9f43;
           text-shadow: 0 2px 0 rgba($color-white, 0.5);
-
-          @media (max-height: 480px) {
-            font-size: 1.8rem;
-          }
         }
         &::after {
           content: 'SPIN';
@@ -305,10 +251,6 @@
           font-weight: 900;
           color: #ff9f43;
           margin-top: -5px;
-
-          @media (max-height: 480px) {
-            font-size: 0.6rem;
-          }
         }
       }
 
@@ -348,18 +290,6 @@
     display: flex;
     align-items: center;
     gap: $spacing-xs;
-
-    @media (orientation: landscape) {
-      margin-top: $spacing-md;
-      padding: $spacing-xs $spacing-lg;
-      font-size: 1rem;
-    }
-
-    @media (max-height: 480px) {
-      margin-top: $spacing-xs;
-      padding: $spacing-xs $spacing-md;
-      font-size: 0.9rem;
-    }
 
     &:hover {
       transform: scale(1.05) translateY(-2px);

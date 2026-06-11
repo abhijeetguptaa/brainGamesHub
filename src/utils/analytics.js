@@ -107,7 +107,7 @@ export const logEvent = (eventName, params = {}) => {
     );
 
     // Log to console for debugging
-    if (import.meta.env.DEV || import.meta.env.VITE_ADMOB_TEST_MODE === 'true') {
+    if (import.meta.env.DEV) {
       console.log(`[Analytics Event]: ${eventName}`, params);
     }
 

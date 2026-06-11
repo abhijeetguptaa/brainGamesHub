@@ -39,12 +39,6 @@
     pointer-events: none;
   }
 
-  @media (orientation: landscape) {
-    justify-content: center;
-    max-width: 95vw;
-    width: fit-content;
-  }
-
   .sudoku-board {
     background: rgba(255, 255, 255, 0.94);
     box-shadow:
@@ -69,14 +63,6 @@
   align-items: center;
   gap: $spacing-md;
   width: 100%;
-
-  @media (orientation: landscape) {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: $spacing-xl;
-    width: auto;
-  }
 }
 
 // =============================================================================
@@ -91,11 +77,6 @@
   block-size: 96vw;
   max-inline-size: 380px;
   max-block-size: 380px;
-
-  @media (orientation: landscape) {
-    max-inline-size: min(380px, 70vh);
-    max-block-size: min(380px, 70vh);
-  }
 
   margin-inline: auto;
   overflow: hidden;
@@ -129,10 +110,6 @@
 
   border: 1px solid $color-sudoku-cell-border;
   transition: background-color 0.15s ease;
-
-  @media (orientation: landscape) {
-    font-size: min(20px, 4vh);
-  }
 
   &:focus {
     outline: none;
@@ -204,10 +181,6 @@
   text-align: center;
   color: $color-sudoku-cell-notes;
 
-  @media (orientation: landscape) {
-    font-size: min(8px, 1.5vh);
-  }
-
   pointer-events: none;
 }
 
@@ -218,13 +191,6 @@
 .sudoku-numpad {
   position: relative;
   margin-top: 0 !important;
-
-  @media (orientation: landscape) {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr);
-    gap: $spacing-sm !important;
-    padding: 0 !important;
-  }
 }
 
 .sudoku-numpad__item {
@@ -239,11 +205,6 @@
   min-height: 16px;
   margin-bottom: 2px;
   font-size: 14px;
-
-  @media (orientation: landscape) {
-    font-size: 12px;
-    min-height: 14px;
-  }
 }
 
 .sudoku-numpad-btn {
@@ -254,12 +215,6 @@
   line-height: 1rem;
   border: 2px solid transparent;
   color: rebeccapurple;
-
-  @media (orientation: landscape) {
-    inline-size: min(56px, 12vh);
-    block-size: min(56px, 12vh);
-    font-size: min(28px, 6vh);
-  }
 
   &.active {
     border-color: $color-black !important;

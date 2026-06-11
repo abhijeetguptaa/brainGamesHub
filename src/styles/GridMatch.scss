@@ -36,13 +36,6 @@
     pointer-events: none;
   }
 
-  @media (orientation: landscape) {
-    flex-direction: row-reverse;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-  }
-
   .target-board {
     display: grid;
     grid-template-columns: repeat(10, 9vw);
@@ -52,11 +45,6 @@
     border-radius: 12px;
     box-shadow: 0 16px 28px rgba(109, 147, 255, 0.12);
     touch-action: none;
-
-    @media (orientation: landscape) {
-      grid-template-columns: repeat(10, 6.5vh);
-      padding: 6px;
-    }
   }
 
   .cell {
@@ -66,18 +54,10 @@
     cursor: pointer;
     transition: background-color 0.1s;
 
-    @media (orientation: landscape) {
-      width: 6.5vh;
-      height: 6.5vh;
-    }
     &.small {
       width: 15px;
       height: 15px;
       cursor: default;
-      @media (orientation: landscape) {
-        width: min(15px, 4vh);
-        height: min(15px, 4vh);
-      }
     }
   }
 
@@ -88,12 +68,6 @@
     background: rgba(255, 255, 255, 0.72);
     border-radius: 20px;
     backdrop-filter: blur(6px);
-
-    @media (orientation: landscape) {
-      flex-direction: column;
-      height: auto;
-      justify-content: center;
-    }
   }
 
   .color-btn {
@@ -103,11 +77,6 @@
     border: 3px solid white;
     cursor: pointer;
     transition: transform 0.2s;
-
-    @media (orientation: landscape) {
-      width: min(42px, 8vh);
-      height: min(42px, 8vh);
-    }
 
     &.active {
       border-color: black;
@@ -138,13 +107,6 @@
     width: 100%;
     max-width: 400px;
 
-    @media (orientation: landscape) {
-      flex-direction: column;
-      width: auto;
-      height: 100%;
-      justify-content: center;
-    }
-
     button {
       background: linear-gradient(145deg, #67d7c8, #4cc9f0);
       color: white;
@@ -169,9 +131,5 @@
     padding: 6px;
     border-radius: 10px;
     box-shadow: 0 8px 18px rgba(109, 147, 255, 0.08);
-
-    @media (orientation: landscape) {
-      grid-template-columns: repeat(10, min(16px, 4vh));
-    }
   }
 }

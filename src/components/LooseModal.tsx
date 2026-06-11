@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { speakText } from '../utils/soundUtils';
 import '../styles/looseModal.scss';
 import { useTranslation } from 'react-i18next';
-// import { showSafeRewarded, getRewardedCooldown, MIN_TIME_BETWEEN_REWARDED } from '../utils/admob.js';
 import { Toast } from '@capacitor/toast';
 import { setScreen } from '../utils/analytics';
 import useStarStore from '../store/useStarStore';
@@ -14,14 +13,10 @@ const LooseModal = ({
   incorrectQuestions = [],
   showNewGame = false,
   onNewGame,
-  isTinySteps = false,
-  onSkipTask,
 }: any) => {
   const { t } = useTranslation();
   const { stars, spendStars } = useStarStore();
   const [isSpendingStars, setIsSpendingStars] = useState(false);
-  // const [isAdLoading, setIsAdLoading] = useState(false);
-  // const [cooldown, setCooldown] = useState(0);
   const [showMistakes, setShowMistakes] = useState(false);
   const [applauseText] = useState(() => {
     const list: any = t('common.feedback.looseMsg', { returnObjects: true });
@@ -31,29 +26,7 @@ const LooseModal = ({
   useEffect(() => {
     setScreen('LooseModal');
     speakText(applauseText);
-
-    // const initialCooldown = getRewardedCooldown();
-    // if (initialCooldown > 0) {
-    //   setCooldown(initialCooldown);
-    // }
   }, [applauseText]);
-
-  /*
-  useEffect(() => {
-    if (cooldown > 0) {
-      const timer = setInterval(() => {
-        setCooldown((prev) => {
-          if (prev <= 1) {
-            clearInterval(timer);
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-      return () => clearInterval(timer);
-    }
-  }, [cooldown]);
-  */
 
   const handleSpendStars = async () => {
     if (isSpendingStars) return;
@@ -71,9 +44,6 @@ const LooseModal = ({
         if (onWatchAdReward) {
           onWatchAdReward();
         }
-        if (isTinySteps && onSkipTask) {
-          onSkipTask();
-        }
         await Toast.show({
           text: t('unlockModal.featureUnlocked'),
         });
@@ -84,47 +54,6 @@ const LooseModal = ({
       setIsSpendingStars(false);
     }
   };
-
-  /*
-  const handleGoogleAd = async () => {
-    if (isAdLoading || cooldown > 0) return;
-    setIsAdLoading(true);
-
-    try {
-      await showSafeRewarded(); // show rewarded ad first
-      if (onWatchAdReward) {
-        onWatchAdReward();
-      }
-      if (isTinySteps && onSkipTask) {
-        onSkipTask();
-      }
-      await Toast.show({
-        text: t('unlockModal.featureUnlocked'),
-      });
-      // After success, start cooldown manually to show it immediately
-      setCooldown(MIN_TIME_BETWEEN_REWARDED / 1000); 
-    } catch (err: any) {
-      console.log('Ad failed or skipped:', err);
-      const errorCode = err.code || '';
-      const errorMessage =
-        err.code === 'REWARDED_NOT_EARNED'
-          ? t('unlockModal.watchFullAd')
-          : t('unlockModal.adFailed', { code: errorCode });
-
-      await Toast.show({
-        text: errorMessage,
-      });
-
-      // If ad failed due to cooldown or not ready, update local cooldown
-      const currentCooldown = getRewardedCooldown();
-      if (currentCooldown > 0) {
-        setCooldown(currentCooldown);
-      }
-    } finally {
-      setIsAdLoading(false);
-    }
-  };
-  */
 
   const handleNewGameClick = () => {
     if (onNewGame) onNewGame();
@@ -164,7 +93,7 @@ const LooseModal = ({
                   className="ad-reward-button"
                   disabled={isSpendingStars}
                 >
-                  🌟 {isSpendingStars ? t('unlockModal.loadingAd') : 
+                  🌟 {isSpendingStars ? t('common.loading') : 
                       `${t('common.actions.watchAdReward')} (100 🌟)`}
                 </button>
               </div>

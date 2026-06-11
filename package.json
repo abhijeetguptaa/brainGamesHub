@@ -16,7 +16,6 @@
     "android:build:test": "npm run build:test && npx cap sync && node scripts/fix-capacitor-namespace.js"
   },
   "dependencies": {
-    "@capacitor-community/admob": "^8.0.0",
     "@capacitor-community/text-to-speech": "^8.0.0",
     "@capacitor-firebase/analytics": "^8.2.0",
     "@capacitor/android": "^8.2.0",

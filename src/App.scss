@@ -46,11 +46,6 @@ body {
   margin: 0 auto;
   padding: $spacing-md;
   @include flex-center();
-
-  @media (orientation: landscape) {
-    max-width: 95vw;
-    padding: $spacing-sm;
-  }
 }
 
 // =============================================================================
@@ -191,13 +186,6 @@ body {
     filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.2));
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
-
-  @media (orientation: landscape) {
-    gap: 30px;
-    .subject-icon {
-      width: 180px;
-    }
-  }
 }
 
 .subject-icon-button {
@@ -222,10 +210,6 @@ body {
 
   opacity: 0;
   animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-  @media (orientation: landscape) {
-    width: 170px;
-    height: 180px;
-  }
 }
 
 html,

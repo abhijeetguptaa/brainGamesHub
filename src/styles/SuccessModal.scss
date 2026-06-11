@@ -29,34 +29,12 @@
   min-height: 200px;
   overflow: visible;
 
-  @media (orientation: landscape) {
-    min-height: auto;
-    max-height: 75vh;
-    overflow-y: auto;
-    width: 85%;
-    padding: $spacing-sm $spacing-md;
-
-    &::-webkit-scrollbar {
-      width: 6px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: #ff4081;
-      border-radius: 3px;
-    }
-  }
-
   h2.applause {
     display: flex;
     font-size: 2.2rem;
     color: #ff4081;
     font-weight: 900;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-
-    @media (orientation: landscape) {
-      font-size: 1.8rem;
-      margin-top: $spacing-sm;
-      margin-bottom: $spacing-xs;
-    }
   }
 
   p.success-desc {
@@ -64,11 +42,6 @@
     color: #333;
     margin: 0 0 $spacing-sm;
     font-weight: 600;
-
-    @media (orientation: landscape) {
-      font-size: 1rem;
-      margin-bottom: $spacing-xs;
-    }
   }
 
   .best-time-modal {
@@ -97,28 +70,10 @@
         color: #be185d;
       }
     }
-
-    @media (orientation: landscape) {
-      font-size: 1.1rem;
-      margin-bottom: $spacing-xs;
-      padding: 2px $spacing-md;
-
-      &.new-best {
-        font-size: 1.2rem;
-      }
-    }
   }
 
   .success-stars {
     @include flex-center(row, $spacing-md);
-
-    @media (orientation: landscape) {
-      margin-bottom: $spacing-xs;
-      gap: $spacing-sm;
-      span {
-        font-size: 2rem;
-      }
-    }
 
     span {
       font-size: 3rem;
@@ -132,11 +87,6 @@
     @include flex-center(row, $spacing-md);
     margin: $spacing-md 0;
     flex-wrap: wrap;
-
-    @media (orientation: landscape) {
-      margin: $spacing-xs 0;
-      gap: $spacing-sm;
-    }
   }
 
   .success-content-wrapper {
@@ -145,14 +95,6 @@
     flex-direction: column;
     align-items: center;
     gap: $spacing-md;
-
-    @media (orientation: landscape) {
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: $spacing-xl;
-      padding: $spacing-sm;
-    }
   }
 
   .success-main-info {
@@ -166,10 +108,6 @@
     flex: 1;
     width: 100%;
     max-width: 400px;
-
-    @media (orientation: landscape) {
-      max-width: none;
-    }
   }
 
   .new-game-button {
@@ -184,39 +122,10 @@
     width: 90%;
     max-width: 600px;
     padding: $spacing-lg;
-
-    @media (orientation: landscape) {
-      width: 80%;
-      max-height: 85vh;
-    }
   }
 
   .mistakes-container {
     @extend %result-mistakes-container;
-  }
-
-  &.has-rate-us {
-    @media (orientation: landscape) {
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: $spacing-md;
-      padding: $spacing-md $spacing-lg;
-      width: 90%;
-
-      .success-content-wrapper {
-        flex: 1.2;
-        padding: 0;
-        gap: $spacing-md;
-      }
-
-      .rate-us-section {
-        flex: 0.8;
-        margin-top: 0;
-        align-self: center;
-        max-width: 300px;
-      }
-    }
   }
 
   .rate-us-section {
@@ -243,13 +152,6 @@
 
 .close-button {
   @include close-button(#ff4081);
-  @media (orientation: landscape) {
-    top: 5px;
-    right: 5px;
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
-  }
 
   &:disabled {
     background: #ccc;
@@ -312,12 +214,6 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   padding: 1rem;
 
-  @media (orientation: landscape) {
-    width: 60%;
-    max-height: 50vh;
-    margin: 0 auto;
-  }
-
   img {
     width: 100%;
     height: 100%;
@@ -346,10 +242,6 @@
   opacity: 1;
   z-index: 1;
   pointer-events: none;
-
-  @media (orientation: landscape) {
-    width: min(50vh, 200px);
-  }
 
   img {
     width: 100%;

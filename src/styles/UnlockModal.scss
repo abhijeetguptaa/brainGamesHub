@@ -14,60 +14,6 @@
   max-height: 90vh;
   overflow-y: auto;
 
-  @media (orientation: landscape) {
-    max-width: 85vw;
-    width: 65%;
-    padding: $spacing-md;
-
-    h2 {
-      font-size: $font-size-xl;
-      margin-bottom: $spacing-xs;
-    }
-
-    p {
-      margin: $spacing-xs 0;
-      font-size: $font-size-md;
-    }
-
-    .unlock-modal-actions {
-      margin-top: $spacing-md;
-    }
-
-    .google-play-ad {
-      margin-top: $spacing-sm;
-      padding: 0.5rem 1rem;
-    }
-  }
-
-  @media (max-height: 500px) and (orientation: landscape) {
-    display: flex;
-    flex-direction: column;
-    padding: $spacing-sm $spacing-lg;
-
-    h2 {
-      font-size: $font-size-lg;
-    }
-
-    p {
-      font-size: $font-size-sm;
-      margin: 2px 0;
-    }
-
-    .unlock-modal-actions {
-      margin-top: $spacing-sm;
-      button {
-        padding: 0.4rem 0.8rem;
-        font-size: $font-size-sm;
-      }
-    }
-
-    .google-play-ad {
-      margin-top: $spacing-xs;
-      padding: 0.4rem 0.8rem;
-      font-size: $font-size-sm;
-    }
-  }
-
   .unlock-modal-actions {
     @include flex-center(row, $spacing-md);
     justify-content: space-around;

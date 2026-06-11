@@ -46,12 +46,6 @@
     color: var(--color-text-secondary);
   }
 
-  @media (orientation: landscape) {
-    padding: $spacing-sm;
-    gap: $spacing-sm;
-    justify-content: center;
-  }
-
   // =============================================================================
   // GAME BOARD
   // =============================================================================
@@ -67,15 +61,6 @@
     border-radius: 28px;
     background: rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(6px);
-
-    @media (orientation: landscape) {
-      gap: $spacing-sm;
-      min-width: 50%;
-      max-width: 95%;
-      // Ensure it doesn't get too tall
-      max-height: 85vh;
-      justify-content: center;
-    }
   }
 }
 
@@ -96,11 +81,6 @@
   transition:
     transform 0.18s ease,
     opacity 0.2s ease;
-
-  @media (orientation: landscape) {
-    // width: 70px;
-    margin: 0 auto;
-  }
 
   &:hover {
     transform: rotate(var(--card-tilt, 0deg)) translateY(-2px) scale(1.02);

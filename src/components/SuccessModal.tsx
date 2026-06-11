@@ -9,7 +9,6 @@ import { getRandomItem } from '../utils/utils';
 import { IS_TEST_MODE } from '../constants/appConstants';
 import FlyingStars from './FlyingStars';
 import SuccessModalPetals from './SuccessModalPetals';
-import { showSafeInterstitial } from '../utils/admob';
 
 const SuccessModal = ({
   handleClose,
@@ -22,7 +21,6 @@ const SuccessModal = ({
   onNewGame,
   bestTime = null,
   isNewBestTime = false,
-  disableAds = false,
 }: any) => {
   const { t } = useTranslation();
   const { addStar } = useStarStore();
@@ -134,15 +132,11 @@ const SuccessModal = ({
     action();
   };
 
-  const startExitFlow = (action: () => void, { showAd = false } = {}) => {
+  const startExitFlow = (action: () => void) => {
     if (isClosing || animationData) return;
     if (timerRef.current) cancelAnimationFrame(timerRef.current);
 
     pendingActionRef.current = action;
-
-    if (showAd && !disableAds) {
-      showSafeInterstitial();
-    }
 
     if (starsWon > 0 && !skipStarAward) {
       setAnimationData({
@@ -157,7 +151,7 @@ const SuccessModal = ({
   };
 
   const handleCloseClick = () => {
-    startExitFlow(handleClose, { showAd: true });
+    startExitFlow(handleClose);
   };
 
   const handleNewGameClick = () => {
@@ -243,9 +237,7 @@ const SuccessModal = ({
                   type="button"
                   className="level-btn btn-hard"
                   disabled={isClosing}
-                  onClick={() => {
-                    debugger;
-                  }}
+                  onClick={handleRateUs}
                 >
                   {t('successModal.rateNow')}
                 </button>

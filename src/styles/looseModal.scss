@@ -21,10 +21,6 @@
 
   .loose-icon {
     font-size: 4rem;
-
-    @media (orientation: landscape) {
-      font-size: 2.5rem;
-    }
   }
 
   h2 {
@@ -32,11 +28,6 @@
     color: #f59e0b; // Match fail color
     margin: 0 0 $spacing-md 0;
     font-weight: 900;
-
-    @media (orientation: landscape) {
-      font-size: $font-size-lg;
-      margin-bottom: $spacing-xs;
-    }
   }
 
   p {
@@ -44,26 +35,13 @@
     color: #333;
     margin: 0 0 $spacing-lg 0;
     font-weight: 600;
-
-    @media (orientation: landscape) {
-      font-size: $font-size-md;
-      margin-bottom: $spacing-xs;
-    }
   }
 
   .loose-stars {
     margin-bottom: $spacing-lg;
 
-    @media (orientation: landscape) {
-      margin-bottom: $spacing-sm;
-    }
-
     span {
       font-size: 2rem;
-
-      @media (orientation: landscape) {
-        font-size: 1.5rem;
-      }
     }
   }
 
@@ -71,11 +49,6 @@
     @include flex-center(row, $spacing-md);
     margin-bottom: $spacing-md;
     flex-wrap: wrap;
-
-    @media (orientation: landscape) {
-      margin-bottom: $spacing-sm;
-      gap: $spacing-sm;
-    }
   }
 
   .new-game-button {
@@ -90,11 +63,6 @@
     width: 90%;
     max-width: 600px;
     padding: $spacing-lg;
-
-    @media (orientation: landscape) {
-      width: 80%;
-      max-height: 85vh;
-    }
   }
 
   .mistakes-container {
@@ -104,11 +72,6 @@
   .ad-reward-container {
     margin-top: $spacing-md;
     margin-bottom: $spacing-lg;
-
-    @media (orientation: landscape) {
-      margin-top: $spacing-xs;
-      margin-bottom: $spacing-md;
-    }
 
     .ad-reward-button {
       background: linear-gradient(
@@ -146,11 +109,6 @@
         opacity: 0.6;
         cursor: not-allowed;
         background: #9ca3af;
-      }
-
-      @media (orientation: landscape) {
-        padding: $spacing-xs $spacing-md;
-        font-size: $font-size-sm;
       }
     }
 

@@ -21,11 +21,6 @@
     transform: translateY(2px);
     box-shadow: 0 2px 0 var(--result-primary-shadow);
   }
-
-  @media (orientation: landscape) {
-    padding: $spacing-xs $spacing-md;
-    font-size: $font-size-sm;
-  }
 }
 
 %result-secondary-button {
@@ -47,12 +42,6 @@
     background: var(--result-accent-soft);
     transform: scale(1.05);
   }
-
-  @media (orientation: landscape) {
-    margin: $spacing-xs 0;
-    padding: $spacing-xs $spacing-md;
-    font-size: $font-size-sm;
-  }
 }
 
 %result-mistakes-container {
@@ -65,11 +54,6 @@
     font-size: $font-size-xl;
     color: var(--result-accent);
     margin-bottom: $spacing-md;
-
-    @media (orientation: landscape) {
-      font-size: $font-size-lg;
-      margin-bottom: $spacing-xs;
-    }
   }
 
   .mistakes-list {
@@ -87,10 +71,6 @@
       background: var(--result-accent);
       border-radius: 3px;
     }
-
-    @media (orientation: landscape) {
-      max-height: 35vh;
-    }
   }
 
   .incorrect-question-item {
@@ -101,11 +81,6 @@
     margin-bottom: $spacing-sm;
     text-align: left;
     font-size: $font-size-md;
-
-    @media (orientation: landscape) {
-      font-size: $font-size-sm;
-      padding: $spacing-xs $spacing-sm;
-    }
 
     .incorrect-question-text {
       color: #333;
@@ -142,9 +117,5 @@
     border-radius: $radius-xl;
     font-weight: 700;
     cursor: pointer;
-
-    @media (orientation: landscape) {
-      padding: $spacing-xs $spacing-md;
-    }
   }
 }

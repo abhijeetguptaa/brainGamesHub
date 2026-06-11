@@ -17,47 +17,6 @@
     display: flex;
     flex-direction: column;
     gap: $spacing-md;
-
-    @media (orientation: landscape) {
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: $spacing-xl;
-      min-height: 60vh;
-    }
-  }
-
-  .quiz-left-panel {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-md;
-    align-items: center;
-    justify-content: center;
-    min-width: 0;
-
-    @media (orientation: landscape) {
-      flex: 1;
-      padding: $spacing-md;
-      background: rgba($color-primary, 0.05);
-      border-radius: $radius-2xl;
-      border: 4px dashed rgba($color-primary, 0.2);
-      height: 100%;
-    }
-  }
-
-  .quiz-right-panel {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-
-    @media (orientation: landscape) {
-      flex: 1.2;
-      height: 100%;
-    }
   }
 
   .question-container {
@@ -84,12 +43,6 @@
       background-color: $color-primary-dark;
       transform: scale(1.1);
     }
-
-    @media (orientation: landscape) {
-      width: 50px;
-      height: 50px;
-      font-size: 1.5rem;
-    }
   }
 
   .question-text {
@@ -101,19 +54,6 @@
     line-height: 1.1;
     margin: $spacing-sm 0;
     filter: drop-shadow(2px 2px 0px rgba(255, 255, 255, 0.8));
-
-    @media (orientation: landscape) {
-      font-size: clamp(40px, 12vw, 50px);
-    }
-  }
-
-  &.Subtraction {
-    .question-text {
-      font-size: clamp(40px, 12vw, 72px);
-      @media (orientation: landscape) {
-        font-size: clamp(32px, 10vw, 64px);
-      }
-    }
   }
 
   .round-info {
@@ -130,24 +70,11 @@
     background: rgba(255, 255, 255, 0.6);
     border-radius: $radius-xl;
 
-    @media (orientation: landscape) {
-      font-size: 1.1rem;
-      padding: 2px 10px;
-      margin-bottom: 4px;
-    }
-
     span {
       display: flex;
       align-items: center;
       gap: 4px;
     }
-  }
-
-  @media (orientation: landscape) {
-    padding: $spacing-md;
-    max-width: 98vw;
-    margin: 0 auto;
-    min-height: auto;
   }
 }
 
@@ -159,23 +86,6 @@
   @include grid(repeat(2, 1fr), $spacing-md);
   margin-inline: auto;
   width: 100%;
-
-  @media (orientation: landscape) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-sm;
-    width: 100%;
-  }
-}
-
-.Comparison {
-  .options-grid {
-    @include grid(repeat(3, 1fr), $spacing-md);
-
-    @media (orientation: landscape) {
-      grid-template-columns: repeat(2, 1fr);
-      max-width: 600px;
-    }
-  }
 }
 
 // =============================================================================
@@ -200,12 +110,6 @@
   box-shadow: 0 6px 0 rgba(0, 0, 0, 0.1);
 
   transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-  @media (orientation: landscape) {
-    font-size: 42px;
-    padding: $spacing-xs;
-    min-height: 65px;
-  }
 
   span {
     text-wrap: auto;
@@ -276,10 +180,6 @@
   display: flex;
   justify-content: center;
 
-  @media (orientation: landscape) {
-    margin-top: $spacing-sm;
-  }
-
   .fifty-fifty-btn {
     background: linear-gradient(180deg, $color-primary-light 0%, $color-primary 100%);
     color: white;
@@ -298,11 +198,6 @@
     align-items: center;
     gap: 10px;
     position: relative;
-
-    @media (orientation: landscape) {
-      padding: 4px 16px;
-      font-size: 1rem;
-    }
 
     &:hover:not(:disabled) {
       transform: translateY(-2px);
@@ -341,46 +236,6 @@
 }
 
 // =============================================================================
-// MATH OPTIONS
-// =============================================================================
-
-.math-options {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-
-  .dropdown {
-    width: 60%;
-  }
-}
-
-.option-group {
-  &:first-child {
-    flex: 0 0 54%;
-  }
-
-  &:last-child {
-    flex: 0 0 44%;
-  }
-}
-
-// =============================================================================
-// ASCENDING / DESCENDING
-// =============================================================================
-
-.Ascending,
-.Descending {
-  .options-grid {
-    .option-button {
-      font-size: 24px;
-      @media (orientation: landscape) {
-        font-size: 20px;
-      }
-    }
-  }
-}
-
-// =============================================================================
 // INCORRECT QUESTIONS BUTTON
 // =============================================================================
 
@@ -388,10 +243,6 @@
   margin-top: $spacing-md;
   display: flex;
   justify-content: center;
-
-  @media (orientation: landscape) {
-    margin-top: $spacing-xs;
-  }
 }
 
 .show-incorrect-btn {
@@ -405,11 +256,6 @@
   border: 2px solid $color-error-border;
   padding: $spacing-xs $spacing-md;
   font-size: $font-size-md;
-
-  @media (orientation: landscape) {
-    padding: 2px $spacing-sm;
-    font-size: $font-size-sm;
-  }
 }
 
 // =============================================================================
@@ -428,10 +274,6 @@
   width: 90%;
   max-width: 600px;
   border: 6px solid $color-primary;
-  @media (orientation: landscape) {
-    padding: $spacing-md;
-    width: 80%;
-  }
 }
 
 .modal-body {

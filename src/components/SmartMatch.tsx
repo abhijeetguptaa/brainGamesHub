@@ -49,23 +49,8 @@ const SmartMatch: React.FC = () => {
   const { triggerSparkleBurst, SparkleRenderer } = useSparkleBurst();
   const { openModal } = useUnlockModalStore();
 
-  const [isLandscape, setIsLandscape] = useState(window.innerWidth > window.innerHeight);
-
-  useEffect(() => {
-    const handleResize = debounce(() => {
-      const landscape = window.innerWidth > window.innerHeight;
-      if (landscape !== isLandscape) {
-        setIsLandscape(landscape);
-        setGameId((prev) => prev + 1);
-      }
-    }, 200);
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [isLandscape]);
-
-  const ROWS = isLandscape ? 7 : 9;
-  const COLS = isLandscape ? 9 : 7;
+  const ROWS = 9;
+  const COLS = 7;
 
   const [grid, setGrid] = useState<(SmartMatchItem | null)[][]>([]);
   const [score, setScore] = useState(0);
@@ -128,7 +113,7 @@ const SmartMatch: React.FC = () => {
   const handleSkipLevel = () => {
     if (isProcessing) return;
 
-    openModal(t('home.subjects.smartMatch.skipLevel'), 100, () => {
+    openModal(t('smartMatch.skipLevel'), 100, () => {
       if (levelIndex < LEVELS.length - 1) {
         setLevelIndex((prev) => prev + 1);
       } else {
@@ -702,7 +687,7 @@ const SmartMatch: React.FC = () => {
           } else {
             // Check if game is lost
             if (finalMovesLeft <= 0) {
-              setFailureMessage(t('home.subjects.smartMatch.failureMsg'));
+              setFailureMessage(t('smartMatch.failureMsg'));
               setShowFailure(true);
               playIncorrectSound();
             } else {
@@ -710,7 +695,7 @@ const SmartMatch: React.FC = () => {
               const possibleMoves = findPossibleMoves(workingGrid);
 
               if (possibleMoves.length === 0) {
-                setFailureMessage(t('home.subjects.smartMatch.noMovesLeft'));
+                setFailureMessage(t('smartMatch.noMovesLeft'));
                 setShowFailure(true);
                 playIncorrectSound();
               }
@@ -913,25 +898,25 @@ const SmartMatch: React.FC = () => {
           className="skip-level-top-btn"
           onClick={handleSkipLevel}
           disabled={isProcessing}
-          title={t('home.subjects.smartMatch.skipLevel')}
+          title={t('smartMatch.skipLevel')}
         >
-          ⏭️ {t('home.subjects.smartMatch.skipLevel')}
+          ⏭️ {t('smartMatch.skipLevel')}
         </button>
 
         <div className="game-header">
           <div className="header-left">
             <div className="level-info">
-              {t('home.subjects.smartMatch.level')} {currentLevel.id}
+              {t('smartMatch.level')} {currentLevel.id}
             </div>
 
             <div className="score-board">
-              {t('home.subjects.smartMatch.score')}
+              {t('smartMatch.score')}
               <span>
                 {score} / {currentTargetScore}
               </span>
             </div>
             <div className="moves-board">
-              {t('home.subjects.smartMatch.moves')}: {movesLeft}
+              {t('smartMatch.moves')}: {movesLeft}
             </div>
           </div>
 
@@ -994,7 +979,7 @@ const SmartMatch: React.FC = () => {
             }
             setGameId((prev) => prev + 1);
           }}
-          message={t('home.subjects.smartMatch.levelComplete', {
+          message={t('smartMatch.levelComplete', {
             level: currentLevel.id,
           })}
           starsWon={levelIndex * 2}

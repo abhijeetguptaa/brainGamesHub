@@ -61,24 +61,12 @@ const MemoryMatch = () => {
   /** Grid columns */
   const updateCols = useCallback(() => {
     if (!gameBoardRef.current) return;
-    const isLandscape = window.innerWidth > window.innerHeight;
-    let cols;
-
-    if (isLandscape) {
-      if (cardCount <= 4) cols = 4;
-      else if (cardCount <= 13) cols = 6;
-      else if (cardCount <= 17) cols = 8;
-      else cols = 10;
-    } else {
-      cols = cardCount < 6 ? 2 : cardCount < 13 ? 3 : 4;
-    }
+    const cols = cardCount < 6 ? 2 : cardCount < 13 ? 3 : 4;
     gameBoardRef.current.style.setProperty('--grid-cols', cols);
   }, [cardCount]);
 
   useEffect(() => {
     updateCols();
-    window.addEventListener('resize', updateCols);
-    return () => window.removeEventListener('resize', updateCols);
   }, [updateCols]);
 
   /** Generate shuffled cards */

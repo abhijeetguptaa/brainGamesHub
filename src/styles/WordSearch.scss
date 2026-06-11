@@ -27,12 +27,6 @@
     color 0.2s ease,
     box-shadow 0.2s ease;
 
-  @media (orientation: landscape) and (max-height: 500px) {
-    inline-size: min(8vh, 32px);
-    block-size: min(8vh, 32px);
-    font-size: min(4vh, 16px);
-  }
-
   &.bg-primary {
     z-index: 2;
     box-shadow: 0 0 8px 2px $color-wordsearch-cell-selected-shadow;
@@ -121,9 +115,6 @@
 
 .wordsearch-word-list {
   gap: 8px;
-  @media (orientation: landscape) and (max-height: 500px) {
-    gap: 4px;
-  }
 }
 
 .wordsearch-container {
@@ -162,18 +153,6 @@
     box-shadow: 0 10px 24px rgba(120, 180, 255, 0.14);
     padding: 0;
   }
-
-  @media (orientation: landscape) and (max-height: 500px) {
-    padding-top: 0.1rem !important;
-    padding-bottom: 0.1rem !important;
-
-    .black-bg-card {
-      margin-bottom: 0 !important;
-    }
-    .white-bg-card {
-      margin-bottom: 0 !important;
-    }
-  }
 }
 
 .wordsearch-word {
@@ -183,23 +162,12 @@
   font-weight: 600;
   letter-spacing: 1px;
 
-  @media (orientation: landscape) and (max-height: 500px) {
-    font-size: 0.9rem;
-    margin-bottom: 0.2rem;
-  }
-
   &.found {
     color: $color-success-text;
     text-decoration: line-through;
   }
 }
 
-.wordsearch-word-list {
-  gap: 8px;
-}
-
-@media (orientation: portrait) {
-  .portrait-padding {
-    padding: 10px; /* adjust as needed */
-  }
+.portrait-padding {
+  padding: 10px; /* adjust as needed */
 }

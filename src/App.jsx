@@ -1,5 +1,6 @@
 import { useState, useEffect, Suspense, lazy, useRef, useCallback } from 'react';
 import { Capacitor } from '@capacitor/core';
+import { ScreenOrientation } from '@capacitor/screen-orientation';
 import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import './index.css'; // Tailwind first
 import './App.scss';
@@ -51,13 +52,11 @@ const NOTIFICATION_PROMPT_KEY = 'notifications_prompted_v2';
 
 let soundUtilsPromise;
 let bgMusicManagerPromise;
-let admobPromise;
 let analyticsPromise;
 let notificationsPromise;
 
 const loadSoundUtils = () => (soundUtilsPromise ??= import('./utils/soundUtils'));
 const loadBgMusicManager = () => (bgMusicManagerPromise ??= import('./utils/bgMusicManager'));
-const loadAdMob = () => (admobPromise ??= import('@/utils/admob'));
 const loadAnalytics = () => (analyticsPromise ??= import('./utils/analytics'));
 const loadNotifications = () => (notificationsPromise ??= import('./utils/notifications'));
 
@@ -275,14 +274,6 @@ export default function App() {
         .then(({ initAnalytics }) => initAnalytics())
         .catch((err) => console.error('Analytics init failed:', err));
     }, 5000);
-
-    scheduleAfterFirstPaint(() => {
-      loadAdMob()
-        .then(async ({ initAdMob }) => {
-          await initAdMob();
-        })
-        .catch((err) => console.error('AdMob init failed:', err));
-    }, 3000);
   }, []);
 
   const handlePlay = async () => {
@@ -340,6 +331,12 @@ export default function App() {
   // INITIAL LOAD & GLOBAL EVENT LISTENERS
   useEffect(() => {
     trackEvent('app_open');
+
+    if (Capacitor.isNativePlatform()) {
+      ScreenOrientation.lock({ orientation: 'portrait' }).catch((err) =>
+        console.error('Failed to lock orientation:', err),
+      );
+    }
 
     // Start loading services as soon as app is visible (during Welcome screen)
     startDeferredServices();

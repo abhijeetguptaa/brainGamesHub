@@ -8,10 +8,6 @@
   width: 100%;
   justify-content: space-between;
 
-  @media (orientation: landscape) {
-    margin-bottom: $spacing-xs;
-  }
-
   .timer-display {
     font-size: 1.5rem;
     font-weight: 900;
@@ -21,11 +17,6 @@
     &.urgent {
       color: #ef4444;
       animation: heartbeat 1s ease-in-out infinite;
-    }
-
-    @media (orientation: landscape) {
-      font-size: 1.8rem;
-      padding: 2px $spacing-lg;
     }
   }
 

@@ -16,11 +16,6 @@
     0 0 30px rgba($border-color, 0.3);
   position: relative;
 
-  @media (orientation: landscape) {
-    padding: $spacing-md;
-    width: 70%;
-  }
-
   .close-button {
     background: $btn-bg-color;
     border: 3px solid white;
