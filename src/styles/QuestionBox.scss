@@ -49,11 +49,15 @@
     font-weight: 900;
     font-family: $font-family-primary;
     font-size: clamp(48px, 15vw, 80px);
-    color: $color-primary-dark;
+    color: var(--text-color, $color-primary-dark);
     white-space: nowrap;
     line-height: 1.1;
     margin: $spacing-sm 0;
     filter: drop-shadow(2px 2px 0px rgba(255, 255, 255, 0.8));
+  }
+
+  .text-red {
+    color: #ef4444 !important;
   }
 
   .round-info {
@@ -108,8 +112,14 @@
   white-space: nowrap;
   cursor: pointer;
   box-shadow: 0 6px 0 rgba(0, 0, 0, 0.1);
+  background-color: var(--btn-color);
 
   transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  &.hidden-option {
+    opacity: 0;
+    pointer-events: none;
+  }
 
   span {
     text-wrap: auto;

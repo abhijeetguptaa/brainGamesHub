@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import '../styles/Settings.scss';
 import { getGameVolume } from '../utils/soundUtils';
 import { IS_TEST_MODE } from '../constants/appConstants';
-import ParentalGate from './ParentalGate';
 import useStarStore from '../store/useStarStore';
 import { setScreen, logEvent } from '../utils/analytics';
 
@@ -18,7 +17,6 @@ const Settings = ({ userName, onNameSubmit, onClose }) => {
 
   const [name, setName] = useState(userName);
   const [volume, setVolume] = useState(getGameVolume());
-  const [parentalGate, setParentalGate] = useState({ isOpen: false, onConfirm: () => {} });
 
   const supportedLanguages = [
     'en',
@@ -71,10 +69,6 @@ const Settings = ({ userName, onNameSubmit, onClose }) => {
     onNameSubmit(nextName);
   };
 
-  const openParentalGate = (onConfirm) => {
-    setParentalGate({ isOpen: true, onConfirm });
-  };
-
   const handleShare = () => {
     logEvent('ShareAppClick');
     if (navigator.share) {
@@ -92,24 +86,6 @@ const Settings = ({ userName, onNameSubmit, onClose }) => {
     } else {
       alert(t('common.messages.shareNotSupported'));
     }
-  };
-
-  const handleRateUs = () => {
-    logEvent('RateUsClick');
-    window.open(
-      'https://play.google.com/store/apps/details?id=com.alphagaming.brainGamesHub',
-      '_blank',
-    );
-  };
-
-  const handleFacebook = () => {
-    logEvent('FacebookVisit');
-    window.open('https://www.facebook.com/profile.php?id=61587430264037', '_blank');
-  };
-
-  const handleFeedback = () => {
-    logEvent('FeedbackClick');
-    window.open('https://wa.me/919717094901', '_blank');
   };
 
   const handleVolumeChange = (e) => {
@@ -172,26 +148,30 @@ const Settings = ({ userName, onNameSubmit, onClose }) => {
           <div className="settings-actions">
             <button
               className="level-btn btn-feedback"
-              onClick={() => openParentalGate(handleFeedback)}
+              onClick={() => window.open('https://wa.me/919717094901', '_blank')}
             >
               {t('settings.feedback')} 💬
             </button>
             <button
               className="level-btn btn-facebook"
-              onClick={() => openParentalGate(handleFacebook)}
+              onClick={() =>
+                window.open('https://www.facebook.com/profile.php?id=61587430264037', '_blank')
+              }
             >
               {t('settings.facebook')}
             </button>
             {!IS_TEST_MODE && (
               <>
-                <button
-                  onClick={() => openParentalGate(handleShare)}
-                  className="level-btn btn-share"
-                >
+                <button onClick={handleShare} className="level-btn btn-share">
                   {t('settings.shareApp')}
                 </button>
                 <button
-                  onClick={() => openParentalGate(handleRateUs)}
+                  onClick={() =>
+                    window.open(
+                      'https://play.google.com/store/apps/details?id=com.alphagaming.brainGamesHub',
+                      '_blank',
+                    )
+                  }
                   className="level-btn btn-rate"
                 >
                   {t('settings.rateUs')}
@@ -200,11 +180,6 @@ const Settings = ({ userName, onNameSubmit, onClose }) => {
             )}
           </div>
         </div>
-        <ParentalGate
-          isOpen={parentalGate.isOpen}
-          onClose={() => setParentalGate({ ...parentalGate, isOpen: false })}
-          onConfirm={parentalGate.onConfirm}
-        />
       </div>
     </div>
   );

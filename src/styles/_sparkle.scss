@@ -1,5 +1,7 @@
 .sparkle {
   position: absolute;
+  left: var(--x);
+  top: var(--y);
   pointer-events: none;
   color: var(--sparkle-color, white);
   font-size: 20px;

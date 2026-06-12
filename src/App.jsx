@@ -26,6 +26,8 @@ const loadSudokuDifficultySelector = () => import('./components/SudokuDifficulty
 const SudokuDifficultySelector = lazy(loadSudokuDifficultySelector);
 const loadTicTacToe = () => import('./components/TicTacToe.jsx');
 const TicTacToe = lazy(loadTicTacToe);
+const loadTicTacToeDifficultySelector = () => import('./components/TicTacToeDifficultySelector.jsx');
+const TicTacToeDifficultySelector = lazy(loadTicTacToeDifficultySelector);
 const loadSettings = () => import('./components/Settings.jsx');
 const Settings = lazy(loadSettings);
 const loadMemoryMatch = () => import('./components/MemoryMatch.jsx');
@@ -38,6 +40,9 @@ const loadSmartMatch = () => import('./components/SmartMatch.tsx');
 const SmartMatch = lazy(loadSmartMatch);
 const loadMentalMath = () => import('./components/MentalMath.tsx');
 const MentalMath = lazy(loadMentalMath);
+const loadMentalMathDifficultySelector = () =>
+  import('./components/MentalMathDifficultySelector.tsx');
+const MentalMathDifficultySelector = lazy(loadMentalMathDifficultySelector);
 const loadStickerBook = () => import('./components/StickerBook.tsx');
 const StickerBook = lazy(loadStickerBook);
 const loadTileConnect = () => import('./components/TileConnect.tsx');
@@ -171,11 +176,7 @@ function Home() {
             aria-label={subject.title}
             title={subject.title}
             key={subject.to}
-            style={{
-              '--card-color': getCategoryColor(index),
-              '--bg-color': getCategoryBGColor(index),
-              animationDelay: `${index * 0.05}s`,
-            }}
+            style={{ '--index': index } as React.CSSProperties}
           >
             <img className="subject-icon subject-icon--img" src={subject.src} alt={subject.label} />
             <div className="gameName">{subject.label}</div>
@@ -474,11 +475,12 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/wordsearch" element={<WordSearchDifficultySelector />} />
           <Route path="/wordsearch/:difficulty" element={<WordSearch />} />
-          <Route path="/mental-math" element={<MentalMath />} />
+          <Route path="/mental-math" element={<MentalMathDifficultySelector />} />
           <Route path="/mental-math/:difficulty" element={<MentalMath />} />
           <Route path="/sudoku" element={<SudokuDifficultySelector />} />
           <Route path="/sudoku/:difficulty" element={<Sudoku />} />
-          <Route path="/tictactoe" element={<TicTacToe userName={userName} />} />
+          <Route path="/tictactoe" element={<TicTacToeDifficultySelector />} />
+          <Route path="/tictactoe/:difficulty" element={<TicTacToe userName={userName} />} />
           <Route path="/memory-match" element={<MemoryMatch />} />
           <Route path="/tile-connect" element={<TileConnect />} />
           <Route path="/gridMatch" element={<GridMatch />} />

@@ -53,12 +53,26 @@
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.1s;
+    background-color: var(--cell-color);
+    position: relative;
 
     &.small {
       width: 15px;
       height: 15px;
       cursor: default;
     }
+  }
+
+  .hint-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--hint-color);
+    opacity: 0.3;
+    border-radius: 50%;
+    pointer-events: none;
   }
 
   .palette-column {
@@ -77,6 +91,7 @@
     border: 3px solid white;
     cursor: pointer;
     transition: transform 0.2s;
+    background-color: var(--btn-color);
 
     &.active {
       border-color: black;

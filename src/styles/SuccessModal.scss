@@ -80,6 +80,12 @@
       filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
       display: inline-block;
       animation: star-bounce 1s ease-in-out infinite alternate;
+
+      &.streak-count-text {
+        font-size: 1.5rem;
+        animation: none;
+        filter: none;
+      }
     }
   }
 
@@ -148,6 +154,7 @@
 .letter {
   display: inline-block;
   animation: waveText 1.5s ease-in-out infinite;
+  animation-delay: calc(var(--delay) * 0.1s);
 }
 
 .close-button {

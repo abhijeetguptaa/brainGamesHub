@@ -52,7 +52,7 @@
 
   .game-board {
     display: grid;
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-template-columns: repeat(var(--grid-cols, 4), 1fr);
     gap: $spacing-sm;
     width: 100%;
     max-width: 1000px;
@@ -61,6 +61,16 @@
     border-radius: 28px;
     background: rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(6px);
+
+    &.cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &.cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    &.cols-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 }
 

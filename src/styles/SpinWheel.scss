@@ -134,6 +134,7 @@
       border: 8px solid #f7f1e3;
       position: relative;
       transition: transform 8s cubic-bezier(0.1, 0, 0.2, 1);
+      transform: rotate(var(--rotation));
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 

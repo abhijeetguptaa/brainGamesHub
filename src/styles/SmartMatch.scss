@@ -260,6 +260,7 @@
       touch-action: none;
       user-select: none;
       -webkit-user-drag: none;
+      z-index: var(--z-index);
 
       &.selected {
         background: #e0f2fe;
@@ -337,6 +338,7 @@
         align-items: center;
         justify-content: center;
         pointer-events: none;
+        color: var(--item-color);
       }
     }
   }

@@ -15,14 +15,10 @@ import {
   shuffleBoardPartial,
 } from '../utils/matchingAlgorithm';
 import type { Board, Point } from '../utils/matchingAlgorithm';
-import {
-  playTapSound,
-  playMatchBurstSound,
-  playIncorrectSound,
-  playSparklePop,
-} from '../utils/soundUtils';
+import { playTapSound, playMatchBurstSound, playIncorrectSound, playSparklePop } from '../utils/soundUtils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { trackExerciseComplete } from '../utils/analytics';
+import '../styles/TileConnect.scss';
 
 const EMOJI_ICONS = [
   '🍎',
@@ -297,17 +293,15 @@ const TileConnectBoard = forwardRef<TileConnectBoardHandle, TileConnectBoardProp
             : { x: 0, rotate: 0 }
         }
         transition={{ duration: 0.4 }}
-        className="grid relative overflow-visible mt-4 mb-4"
-        style={{
-          // Ultra-thin rim to maximize space
-          gridTemplateRows: `15px repeat(${rows}, minmax(0, 1fr)) 15px`,
-          gridTemplateColumns: `15px repeat(${cols}, minmax(0, 1fr)) 15px`,
-          width: '98vw',
-          height: 'calc(98vh - 120px)',
-          maxWidth: (cols + 2) * 120 + 'px', // Sanity limit for huge screens
-          maxHeight: (rows + 2) * 120 + 'px',
-          gap: '4px',
-        }}
+        className="tile-connect-grid"
+        style={
+          {
+            '--rows': rows,
+            '--cols': cols,
+            '--max-width': (cols + 2) * 120 + 'px',
+            '--max-height': (rows + 2) * 120 + 'px',
+          } as React.CSSProperties
+        }
       >
         {board.map((row, r) =>
           row.map((type, c) => {
@@ -329,18 +323,19 @@ const TileConnectBoard = forwardRef<TileConnectBoardHandle, TileConnectBoardProp
                       transition={{
                         duration: 0.2,
                       }}
-                      className="w-full h-full rounded-2xl border-[3px] sm:border-4 flex items-center justify-center select-none shadow-md"
-                      style={{
-                        fontSize: `${fontSize}px`,
-                        borderColor:
-                          (selectedTile?.x === r && selectedTile?.y === c) ||
-                          (matchingPair?.p1.x === r && matchingPair?.p1.y === c) ||
-                          (matchingPair?.p2.x === r && matchingPair?.p2.y === c)
-                            ? '#000'
-                            : TILE_COLORS[(type - 1) % TILE_COLORS.length],
-                        backgroundColor: '#fff',
-                        zIndex: selectedTile?.x === r && selectedTile?.y === c ? 10 : 1,
-                      }}
+                      className="tile-inner-card"
+                      style={
+                        {
+                          '--font-size': `${fontSize}px`,
+                          '--border-color':
+                            (selectedTile?.x === r && selectedTile?.y === c) ||
+                            (matchingPair?.p1.x === r && matchingPair?.p1.y === c) ||
+                            (matchingPair?.p2.x === r && matchingPair?.p2.y === c)
+                              ? '#000'
+                              : TILE_COLORS[(type - 1) % TILE_COLORS.length],
+                          '--z-index': selectedTile?.x === r && selectedTile?.y === c ? 10 : 1,
+                        } as React.CSSProperties
+                      }
                     >
                       <motion.span
                         initial={{ scale: 0 }}
@@ -370,10 +365,7 @@ const TileConnectBoard = forwardRef<TileConnectBoardHandle, TileConnectBoardProp
         )}
 
         <div className="absolute inset-0 pointer-events-none z-50 overflow-visible">
-          <svg
-            className="w-full h-full overflow-visible"
-            style={{ position: 'absolute', top: 0, left: 0 }}
-          >
+          <svg className="w-full h-full overflow-visible">
             {path && (
               <g>
                 <motion.polyline

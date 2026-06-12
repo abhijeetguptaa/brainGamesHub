@@ -85,7 +85,7 @@ const DailyBonusModal: React.FC = () => {
           <h2 className="applause">🎁 {t('retention.dailyBonus')}</h2>
           <div className="success-stars">
             <span>🔥</span>
-            <span style={{ fontSize: '1.5rem' }}>
+            <span className="streak-count-text">
               {streakCount} {t('retention.dayStreak')}
             </span>
           </div>

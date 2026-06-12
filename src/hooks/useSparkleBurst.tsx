@@ -57,8 +57,8 @@ export const SparkleRenderer = memo(() => {
           className="sparkle"
           style={
             {
-              left: s.x,
-              top: s.y,
+              '--x': `${s.x}px`,
+              '--y': `${s.y}px`,
               '--dx': s.dx,
               '--dy': s.dy,
               '--sparkle-color': s.color,

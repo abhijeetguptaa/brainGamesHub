@@ -22,11 +22,11 @@ const LockIcon = () => (
   </div>
 );
 
-const DifficultySelection = ({ difficulties, baseRoute }) => {
+const DifficultySelection = ({ difficulties, baseRoute, onSelect, className = '' }) => {
   const navigate = useNavigate();
 
   return (
-    <div className={`kids-bg flex-center column difficulty-selection`}>
+    <div className={`kids-bg flex-center column difficulty-selection ${className}`}>
       <div className="difficulty-grid">
         {difficulties.map((d) => (
           <motion.div
@@ -34,10 +34,12 @@ const DifficultySelection = ({ difficulties, baseRoute }) => {
             whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.05 }}
             className={`difficulty-card ${d.locked ? 'locked' : ''}`}
-            style={{ background: d.color }}
+            style={{ '--difficulty-color': d.color }}
             onClick={() => {
               if (d.locked && d.onClick) {
                 d.onClick();
+              } else if (onSelect) {
+                onSelect(d.key);
               } else {
                 navigate(d.path || `${baseRoute}/${d.key}`);
               }

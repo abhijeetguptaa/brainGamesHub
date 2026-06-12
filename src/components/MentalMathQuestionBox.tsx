@@ -333,15 +333,13 @@ const MentalMathQuestionBox = ({ complexity }: { complexity: string }) => {
               {t('questionBox.correct')} {correctAnswersCount}
             </span>
             <span
-              style={{
-                color: incorrectAnswersCount >= maxIncorrectAnswers - 1 ? 'red' : 'inherit',
-              }}
+              className={incorrectAnswersCount >= maxIncorrectAnswers - 1 ? 'text-red' : ''}
             >
               {t('questionBox.incorrect')} {incorrectAnswersCount} / {maxIncorrectAnswers}
             </span>
           </div>
 
-          <div className="question-text" style={{ color: questionTextColor }}>
+          <div className="question-text" style={{ '--text-color': questionTextColor } as React.CSSProperties}>
             {questionText}
           </div>
         </div>
@@ -365,12 +363,11 @@ const MentalMathQuestionBox = ({ complexity }: { complexity: string }) => {
                       : 'incorrect'
                     : ''
                 }
+                ${hiddenOptions.includes(index) ? 'hidden-option' : ''}
               `}
                   style={{
-                    backgroundColor: optionColors[index],
-                    opacity: hiddenOptions.includes(index) ? 0 : 1,
-                    pointerEvents: hiddenOptions.includes(index) ? 'none' : 'auto',
-                  }}
+                    '--btn-color': optionColors[index],
+                  } as React.CSSProperties}
                 >
                   <span>{option}</span>
                 </button>

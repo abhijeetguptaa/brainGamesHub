@@ -58,17 +58,6 @@ const MemoryMatch = () => {
     isCheckingRef.current = isChecking;
   }, [isChecking]);
 
-  /** Grid columns */
-  const updateCols = useCallback(() => {
-    if (!gameBoardRef.current) return;
-    const cols = cardCount < 6 ? 2 : cardCount < 13 ? 3 : 4;
-    gameBoardRef.current.style.setProperty('--grid-cols', cols);
-  }, [cardCount]);
-
-  useEffect(() => {
-    updateCols();
-  }, [updateCols]);
-
   /** Generate shuffled cards */
   const generateCards = useCallback(() => {
     const numPairs = cardCount / 2;
@@ -218,9 +207,14 @@ const MemoryMatch = () => {
     }
   }, [allMatched, solvedCount, cards.length]);
 
+  /** Grid columns class */
+  const gridColsClass = useMemo(() => {
+    return cardCount < 6 ? 'cols-2' : cardCount < 13 ? 'cols-3' : 'cols-4';
+  }, [cardCount]);
+
   return (
     <div className="card-game-container">
-      <div ref={gameBoardRef} className="game-board">
+      <div ref={gameBoardRef} className={`game-board ${gridColsClass}`}>
         {cards.map((card, i) => (
           <Card
             key={card.id}
@@ -255,10 +249,8 @@ const Card = memo(function Card({ index, card, isFlipped, onClick, cardRefs, que
       ref={(el) => (cardRefs.current[index] = el)}
       className={`card ${isFlipped ? 'flipped' : ''} ${card.isMatched ? 'matched' : ''}`}
       onClick={() => onClick(index)}
-      aria-hidden={card.isMatched}
       style={{
         '--card-tilt': cardTilt,
-        pointerEvents: card.isMatched ? 'none' : 'auto',
       }}
     >
       {!card.isMatched && (

@@ -213,7 +213,7 @@ const SpinWheel: React.FC = () => {
           className={`wheel ${isAutoplay ? 'is-autoplay' : ''}`}
           ref={wheelInnerRef}
           onTransitionEnd={handleWheelTransitionEnd}
-          style={{ transform: `rotate(${rotation}deg)` }}
+          style={{ '--rotation': `${rotation}deg` } as React.CSSProperties}
         >
           {options.map((option, index) => (
             <div key={index} className="segment">

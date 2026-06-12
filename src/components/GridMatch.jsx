@@ -130,7 +130,7 @@ export default function GridMatch() {
             <div
               key={i}
               className="cell"
-              style={{ backgroundColor: c, position: 'relative' }}
+              style={{ '--cell-color': c } as React.CSSProperties}
               onMouseDown={() => {
                 setIsPainting(true);
                 paint(r, col);
@@ -159,17 +159,8 @@ export default function GridMatch() {
             >
               {showHint && hintColor !== COLORS.empty && (
                 <div
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    backgroundColor: hintColor,
-                    opacity: 0.3,
-                    borderRadius: '50%',
-                    pointerEvents: 'none',
-                  }}
+                  className="hint-overlay"
+                  style={{ '--hint-color': hintColor } as React.CSSProperties}
                 />
               )}
             </div>
@@ -181,7 +172,7 @@ export default function GridMatch() {
           <button
             key={c}
             className={`color-btn ${selected === c ? 'active' : ''}`}
-            style={{ backgroundColor: c }}
+            style={{ '--btn-color': c } as React.CSSProperties}
             onClick={() => {
               playTapSound();
               setSelected(c);
@@ -211,7 +202,11 @@ export default function GridMatch() {
         </button>
         <div className="reference-board">
           {reference.flat().map((c, i) => (
-            <div key={i} className="cell small" style={{ backgroundColor: c }} />
+            <div
+              key={i}
+              className="cell small"
+              style={{ '--cell-color': c } as React.CSSProperties}
+            />
           ))}
         </div>
         <button

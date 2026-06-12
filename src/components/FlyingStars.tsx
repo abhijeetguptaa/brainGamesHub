@@ -74,8 +74,8 @@ const FlyingStars: React.FC<FlyingStarsProps> = ({
           onAnimationEnd={() => handleStarEnd(star.id)}
           style={
             {
-              left: star.startX,
-              top: star.startY,
+              '--start-x': `${star.startX}px`,
+              '--start-y': `${star.startY}px`,
               animationDelay: `${star.delayMs}ms`,
               '--target-x': `${window.innerWidth - 60}px`,
               '--target-y': `${20}px`,

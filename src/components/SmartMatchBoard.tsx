@@ -85,7 +85,7 @@ const SmartMatchCell = memo(function SmartMatchCell({
         cellRefs.current[`${row}-${col}`] = el;
       }}
       className={`board-cell ${isSelected ? 'selected' : ''} ${isMatching ? 'is-matching' : ''} ${isHint ? 'is-hint' : ''} ${item?.special ? `is-special is-special-${item.special}` : ''}`}
-      style={{ zIndex }}
+      style={{ '--z-index': zIndex } as React.CSSProperties}
       onClick={() => onCellClick(row, col)}
       drag={!isProcessing}
       dragConstraints={{ left: -60, right: 60, top: -60, bottom: 60 }}
@@ -113,7 +113,10 @@ const SmartMatchCell = memo(function SmartMatchCell({
       }}
     >
       {item && (
-        <span className="item-emoji" style={{ color: item.color }}>
+        <span
+          className="item-emoji"
+          style={{ '--item-color': item.color } as React.CSSProperties}
+        >
           {item.emoji}
         </span>
       )}

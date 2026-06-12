@@ -1,8 +1,15 @@
+@use 'sass:list';
 @use './styles/variables' as *;
 @use './styles/mixins' as *;
 @use './styles/utilities' as *;
 @use './styles/Buttons.scss';
 @use './styles/_sparkle.scss';
+
+$category-colors: #FF3B3B, #C94FD6, #1DA1C1, #F4C542, #7D3CB5, #FF7A00, #FF66D9, #2E86FF, #4B00C9, #C97C7C,
+  #5DD39E;
+$category-bg-colors: rgba(255, 220, 220, 1), rgba(248, 235, 249, 1), rgba(220, 240, 248, 1),
+  rgba(255, 248, 230, 1), rgba(235, 225, 245, 1), rgba(255, 235, 215, 1), rgba(255, 235, 250, 1),
+  rgba(225, 240, 255, 1), rgba(225, 220, 248, 1), rgba(248, 235, 235, 1), rgba(235, 250, 245, 1);
 
 // =============================================================================
 // ROOT STYLES
@@ -210,6 +217,14 @@ body {
 
   opacity: 0;
   animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: calc(var(--index) * 0.05s);
+
+  @for $i from 1 through 11 {
+    &:nth-child(11n + #{$i}) {
+      --card-color: #{list.nth($category-colors, $i)};
+      --bg-color: #{list.nth($category-bg-colors, $i)};
+    }
+  }
 }
 
 html,
