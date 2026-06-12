@@ -1,0 +1,221 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.wordsearch-container {
+  padding: $spacing-md;
+  width: 100%;
+  max-width: $max-width-content;
+  margin: 0 auto;
+  min-height: 80vh;
+  @include flex-center;
+}
+
+.wordsearch-layout {
+  width: 100%;
+  @include flex-center;
+}
+
+.wordsearch-content {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.black-bg-card {
+  @include glass-panel;
+  background: $color-bg-secondary;
+  padding: $spacing-md;
+  width: 100%;
+}
+
+.wordsearch-card-body {
+  width: 100%;
+}
+
+.wordsearch-header {
+  margin-bottom: $spacing-md;
+  
+  .wordsearch-controls {
+    width: 100%;
+    @include flex-center(row, $spacing-md);
+    
+    .wordsearch-timer {
+      background-color: $color-bg-primary;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $radius-md;
+      font-weight: 700;
+      color: $color-primary;
+      box-shadow: $shadow-soft;
+      border: 1px solid darken($color-bg-primary, 5%);
+      min-width: 80px;
+      text-align: center;
+    }
+    
+    .wordsearch-btn {
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $radius-md;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      background-color: $color-primary;
+      color: $color-white;
+      box-shadow: $shadow-button;
+      transition: all 0.2s ease;
+
+      &:hover {
+        transform: translateY(-1px);
+        background-color: darken($color-primary, 5%);
+        box-shadow: $shadow-soft;
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+.wordsearch-game-area {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  @media (min-width: $breakpoint-tablet) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.wordsearch-grid-column {
+  flex: 2;
+  width: 100%;
+}
+
+.wordsearch-list-column {
+  flex: 1;
+  width: 100%;
+}
+
+.wordsearch-table-wrapper {
+  position: relative;
+  background: $color-bg-primary;
+  border-radius: $radius-lg;
+  padding: $spacing-sm;
+  overflow: hidden;
+  @include flex-center;
+  box-shadow: inset $shadow-soft;
+}
+
+.wordsearch-svg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.wordsearch-table {
+  border-collapse: collapse;
+  width: 100%;
+  aspect-ratio: 1;
+  table-layout: fixed;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+
+  .wordsearch-cell {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $color-text-main;
+    text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.1s;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+
+    &:hover {
+      background-color: rgba($color-primary, 0.05);
+    }
+
+    &.highlight-from-list {
+      background-color: rgba($color-warning, 0.15);
+    }
+  }
+
+  @include mobile {
+    .wordsearch-cell {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.wordsearch-word-list-card {
+  background: $color-bg-primary;
+  border-radius: $radius-lg;
+  padding: $spacing-sm;
+  
+  .card-body {
+    padding: 0;
+  }
+}
+
+.wordsearch-word-list {
+  @include flex-center(row, $spacing-xs);
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  .wordsearch-word-list-item {
+    .wordsearch-word {
+      display: inline-block;
+      padding: 6px $spacing-sm;
+      background: $color-white;
+      border-radius: $radius-full;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: $color-text-main;
+      cursor: pointer;
+      box-shadow: $shadow-button;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+
+      &:hover {
+        @include card-hover;
+        border-color: rgba($color-primary, 0.2);
+      }
+
+      &.found {
+        background: $color-accent;
+        color: $color-white;
+        text-decoration: line-through;
+        opacity: 0.7;
+        box-shadow: none;
+        transform: none !important;
+      }
+    }
+  }
+}
+
+.wordsearch-matched-emoji-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8rem;
+  pointer-events: none;
+  animation: emoji-pop 1s ease forwards;
+}
+
+@keyframes emoji-pop {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  20% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  80% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+.wordsearch-minw-70 {
+  min-width: 80px;
+  font-family: monospace;
+}

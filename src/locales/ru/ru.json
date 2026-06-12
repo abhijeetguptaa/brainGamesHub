@@ -15,7 +15,7 @@
     "isFor": "{{letter}} is for {{word}}"
   },
   "app": {
-    "description": "Посмотрите это классное приложение для изучения математики, решения пазлов, раскрашивания и многого другого!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Нажмите еще раз «назад», чтобы выйти",
     "title": "Brain Games Hub",
     "orientationLockError": "Блокировка поворота экрана недоступна на этом устройстве."
@@ -357,12 +357,6 @@
       "18": "Восемнадцать",
       "19": "Девятнадцать",
       "20": "Двадцать"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Раскрашенный холст",
-      "reference": "Образец"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1266,6 @@
     "unlockWithStars": "Использовать {{cost}} ⭐",
     "watchFullAd": "Пожалуйста, посмотри рекламу до конца, чтобы разблокировать эту функцию.",
     "adFailed": "Не удалось загрузить рекламу ({{code}}). Пожалуйста, попробуй еще раз позже или используй монеты."
-  },
-  "learningPath": {
-    "title": "Карта приключений",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Цель: {{count}})",
-    "levelCompleteMessage": "Уровень пройден",
-    "skipLevel": "Посмотреть рекламу, чтобы пропустить",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Поля Основания",
-      "expanding": "🌲 Расширяющиеся леса",
-      "challenging": "🏔️ Пики испытаний",
-      "mastery": "🌊 Океан мастерства",
-      "grandmaster": "✨ Галактика гроссмейстеров",
-      "cosmic": "🚀 Космический путешественник",
-      "deepsea": "🐙 Открытия в морских глубинах",
-      "jungle": "🌿 Путешествие по джунглям",
-      "ancient": "🏺 Древние руины",
-      "legend": "👑 Абсолютная легенда",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Time to play! 🌟",

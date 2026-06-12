@@ -265,7 +265,7 @@ const SuccessModal = ({
               ))}
             </div>
             <button
-              className="nav-button nav-button--back mx-auto mb-4"
+              className="nav-button nav-button--back"
               onClick={() => setShowMistakes(false)}
             >
               <span className="text-white text-2xl rotate-180">➜</span>

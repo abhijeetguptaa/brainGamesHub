@@ -1,0 +1,155 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.tic-tac-toe-wrapper {
+  @include flex-center(column, $spacing-md);
+  padding: $spacing-md;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  .tic-tac-toe-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $color-text-main;
+    margin-bottom: $spacing-md;
+  }
+
+  .ttt-game-container {
+    width: 100%;
+    @include flex-center(column, $spacing-md);
+  }
+
+  .ttt-info-section {
+    width: 100%;
+    @include flex-center(column, $spacing-sm);
+
+    .ttt-score-container {
+      width: 100%;
+      @include flex-center(row, $spacing-sm);
+      flex-wrap: wrap;
+    }
+
+    .score-box, .timer-box {
+      background-color: $color-bg-secondary;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $radius-md;
+      box-shadow: $shadow-soft;
+      border: 1px solid darken($color-bg-primary, 5%);
+      font-size: 1rem;
+      color: $color-text-main;
+      display: flex;
+      gap: $spacing-xs;
+      
+      .player-label, .timer-label {
+        font-weight: 700;
+        color: $color-text-muted;
+      }
+
+      .score-value, .timer-value {
+        font-weight: 800;
+        color: $color-primary;
+      }
+    }
+
+    .ttt-timer-container {
+      width: 100%;
+      @include flex-center(row);
+    }
+
+    .timer-box {
+      border-color: $color-secondary;
+      
+      .timer-value.critical {
+        color: $color-error;
+        animation: pulse-red 1s infinite;
+      }
+    }
+  }
+
+  .ttt-board-wrapper {
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 400px;
+    background-color: $color-bg-secondary;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-deep;
+    padding: $spacing-sm;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ttt-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: $spacing-sm;
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .ttt-cell {
+      background-color: $color-bg-primary;
+      border: none;
+      border-radius: $radius-lg;
+      font-size: 3rem;
+      font-weight: 800;
+      cursor: pointer;
+      @include flex-center;
+      transition: all 0.2s ease;
+
+      &:hover:not(:disabled) {
+        background-color: darken($color-bg-primary, 5%);
+        transform: translateY(-2px);
+        box-shadow: $shadow-soft;
+      }
+
+      &:active:not(:disabled) {
+        transform: translateY(0);
+      }
+
+      &:disabled {
+        cursor: default;
+      }
+
+      &.x-purple {
+        color: $color-secondary;
+      }
+
+      &.o-cyan {
+        color: $color-primary;
+      }
+    }
+
+    .ttt-strike {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      
+      line {
+        stroke: $color-accent;
+        stroke-width: 0.1;
+        stroke-linecap: round;
+        filter: drop-shadow(0 0 5px rgba($color-accent, 0.5));
+      }
+    }
+  }
+
+  @include mobile {
+    .ttt-board-wrapper {
+      max-width: 90vw;
+    }
+    
+    .ttt-cell {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+@keyframes pulse-red {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}

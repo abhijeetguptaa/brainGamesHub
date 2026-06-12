@@ -37,7 +37,7 @@ const WordSearchCell = memo(function WordSearchCell({
 }) {
   return (
     <td
-      className={`text-center align-middle p-0 wordsearch-cell ${isHighlighted ? 'highlight-from-list' : ''}`}
+      className={`wordsearch-cell ${isHighlighted ? 'highlight-from-list' : ''}`}
       onMouseDown={() => onCellMouseDown(rowIdx, colIdx)}
       onMouseEnter={() => onCellMouseEnter(rowIdx, colIdx)}
       onMouseUp={onCellMouseUp}
@@ -425,28 +425,28 @@ const WordSearch = () => {
   );
 
   return (
-    <div className="py-md-4 vertical-center wordsearch-container">
-      <div className="row justify-content-center w-100">
-        <div className="col-12 col-md-10 col-lg-8">
+    <div className="wordsearch-container">
+      <div className="wordsearch-layout">
+        <div className="wordsearch-content">
           {win && <SuccessModal handleClose={handleWinModalClose} message="" starsWon={4} />}
           <div className="black-bg-card">
-            <div className="card-body">
-              <div className="d-flex flex-wrap align-items-center justify-content-between portrait-padding">
-                <div className="d-flex w-100 align-items-center justify-around">
-                  <div className="btn btn-info fs-5 wordsearch-minw-70 py-1">
+            <div className="wordsearch-card-body">
+              <div className="wordsearch-header">
+                <div className="wordsearch-controls">
+                  <div className="wordsearch-timer wordsearch-minw-70">
                     {formatElapsedTime(timer)}
                   </div>
 
-                  <button className="btn btn-primary" onClick={restartGame}>
+                  <button className="wordsearch-btn btn-primary" onClick={restartGame}>
                     {t('common.newGame')}
                   </button>
                 </div>
               </div>
 
-              <div className="row align-items-center">
-                <div className="col-sm-7 col-md-8 mb-2 mb-sm-0">
+              <div className="wordsearch-game-area">
+                <div className="wordsearch-grid-column">
                   <div
-                    className="table-responsive wordsearch-table-wrapper"
+                    className="wordsearch-table-wrapper"
                     onMouseLeave={() => {
                       setIsSelecting(false);
                       setSelectedCells([]);
@@ -484,7 +484,7 @@ const WordSearch = () => {
                     </svg>
 
                     <table
-                      className="table table-bordered wordsearch-table user-select-none"
+                      className="wordsearch-table user-select-none"
                       ref={gridRef}
                       onTouchStart={handleTouchStart}
                       onTouchMove={handleTouchMove}
@@ -495,10 +495,10 @@ const WordSearch = () => {
                   </div>
                 </div>
 
-                <div className="col-sm-5 col-md-4">
-                  <div className="white-bg-card bg-light mb-2">
-                    <div className="card-body p-2">
-                      <ul className="list-unstyled mb-0 d-flex flex-wrap align-items-center justify-content-around wordsearch-word-list">
+                <div className="wordsearch-list-column">
+                  <div className="wordsearch-word-list-card">
+                    <div className="card-body">
+                      <ul className="wordsearch-word-list">
                         {renderedWordList}
                       </ul>
                     </div>

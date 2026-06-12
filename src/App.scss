@@ -1,0 +1,104 @@
+@use './styles/variables' as *;
+@use './styles/mixins' as *;
+@use './styles/animations' as *;
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: $color-bg-primary;
+}
+
+.landing-page {
+  flex: 1;
+  padding: $spacing-xl $spacing-md;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.subject-selection {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: $spacing-md;
+  width: 100%;
+  max-width: $max-width-content;
+  margin: 0 auto;
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-sm;
+  }
+}
+
+// Global Category Colors Logic
+$category-colors: $color-primary, $color-secondary, $color-accent, $color-success, $color-warning, $color-primary-dark, #7209b7, #4cc9f0, #ff006e, #3a0ca3, #4361ee;
+
+.subject-icon-button {
+  @include glass-panel;
+  @include card-hover;
+  @include flex-center(column, $spacing-sm);
+  
+  width: 160px;
+  height: 160px;
+  padding: $spacing-md;
+  text-align: center;
+  text-decoration: none;
+  
+  border: 2px solid var(--card-color, $color-primary);
+  box-shadow: $shadow-soft;
+
+  animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  animation-delay: calc(var(--index) * 0.1s);
+
+  @for $i from 1 through length($category-colors) {
+    &:nth-child(#{length($category-colors)}n + #{$i}) {
+      --card-color: #{nth($category-colors, $i)};
+    }
+  }
+
+  .subject-icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .gameName {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: $color-text-main;
+    line-height: 1.2;
+    margin-top: $spacing-xs;
+  }
+}
+
+.nav-button {
+  @include flex-center;
+  background: white;
+  border: none;
+  border-radius: $radius-full;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  box-shadow: $shadow-soft;
+  @include card-hover;
+  
+  img {
+    width: 32px;
+    height: 32px;
+  }
+
+  &--setting {
+    position: fixed;
+    bottom: $spacing-lg;
+    right: $spacing-lg;
+  }
+
+  &--home {
+    position: fixed;
+    top: $spacing-md;
+    left: $spacing-md;
+  }
+}

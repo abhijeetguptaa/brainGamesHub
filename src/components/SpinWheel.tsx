@@ -13,7 +13,7 @@ import {
 } from '../utils/soundUtils';
 import { useSpinWheel } from '../hooks/useSpinWheel';
 import { useSparkleBurst } from '../hooks/useSparkleBurst';
-import { COLORING_CONFIG } from '../constants/coloringConstants';
+import { GAME_CONFIG } from '../constants/gameConstants';
 import { getRandomInt } from '../utils/utils';
 import { useNavigate } from 'react-router-dom';
 import { setScreen } from '../utils/analytics';
@@ -159,8 +159,8 @@ const SpinWheel: React.FC = () => {
         const centerY = rect.top + rect.height / 2;
 
         triggerSparkleBurst(centerX, centerY, {
-          count: COLORING_CONFIG.SPARKLE_COUNT * (multiplier > 1 ? 2 : 1),
-          range: COLORING_CONFIG.SPARKLE_RANGE * (multiplier > 1 ? 1.5 : 1),
+          count: GAME_CONFIG.SPARKLE_COUNT * (multiplier > 1 ? 2 : 1),
+          range: GAME_CONFIG.SPARKLE_RANGE * (multiplier > 1 ? 1.5 : 1),
         });
 
         if (result.type === 'stars') {

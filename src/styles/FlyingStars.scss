@@ -1,0 +1,42 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.flying-stars-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  // No z-index, managed by being late in DOM or parent context
+}
+
+.flying-star {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.5rem;
+  user-select: none;
+  opacity: 0;
+  animation: fly-to-target 0.8s ease-in forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes fly-to-target {
+  0% {
+    transform: translate(var(--start-x), var(--start-y)) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translate(var(--start-x), var(--start-y)) scale(1.2);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--target-x), var(--target-y)) scale(0.5);
+    opacity: 0;
+  }
+}

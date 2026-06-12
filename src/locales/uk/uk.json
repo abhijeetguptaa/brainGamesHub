@@ -15,7 +15,7 @@
     "isFor": "{{letter}} — для {{word}}"
   },
   "app": {
-    "description": "Перегляньте цей крутий додаток для вивчення математики, ігор у пазли, розмальовок та багатьох інших розваг!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Натисніть ще раз «назад», щоб вийти",
     "title": "Brain Games Hub",
     "orientationLockError": "Блокування повороту екрана недоступне на цьому пристрої."
@@ -357,12 +357,6 @@
       "18": "Вісімнадцять",
       "19": "Дев'ятнадцять",
       "20": "Двадцять"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Розфарбоване полотно",
-      "reference": "Зразок"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1266,6 @@
     "unlockWithStars": "Використати {{cost}} ⭐",
     "watchFullAd": "Будь ласка, подивися рекламу до кінця, щоб розблокувати цю функцію.",
     "adFailed": "Не вдалося завантажити рекламу ({{code}}). Будь ласка, спробуй ще раз пізніше або використай монети."
-  },
-  "learningPath": {
-    "title": "Карта пригод",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Ціль: {{count}})",
-    "levelCompleteMessage": "Рівень пройдено",
-    "skipLevel": "Подивитися рекламу, щоб пропустити",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Поля Основ",
-      "expanding": "🌲 Ліси, що розширюються",
-      "challenging": "🏔️ Піки випробувань",
-      "mastery": "🌊 Океан майстерності",
-      "grandmaster": "✨ Галактика гросмейстерів",
-      "cosmic": "🚀 Космічний мандрівник",
-      "deepsea": "🐙 Відкриття морських глибин",
-      "jungle": "🌿 Подорож джунглями",
-      "ancient": "🏺 Стародавні руїни",
-      "legend": "👑 Абсолютна легенда",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Час грати! 🌟",

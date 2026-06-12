@@ -15,7 +15,7 @@
     "isFor": "{{letter}} คือสำหรับ {{word}}"
   },
   "app": {
-    "description": "พบกับแอปเจ๋งๆ สำหรับการเรียนคณิตศาสตร์ เล่นปริศนา ระบายสี และความสนุกอีกมากมาย!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "กดกลับอีกครั้งเพื่อออก",
     "title": "Brain Games Hub",
     "orientationLockError": "การล็อกการหมุนหน้าจอไม่สามารถใช้งานได้บนอุปกรณ์นี้"
@@ -357,12 +357,6 @@
       "18": "สิบแปด",
       "19": "สิบเก้า",
       "20": "ยี่สิบ"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "ผืนผ้าใบระบายสี",
-      "reference": "อ้างอิง"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1266,6 @@
     "unlockWithStars": "ใช้ {{cost}} ⭐",
     "watchFullAd": "โปรดดูโฆษณาให้จบเพื่อปลดล็อกฟีเจอร์นี้",
     "adFailed": "โหลดโฆษณาไม่สำเร็จ ({{code}}) โปรดลองอีกครั้งภายหลังหรือใช้เหรียญ"
-  },
-  "learningPath": {
-    "title": "แผนที่การผจญภัย",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(เป้าหมาย: {{count}})",
-    "levelCompleteMessage": "ระดับเสร็จสิ้น",
-    "skipLevel": "ดูโฆษณาเพื่อข้าม",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 ทุ่งรากฐาน",
-      "expanding": "🌲 ป่าที่ขยายใหญ่ขึ้น",
-      "challenging": "🏔️ ยอดเขาแห่งความท้าทาย",
-      "mastery": "🌊 มหาสมุทรแห่งความเชี่ยวชาญ",
-      "grandmaster": "✨ กาแล็กซีแกรนด์มาสเตอร์",
-      "cosmic": "🚀 นักเดินทางในอวกาศ",
-      "deepsea": "🐙 การค้นพบใต้ทะเลลึก",
-      "jungle": "🌿 การเดินทางในป่า",
-      "ancient": "🏺 ซากปรักหักพังโบราณ",
-      "legend": "👑 ตำนานขั้นสุดยอด",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "ได้เวลาเล่นแล้ว! 🌟",

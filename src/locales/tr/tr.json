@@ -15,7 +15,7 @@
     "isFor": "{{letter}}, {{word}} içindir"
   },
   "app": {
-    "description": "Matematik öğrenmek, bulmaca oynamak, boyama yapmak ve çok daha fazla eğlence için bu harika uygulamaya göz atın!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Çıkmak için tekrar geri tuşuna basın",
     "title": "Brain Games Hub",
     "orientationLockError": "Ekran döndürme kilidi bu cihazda mevcut değil."
@@ -65,7 +65,6 @@
         "Olağanüstü!",
         "Bravo!",
         "Harikasın!",
-        "Mükemmel!",
         "Çak bir beşlik!"
       ],
       "looseMsg": [
@@ -357,12 +356,6 @@
       "18": "On sekiz",
       "19": "On dokuz",
       "20": "Yirmi"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Renkli Tuval",
-      "reference": "Referans"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1265,6 @@
     "unlockWithStars": "{{cost}} ⭐ Kullan",
     "watchFullAd": "Bu özelliğin kilidini açmak için lütfen reklamın tamamını izleyin.",
     "adFailed": "Reklam yüklenemedi ({{code}}). Lütfen daha sonra tekrar deneyin veya jeton kullanın."
-  },
-  "learningPath": {
-    "title": "Macera Haritası",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Hedef: {{count}})",
-    "levelCompleteMessage": "Seviye Tamamlandı",
-    "skipLevel": "Atlamak için Reklam İzle",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Temel Alanları",
-      "expanding": "🌲 Genişleyen Ormanlar",
-      "challenging": "🏔️ Meydan Okuma Zirveleri",
-      "mastery": "🌊 Ustalık Okyanusu",
-      "grandmaster": "✨ Büyük Usta Galaksisi",
-      "cosmic": "🚀 Kozmik Gezgin",
-      "deepsea": "🐙 Derin Deniz Keşfi",
-      "jungle": "🌿 Orman Yolculuğu",
-      "ancient": "🏺 Antik Kalıntılar",
-      "legend": "👑 Nihai Efsane",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Oyun zamanı! 🌟",

@@ -223,28 +223,28 @@ const TicTacToe = ({ userName }) => {
 
   return (
     <div className="tic-tac-toe-wrapper">
-      <h2 className="mb-3 text-on-blue-BG text-2xl">{t('ticTacToe.title')}</h2>
+      <h2 className="tic-tac-toe-title">{t('ticTacToe.title')}</h2>
 
       <div className="ttt-game-container">
         <div className="ttt-info-section">
-          <div className="mb-3 d-flex flex-wrap justify-content-center align-items-center gap-2">
-            <div className="score-box bg-light border rounded px-3 py-1 shadow-sm">
-              <span className="fw-bold">{playerX}:</span> <span className="fw-bold">{score.X}</span>
+          <div className="ttt-score-container">
+            <div className="score-box">
+              <span className="player-label">{playerX}:</span> <span className="score-value">{score.X}</span>
             </div>
-            <div className="score-box bg-light border rounded px-3 py-1 shadow-sm">
-              <span className="fw-bold">{t('ticTacToe.draws')}</span>{' '}
-              <span className="fw-bold">{score.draw}</span>
+            <div className="score-box">
+              <span className="player-label">{t('ticTacToe.draws')}</span>{' '}
+              <span className="score-value">{score.draw}</span>
             </div>
-            <div className="score-box bg-light border rounded px-3 py-1 shadow-sm">
-              <span className="fw-bold">{oLabel}:</span> <span className="fw-bold">{score.O}</span>
+            <div className="score-box">
+              <span className="player-label">{oLabel}:</span> <span className="score-value">{score.O}</span>
             </div>
           </div>
 
           {mode === 'pvai' && (
-            <div className="mb-3 d-flex justify-content-center align-items-center">
-              <div className="timer-box bg-white border rounded px-3 py-1 shadow-sm text-rebecca">
-                <span className="fw-bold ">{t('ticTacToe.timer')}</span>{' '}
-                <span className={timer <= 5 ? 'text-danger fw-bold' : ''}>{timer}s</span>
+            <div className="ttt-timer-container">
+              <div className="timer-box">
+                <span className="timer-label">{t('ticTacToe.timer')}</span>{' '}
+                <span className={`timer-value ${timer <= 5 ? 'critical' : ''}`}>{timer}s</span>
               </div>
             </div>
           )}

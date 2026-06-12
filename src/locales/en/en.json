@@ -13,7 +13,7 @@
     "claimButton": "Claim 20+ Stars"
   },
   "app": {
-    "description": "Check out this cool app for learning math!, playing Puzzles, Coloring and lot more fun",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Press back again to exit",
     "title": "Brain Games Hub",
     "orientationLockError": "Screen rotation lock is not available on this device."
@@ -29,7 +29,7 @@
     "comingSoon": "Coming Soon!",
     "scoreMessage": "You have scored {{correctAnswersCount}}/{{quizRounds}}",
     "best": "Best",
-    "defaultUserName": "Little Explorer",
+    "defaultUserName": "Guest Player",
     "player2": "Player 2",
     "newBestTime": "New Best Time",
     "accessibility": {
@@ -38,20 +38,16 @@
     "feedback": {
       "successMsg": [
         "Great Job!",
-        "Super Star!",
         "You Win!",
         "Well Done!",
         "Fantastic!",
         "Amazing!",
         "Brilliant!",
-        "So Smart!",
+        "Excellent!",
         "Wonderful!",
         "Perfect!",
         "Outstanding!",
-        "Bravo!",
-        "You are Rock!",
-        "Excellent!",
-        "High Five!"
+        "Bravo!"
       ],
       "looseMsg": [
         "Good Try!",
@@ -61,7 +57,7 @@
         "You Can Do It!",
         "Keep Going!",
         "Nice Effort!",
-        "You’re Learning!",
+        "Keep Trying!",
         "Stay Positive!"
       ]
     },

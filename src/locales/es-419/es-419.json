@@ -15,7 +15,7 @@
     "isFor": "{{letter}} es de {{word}}"
   },
   "app": {
-    "description": "¡Echa un vistazo a esta genial aplicación para aprender matemáticas, jugar rompecabezas, colorear y mucha más diversión!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Presiona atrás de nuevo para salir",
     "title": "Brain Games Hub",
     "orientationLockError": "El bloqueo de rotación de pantalla no está disponible en este dispositivo."
@@ -53,20 +53,16 @@
     "feedback": {
       "successMsg": [
         "¡Buen trabajo!",
-        "¡Súper estrella!",
         "¡Ganaste!",
         "¡Bien hecho!",
         "¡Fantástico!",
         "¡Increíble!",
         "¡Brillante!",
-        "¡Qué inteligente!",
+        "¡Excelente!",
         "¡Maravilloso!",
         "¡Perfecto!",
         "¡Sobresaliente!",
-        "¡Bravo!",
-        "¡Eres genial!",
-        "¡Excelente!",
-        "¡Choca esos cinco!"
+        "¡Bravo!"
       ],
       "looseMsg": [
         "¡Buen intento!",
@@ -76,7 +72,7 @@
         "¡Tú puedes!",
         "¡Sigue adelante!",
         "¡Buen esfuerzo!",
-        "¡Estás aprendiendo!",
+        "¡Sigue intentándolo!",
         "¡Mantente positivo!"
       ]
     },
@@ -357,12 +353,6 @@
       "18": "Dieciocho",
       "19": "Diecinueve",
       "20": "Veinte"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Lienzo coloreado",
-      "reference": "Referencia"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1262,6 @@
     "unlockWithStars": "Usar {{cost}} ⭐",
     "watchFullAd": "Por favor, mira el anuncio completo para desbloquear este nivel.",
     "adFailed": "Error al cargar el anuncio ({{code}}). Por favor, inténtalo de nuevo más tarde o usa estrellas."
-  },
-  "learningPath": {
-    "title": "Mapa de Aventura",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Objetivo: {{count}})",
-    "levelCompleteMessage": "Nivel completado",
-    "skipLevel": "Mira un anuncio para saltar",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Campos de Fundación",
-      "expanding": "🌲 Bosques en Expansión",
-      "challenging": "🏔️ Picos de Desafío",
-      "mastery": "🌊 Océano de Maestría",
-      "grandmaster": "✨ Galaxia de Gran Maestro",
-      "cosmic": "🚀 Viajero Cósmico",
-      "deepsea": "🐙 Descubrimiento en Mar Profundo",
-      "jungle": "🌿 Viaje por la Selva",
-      "ancient": "🏺 Ruinas Antiguas",
-      "legend": "👑 Leyenda Definitiva",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "¡Es hora de jugar!",

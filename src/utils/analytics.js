@@ -32,13 +32,6 @@ export const APP_EVENTS = {
   FEATURE_UNLOCK_ATTEMPT: 'FeatureUnlockAttempt',
   FEATURE_UNLOCKED: 'FeatureUnlocked',
   AD_IMPRESSION: 'AdImpression',
-  COLOR_CHANGE: 'ColorChange',
-  BRUSH_CHANGE: 'BrushChange',
-  BRUSH_SIZE_CHANGE: 'BrushSizeChange',
-  ICON_SELECTION: 'IconSelection',
-  UNDO_ACTION: 'UndoAction',
-  CLEAR_CANVAS: 'ClearCanvas',
-  DRAWING_START: 'DrawingStart',
   SUCCESS_MODAL_SHOW: 'SuccessModalShow',
 };
 
@@ -62,8 +55,9 @@ export const initAnalytics = () => {
     FacebookLogin.initialize({ appId: FACEBOOK_APP_ID })
       .then(() => FacebookLogin.setAutoLogAppEventsEnabled({ enabled: true }))
       .then(() => {
-        // This app is configured as a kids app, so keep advertiser ID collection disabled.
-        return FacebookLogin.setAdvertiserIDCollectionEnabled({ enabled: false });
+        // We defer to standard platform behavior for advertiser ID collection.
+        // On modern Android/iOS, this respects user preferences and system-level child protection.
+        return FacebookLogin.setAdvertiserIDCollectionEnabled({ enabled: true });
       })
       .catch((error) => {
         console.error('Facebook native analytics initialization failed:', error);
@@ -187,73 +181,6 @@ export const trackAdImpression = (adType, adPlacement) => {
   logEvent(FB_EVENTS.AD_IMPRESSION, {
     ad_type: adType,
     placement: adPlacement,
-  });
-};
-
-/**
- * Helper: Track Color Change
- */
-export const trackColorChange = (color, category) => {
-  logEvent(APP_EVENTS.COLOR_CHANGE, {
-    color,
-    category,
-  });
-};
-
-/**
- * Helper: Track Brush Change
- */
-export const trackBrushChange = (brushType, category) => {
-  logEvent(APP_EVENTS.BRUSH_CHANGE, {
-    brush_type: brushType,
-    category,
-  });
-};
-
-/**
- * Helper: Track Brush Size Change
- */
-export const trackBrushSizeChange = (size, category) => {
-  logEvent(APP_EVENTS.BRUSH_SIZE_CHANGE, {
-    size,
-    category,
-  });
-};
-
-/**
- * Helper: Track Icon Selection
- */
-export const trackIconSelection = (iconName, category) => {
-  logEvent(APP_EVENTS.ICON_SELECTION, {
-    icon_name: iconName,
-    category,
-  });
-};
-
-/**
- * Helper: Track Undo Action
- */
-export const trackUndoAction = (category) => {
-  logEvent(APP_EVENTS.UNDO_ACTION, {
-    category,
-  });
-};
-
-/**
- * Helper: Track Clear Canvas
- */
-export const trackClearCanvas = (category) => {
-  logEvent(APP_EVENTS.CLEAR_CANVAS, {
-    category,
-  });
-};
-
-/**
- * Helper: Track Drawing Start
- */
-export const trackDrawingStart = (category) => {
-  logEvent(APP_EVENTS.DRAWING_START, {
-    category,
   });
 };
 

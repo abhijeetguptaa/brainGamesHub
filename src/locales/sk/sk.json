@@ -15,7 +15,7 @@
     "isFor": "{{letter}} is for {{word}}"
   },
   "app": {
-    "description": "Pozrite si túto skvelú aplikáciu na učenie matematiky, hranie puzzle, vyfarbovanie a oveľa viac zábavy!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Pre ukončenie stlačte znova späť",
     "title": "Brain Games Hub",
     "orientationLockError": "Zámok otáčania obrazovky nie je na tomto zariadení k dispozícii."
@@ -357,12 +357,6 @@
       "18": "Osemnásť",
       "19": "Devätnásť",
       "20": "Dvadsať"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Farebné plátno",
-      "reference": "Referencia"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1266,6 @@
     "unlockWithStars": "Použiť {{cost}} ⭐",
     "watchFullAd": "Pre odomknutie tejto funkcie si prosím pozrite celú reklamu.",
     "adFailed": "Nepodarilo sa načítať reklamu ({{code}}). Skúste to prosím neskôr alebo použite mince."
-  },
-  "learningPath": {
-    "title": "Mapa dobrodružstva",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Cieľ: {{count}})",
-    "levelCompleteMessage": "Úroveň dokončená",
-    "skipLevel": "Pozrite si reklamu a preskočte",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Základné polia",
-      "expanding": "🌲 Rozširujúce sa lesy",
-      "challenging": "🏔️ Vrcholy výziev",
-      "mastery": "🌊 Oceán majstrovstva",
-      "grandmaster": "✨ Galaxia veľmajstrov",
-      "cosmic": "🚀 Vesmírny cestovateľ",
-      "deepsea": "🐙 Objavovanie hlbokého mora",
-      "jungle": "🌿 Cesta džungľou",
-      "ancient": "🏺 Staroveké zrúcaniny",
-      "legend": "👑 Ultimátna legenda",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Time to play! 🌟",

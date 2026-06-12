@@ -1,0 +1,52 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.spiral-particles-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  @include flex-center;
+}
+
+.spiral-wrapper {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  animation: spiral-rotation var(--animation-duration, 5s) linear infinite;
+  transform: rotate(var(--start-angle, 0deg));
+}
+
+.spiral-particle {
+  position: absolute;
+  user-select: none;
+  animation: spiral-out var(--animation-duration, 5s) ease-out forwards;
+  filter: drop-shadow(0 0 5px rgba($color-primary, 0.3));
+}
+
+@keyframes spiral-rotation {
+  from {
+    transform: rotate(var(--start-angle));
+  }
+  to {
+    transform: rotate(calc(var(--start-angle) + 360deg));
+  }
+}
+
+@keyframes spiral-out {
+  0% {
+    transform: translateX(0) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(20px) scale(1) rotate(45deg);
+  }
+  100% {
+    transform: translateX(300px) scale(0.2) rotate(360deg);
+    opacity: 0;
+  }
+}

@@ -15,7 +15,7 @@
     "isFor": "{{letter}} لـ {{word}}"
   },
   "app": {
-    "description": "تحقق من هذا التطبيق الرائع لتعلم الرياضيات، ولعب الألغاز، والتلوين والمزيد من المرح!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "اضغط على رجوع مرة أخرى للخروج",
     "title": "تعلم ال الأذكياء",
     "orientationLockError": "قفل تدوير الشاشة غير متوفر على هذا الجهاز."
@@ -357,12 +357,6 @@
       "18": "ثمانية عشر",
       "19": "تسعة عشر",
       "20": "عشرون"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "لوحة ملونة",
-      "reference": "مرجع"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1266,6 @@
     "unlockWithStars": "استخدم {{cost}} ⭐",
     "watchFullAd": "يرجى مشاهدة الإعلان كاملاً لفتح هذا المستوى.",
     "adFailed": "فشل تحميل الإعلان ({{code}}). يرجى المحاولة مرة أخرى لاحقاً أو استخدام النجوم."
-  },
-  "learningPath": {
-    "title": "خريطة المغامرة",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(الهدف: {{count}})",
-    "levelCompleteMessage": "تم إكمال المستوى",
-    "skipLevel": "شاهد إعلانًا للتخطي",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 حقول التأسيس",
-      "expanding": "🌲 غابات التوسع",
-      "challenging": "🏔️ قمم التحدي",
-      "mastery": "🌊 محيط الإتقان",
-      "grandmaster": "✨ مجرة الأستاذ الكبير",
-      "cosmic": "🚀 المسافر الكوني",
-      "deepsea": "🐙 اكتشاف أعماق البحار",
-      "jungle": "🌿 رحلة الغابة",
-      "ancient": "🏺 أطلال قديمة",
-      "legend": "👑 الأسطورة المطلقة",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "حان وقت اللعب! 🌟",

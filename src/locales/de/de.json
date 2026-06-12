@@ -15,7 +15,7 @@
     "isFor": "{{letter}} steht für {{word}}"
   },
   "app": {
-    "description": "Schau dir diese coole App zum Mathelernen, Puzzeln, Ausmalen und vieles mehr an!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Drücke erneut Zurück, um die App zu verlassen",
     "title": "Smartes Lernen für",
     "orientationLockError": "Bildschirmrotationssperre ist auf diesem Gerät nicht verfügbar."
@@ -66,7 +66,7 @@
         "Bravo!",
         "Du rockst!",
         "Exzellent!",
-        "High Five!"
+        "Well Done!"
       ],
       "looseMsg": [
         "Guter Versuch!",
@@ -357,12 +357,6 @@
       "18": "Achtzehn",
       "19": "Neunzehn",
       "20": "Zwanzig"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Farbige Leinwand",
-      "reference": "Referenz"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1266,6 @@
     "unlockWithStars": "Verwende {{cost}} ⭐",
     "watchFullAd": "Bitte sieh dir die gesamte Anzeige an, um dieses Level freizuschalten.",
     "adFailed": "Anzeige konnte nicht geladen werden ({{code}}). Bitte versuche es später erneut oder verwende Sterne."
-  },
-  "learningPath": {
-    "title": "Abenteuerkarte",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Ziel: {{count}})",
-    "levelCompleteMessage": "Level abgeschlossen",
-    "skipLevel": "Anzeige ansehen zum Überspringen",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Grundlagenfelder",
-      "expanding": "🌲 Erweiterungswälder",
-      "challenging": "🏔️ Herausforderungsgipfel",
-      "mastery": "🌊 Meisterschaftsozean",
-      "grandmaster": "✨ Großmeister-Galaxie",
-      "cosmic": "🚀 Kosmischer Reisender",
-      "deepsea": "🐙 Tiefsee-Entdeckung",
-      "jungle": "🌿 Dschungelreise",
-      "ancient": "🏺 Antike Ruinen",
-      "legend": "👑 Ultimative Legende",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Zeit zum Spielen!",

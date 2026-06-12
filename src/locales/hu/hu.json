@@ -15,7 +15,7 @@
     "isFor": "{{letter}} mint {{word}}"
   },
   "app": {
-    "description": "Nézd meg ezt a szuper alkalmazást a matematika tanulásához, rejtvényekhez, színezéshez és még sok más mókához!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Nyomja meg újra a vissza gombot a kilépéshez",
     "title": "Brain Games Hub",
     "orientationLockError": "A képernyőforgatás zárolása nem érhető el ezen az eszközön."
@@ -357,12 +357,6 @@
       "18": "Tizennyolc",
       "19": "Tizenkilenc",
       "20": "Húsz"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Színezett vászon",
-      "reference": "Referencia"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1266,6 @@
     "unlockWithStars": "{{cost}} ⭐ felhasználása",
     "watchFullAd": "Kérjük, nézd végig a hirdetést a szint feloldásához.",
     "adFailed": "Hirdetés betöltése sikertelen ({{code}}). Kérjük, próbáld újra később, vagy használj csillagokat."
-  },
-  "learningPath": {
-    "title": "Kalandtérkép",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Cél: {{count}})",
-    "levelCompleteMessage": "Szint teljesítve",
-    "skipLevel": "Nézz hirdetést a kihagyáshoz",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Alapmezők",
-      "expanding": "🌲 Terjeszkedő erdők",
-      "challenging": "🏔️ Kihívás csúcsok",
-      "mastery": "🌊 Mesteri óceán",
-      "grandmaster": "✨ Nagymester galaxis",
-      "cosmic": "🚀 Kozmikus utazó",
-      "deepsea": "🐙 Mélytengeri felfedezés",
-      "jungle": "🌿 Dzsungeltúra",
-      "ancient": "🏺 Ősi romok",
-      "legend": "👑 Végső legenda",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Itt az ideje a játéknak! 🌟",

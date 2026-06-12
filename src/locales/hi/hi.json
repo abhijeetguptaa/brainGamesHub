@@ -15,7 +15,7 @@
     "isFor": "{{letter}} {{word}} के लिए है"
   },
   "app": {
-    "description": "गणित सीखने, पहेलियाँ खेलने, रंग भरने और बहुत कुछ मनोरंजन के लिए इस शानदार ऐप को देखें!, खेलने पहेली, रंग और बहुत मज़ा",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "बाहर निकलने के लिए फिर से वापस दबाएं",
     "title": "स्मार्ट किड्स लर्निंग",
     "orientationLockError": "इस डिवाइस पर स्क्रीन रोटेशन लॉक उपलब्ध नहीं है।"
@@ -75,7 +75,6 @@
         "हार न मानें!",
         "आप कर सकते हैं!",
         "कोशिश करते रहें!",
-        "अच्छा प्रयास!",
         "आप सीख रहे हैं!",
         "सकारात्मक रहें!"
       ]
@@ -360,12 +359,6 @@
       "18": "अठारह",
       "19": "उन्नीस",
       "20": "बीस"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "रंगीन कैनवास",
-      "reference": "संदर्भ"
     }
   },
   "englishWordsSpell": {
@@ -1275,46 +1268,6 @@
     "unlockWithStars": "{{cost}} ⭐ का उपयोग करें",
     "watchFullAd": "कृपया इस लेवल को अनलॉक करने के लिए पूरा विज्ञापन देखें।",
     "adFailed": "विज्ञापन लोड करने में विफल ({{code}})। कृपया बाद में पुनः प्रयास करें या सितारों का उपयोग करें।"
-  },
-  "learningPath": {
-    "title": "साहसिक मानचित्र",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(लक्ष्य: {{count}})",
-    "levelCompleteMessage": "लेवल पूरा हुआ",
-    "skipLevel": "छोड़ने के लिए विज्ञापन देखें",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 फाउंडेशन फील्ड्स",
-      "expanding": "🌲 एक्सपैंडिंग वुड्स",
-      "challenging": "🏔️ चैलेंज पीक्स",
-      "mastery": "🌊 मास्टरी ओशन",
-      "grandmaster": "✨ ग्रैंड मास्टर गैलाक्सी",
-      "cosmic": "🚀 कॉस्मिक वोयेजर",
-      "deepsea": "🐙 डीप सी डिस्कवरी",
-      "jungle": "🌿 जंगल जर्नी",
-      "ancient": "🏺 प्राचीन अवशेष",
-      "legend": "👑 अल्टीमेट लीजेंड",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "खेलने का समय हो गया! 🌟",

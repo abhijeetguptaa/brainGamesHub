@@ -15,7 +15,7 @@
     "isFor": "{{letter}} jak {{word}}"
   },
   "app": {
-    "description": "Sprawdź tę fajną aplikację do nauki matematyki, układania puzzli, kolorowania i wielu innych zabaw!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Naciśnij ponownie wstecz, aby wyjść",
     "title": "Brain Games Hub",
     "orientationLockError": "Blokada obrotu ekranu nie jest dostępna na tym urządzeniu."
@@ -357,12 +357,6 @@
       "18": "Osiemnaście",
       "19": "Dziewiętnaście",
       "20": "Dwadzieścia"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Pokolorowane płótno",
-      "reference": "Odniesienie"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1266,6 @@
     "unlockWithStars": "Użyj {{cost}} ⭐",
     "watchFullAd": "Obejrzyj całą reklamę, aby odblokować ten poziom.",
     "adFailed": "Nie udało się załadować reklamy ({{code}}). Spróbuj ponownie później lub użyj gwiazdek."
-  },
-  "learningPath": {
-    "title": "Mapa przygód",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Cel: {{count}})",
-    "levelCompleteMessage": "Poziom ukończony",
-    "skipLevel": "Obejrzyj reklamę, aby pominąć",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Pola Fundamentów",
-      "expanding": "🌲 Rozszerzające się lasy",
-      "challenging": "🏔️ Szczyty wyzwań",
-      "mastery": "🌊 Ocean mistrzostwa",
-      "grandmaster": "✨ Galaktyka arcymistrza",
-      "cosmic": "🚀 Kosmiczny podróżnik",
-      "deepsea": "🐙 Odkrycie głębinowe",
-      "jungle": "🌿 Podróż przez dżunglę",
-      "ancient": "🏺 Starożytne ruiny",
-      "legend": "👑 Ostateczna legenda",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Czas na zabawę! 🌟",

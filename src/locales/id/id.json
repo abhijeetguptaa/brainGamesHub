@@ -15,7 +15,7 @@
     "isFor": "{{letter}} untuk {{word}}"
   },
   "app": {
-    "description": "Lihat aplikasi keren ini untuk belajar matematika, bermain puzzle, mewarnai, dan banyak lagi keseruan lainnya!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Tekan kembali lagi untuk keluar",
     "title": "Brain Games Hub",
     "orientationLockError": "Kunci rotasi layar tidak tersedia di perangkat ini."
@@ -357,12 +357,6 @@
       "18": "Delapan belas",
       "19": "Sembilan belas",
       "20": "Dua puluh"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Kanvas Berwarna",
-      "reference": "Referensi"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1266,6 @@
     "unlockWithStars": "Gunakan {{cost}} ⭐",
     "watchFullAd": "Harap tonton iklan secara lengkap untuk membuka level ini.",
     "adFailed": "Gagal memuat iklan ({{code}}). Silakan coba lagi nanti atau gunakan bintang."
-  },
-  "learningPath": {
-    "title": "Peta Petualangan",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Target: {{count}})",
-    "levelCompleteMessage": "Level Selesai",
-    "skipLevel": "Tonton Iklan untuk Melewati",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Ladang Fondasi",
-      "expanding": "🌲 Hutan yang Meluas",
-      "challenging": "🏔️ Puncak Tantangan",
-      "mastery": "🌊 Lautan Penguasaan",
-      "grandmaster": "✨ Galaksi Grand Master",
-      "cosmic": "🚀 Penjelajah Kosmik",
-      "deepsea": "🐙 Penemuan Laut Dalam",
-      "jungle": "🌿 Perjalanan Hutan",
-      "ancient": "🏺 Reruntuhan Kuno",
-      "legend": "👑 Legenda Utama",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Waktunya bermain! 🌟",

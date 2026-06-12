@@ -15,7 +15,7 @@
     "isFor": "{{letter}} on kuin {{word}}"
   },
   "app": {
-    "description": "Tutustu tähän mahtavaan sovellukseen matematiikan oppimiseen, palapelien pelaamiseen, värittämiseen ja moneen muuhun hauskaan!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Paina takaisin uudelleen poistuaksesi",
     "title": "Brain Games Hub",
     "orientationLockError": "Näytön kierron lukitus ei ole käytettävissä tässä laitteessa."
@@ -357,12 +357,6 @@
       "18": "Kahdeksantoista",
       "19": "Yhdeksäntoista",
       "20": "Kaksikymmentä"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Väritetty kangas",
-      "reference": "Viite"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1266,6 @@
     "unlockWithStars": "Käytä {{cost}} ⭐",
     "watchFullAd": "Katso koko mainos avataksesi tämän tason.",
     "adFailed": "Mainoksen lataus epäonnistui ({{code}}). Yritä myöhemmin uudelleen tai käytä tähtiä."
-  },
-  "learningPath": {
-    "title": "Seikkailukartta",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Tavoite: {{count}})",
-    "levelCompleteMessage": "Taso suoritettu",
-    "skipLevel": "Katso mainos ohittaaksesi",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Perustuskentät",
-      "expanding": "🌲 Laajenevat metsät",
-      "challenging": "🏔️ Haastehuiput",
-      "mastery": "🌊 Hallinta-valtameri",
-      "grandmaster": "✨ Suurmestari-galaksi",
-      "cosmic": "🚀 Kosminen matkaaja",
-      "deepsea": "🐙 Syvänmeren löytöretki",
-      "jungle": "🌿 Viidakkoseikkailu",
-      "ancient": "🏺 Muinaiset rauniot",
-      "legend": "👑 Ultimatiivinen legenda",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Aika leikkiä! 🌟",

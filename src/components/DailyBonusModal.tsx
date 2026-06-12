@@ -91,10 +91,10 @@ const DailyBonusModal: React.FC = () => {
           </div>
           <p className="success-desc">{t('retention.claimMessage')}</p>
 
-          <div className="flex flex-col gap-4 w-full">
+          <div className="daily-bonus-actions">
             <button
               ref={claimButtonRef}
-              className="btn-gradient-reward"
+              className="btn-reward"
               onClick={handleClaim}
               disabled={!!animationData}
             >

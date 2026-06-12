@@ -15,7 +15,7 @@
     "isFor": "{{letter}} pentru {{word}}"
   },
   "app": {
-    "description": "Descoperă această aplicație grozavă pentru a învăța matematica, a rezolva puzzle-uri, a colora și multe alte activități distractive!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Apasă din nou înapoi pentru a ieși",
     "title": "Brain Games Hub",
     "orientationLockError": "Blocarea rotației ecranului nu este disponibilă pe acest dispozitiv."
@@ -63,7 +63,6 @@
         "Minunat!",
         "Perfect!",
         "Remarcabil!",
-        "Bravo!",
         "Ești tare!",
         "Excelent!",
         "Bate palma!"
@@ -357,12 +356,6 @@
       "18": "Optsprezece",
       "19": "Nouăsprezece",
       "20": "Douăzeci"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Pânză colorată",
-      "reference": "Referință"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1265,6 @@
     "unlockWithStars": "Folosește {{cost}} ⭐",
     "watchFullAd": "Te rugăm să urmărești reclama completă pentru a debloca această funcție.",
     "adFailed": "Reclama nu s-a putut încărca ({{code}}). Te rugăm să încerci mai târziu sau să folosești monede."
-  },
-  "learningPath": {
-    "title": "Harta aventurii",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Țintă: {{count}})",
-    "levelCompleteMessage": "Nivel finalizat",
-    "skipLevel": "Urmărește reclama pentru a sări",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Câmpurile Fundației",
-      "expanding": "🌲 Pădurile Extinderii",
-      "challenging": "🏔️ Vârfurile Provocării",
-      "mastery": "🌊 Oceanul Măiestriei",
-      "grandmaster": "✨ Galaxia Marilor Maeștri",
-      "cosmic": "🚀 Călător Cosmic",
-      "deepsea": "🐙 Descoperirea Adâncurilor",
-      "jungle": "🌿 Călătorie în Junglă",
-      "ancient": "🏺 Ruine Antice",
-      "legend": "👑 Legendă Supremă",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "E timpul de joacă! 🌟",

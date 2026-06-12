@@ -279,7 +279,7 @@ const TileConnectBoard = forwardRef<TileConnectBoardHandle, TileConnectBoardProp
 
   return (
     <div
-      className="tile-connect-board-container w-screen h-full flex items-center justify-center p-0 relative overflow-hidden"
+      className="tile-connect-board-container"
       ref={containerRef}
     >
       <motion.div
@@ -311,31 +311,30 @@ const TileConnectBoard = forwardRef<TileConnectBoardHandle, TileConnectBoardProp
                 key={`${r}-${c}`}
                 data-row={r}
                 data-col={c}
-                className={`tile-cell flex items-center justify-center relative overflow-hidden ${type === 0 ? 'pointer-events-none' : 'cursor-pointer'}`}
+                className={`tile-cell ${type === 0 ? 'empty' : 'active'}`}
                 onClick={() => !isRim && handleTileClick(r, c)}
               >
                 <AnimatePresence>
                   {type !== 0 && !isRim && (
                     <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{
-                        duration: 0.2,
-                      }}
-                      className="tile-inner-card"
-                      style={
-                        {
-                          '--font-size': `${fontSize}px`,
-                          '--border-color':
-                            (selectedTile?.x === r && selectedTile?.y === c) ||
-                            (matchingPair?.p1.x === r && matchingPair?.p1.y === c) ||
-                            (matchingPair?.p2.x === r && matchingPair?.p2.y === c)
-                              ? '#000'
-                              : TILE_COLORS[(type - 1) % TILE_COLORS.length],
-                          '--z-index': selectedTile?.x === r && selectedTile?.y === c ? 10 : 1,
-                        } as React.CSSProperties
-                      }
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{
+                      duration: 0.2,
+                    }}
+                    className="tile-inner-card"
+                    style={
+                      {
+                        '--font-size': `${fontSize}px`,
+                        '--border-color':
+                          (selectedTile?.x === r && selectedTile?.y === c) ||
+                          (matchingPair?.p1.x === r && matchingPair?.p1.y === c) ||
+                          (matchingPair?.p2.x === r && matchingPair?.p2.y === c)
+                            ? '#000'
+                            : TILE_COLORS[(type - 1) % TILE_COLORS.length],
+                      } as React.CSSProperties
+                    }
                     >
                       <motion.span
                         initial={{ scale: 0 }}
@@ -352,7 +351,7 @@ const TileConnectBoard = forwardRef<TileConnectBoardHandle, TileConnectBoardProp
                             ? { repeat: Infinity, duration: 0.6, ease: 'easeInOut' }
                             : { duration: 0.2 },
                         }}
-                        className="inline-block"
+                        className="tile-emoji"
                       >
                         {EMOJI_ICONS[type - 1]}
                       </motion.span>
@@ -364,8 +363,8 @@ const TileConnectBoard = forwardRef<TileConnectBoardHandle, TileConnectBoardProp
           }),
         )}
 
-        <div className="absolute inset-0 pointer-events-none z-50 overflow-visible">
-          <svg className="w-full h-full overflow-visible">
+        <div className="tile-connect-svg-layer">
+          <svg className="tile-connect-svg">
             {path && (
               <g>
                 <motion.polyline

@@ -44,7 +44,7 @@ export const getBrushTypes = (t: any) => [
   { id: 'neon', label: t('paintBrush.effects.neon'), icon: '🔆' },
 ];
 
-export const COLORING_CONFIG = {
+export const GAME_CONFIG = {
   DEFAULT_BRUSH_SIZE: 100,
   SPARKLE_COUNT: 36,
   SPARKLE_RANGE: 150,

@@ -15,7 +15,7 @@
     "isFor": "{{letter}} er for {{word}}"
   },
   "app": {
-    "description": "Tjek denne seje app til at lære matematik, lægge puslespil, farvelægge og meget mere sjov!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Tryk på tilbage igen for at afslutte",
     "title": "Smart læring for børn",
     "orientationLockError": "Skærmrotationslås er ikke tilgængelig på denne enhed."
@@ -66,7 +66,7 @@
         "Bravo!",
         "Du styrer!",
         "Eminent!",
-        "High Five!"
+        "Well Done!"
       ],
       "looseMsg": [
         "Godt forsøgt!",
@@ -357,12 +357,6 @@
       "18": "Atten",
       "19": "Nitten",
       "20": "Tyve"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Farvet lærred",
-      "reference": "Reference"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1266,6 @@
     "unlockWithStars": "Brug {{cost}} ⭐",
     "watchFullAd": "Se venligst hele reklamen for at låse op for dette niveau.",
     "adFailed": "Kunne ikke indlæse reklame ({{code}}). Prøv venligst igen senere eller brug stjerner."
-  },
-  "learningPath": {
-    "title": "Eventyrkort",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Mål: {{count}})",
-    "levelCompleteMessage": "Niveau gennemført",
-    "skipLevel": "Se reklame for at springe over",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Fundamentmarker",
-      "expanding": "🌲 Udvidende skove",
-      "challenging": "🏔️ Udfordringstoppe",
-      "mastery": "🌊 Mestringshav",
-      "grandmaster": "✨ Stormestergalakse",
-      "cosmic": "🚀 Kosmisk rejsende",
-      "deepsea": "🐙 Dybehavsopdagelse",
-      "jungle": "🌿 Junglerejse",
-      "ancient": "🏺 Antikke ruiner",
-      "legend": "👑 Ultimativ legende",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Tid til at lege! 🌟",

@@ -1,0 +1,129 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.gridMatch {
+  @include flex-center(column, $spacing-md);
+  padding: $spacing-md;
+  width: 100%;
+  max-width: $max-width-content;
+  margin: 0 auto;
+
+  .target-board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); // Assuming 10x10 based on common grid games, adjust if GRID_SIZE differs
+    gap: 2px;
+    background-color: darken($color-bg-primary, 10%);
+    padding: 2px;
+    border-radius: $radius-md;
+    box-shadow: $shadow-deep;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1;
+
+    .cell {
+      background-color: var(--cell-color, $color-bg-secondary);
+      border-radius: 2px;
+      cursor: crosshair;
+      position: relative;
+      transition: background-color 0.15s ease;
+
+      &:hover {
+        filter: brightness(0.95);
+      }
+
+      .hint-overlay {
+        position: absolute;
+        inset: 0;
+        background-color: var(--hint-color);
+        opacity: 0.3;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .palette-column {
+    @include flex-center(row, $spacing-sm);
+    flex-wrap: wrap;
+    background-color: $color-bg-secondary;
+    padding: $spacing-sm;
+    border-radius: $radius-full;
+    box-shadow: $shadow-soft;
+
+    .color-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: $radius-full;
+      border: 2px solid transparent;
+      background-color: var(--btn-color);
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+
+      &.active {
+        transform: scale(1.2);
+        border-color: $color-text-main;
+        box-shadow: $shadow-button;
+      }
+
+      &:hover:not(.active) {
+        transform: scale(1.1);
+      }
+    }
+
+    .hint-btn {
+      @include flex-center;
+      background-color: $color-bg-primary;
+      font-size: 1.2rem;
+      border: 1px solid darken($color-bg-primary, 10%);
+      
+      &.active {
+        background-color: $color-warning;
+        color: $color-white;
+        border-color: transparent;
+      }
+    }
+  }
+
+  .level-nav {
+    @include flex-center(row, $spacing-md);
+    width: 100%;
+
+    button {
+      @include bouncy-button($color-primary);
+      width: 48px;
+      height: 48px;
+      border-radius: $radius-full;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .reference-board {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 1px;
+      width: 120px;
+      height: 120px;
+      background-color: darken($color-bg-primary, 5%);
+      padding: 1px;
+      border-radius: $radius-sm;
+      box-shadow: $shadow-soft;
+
+      .cell.small {
+        background-color: var(--cell-color, $color-bg-secondary);
+        border-radius: 1px;
+      }
+    }
+  }
+
+  @include mobile {
+    .target-board {
+      max-width: 90vw;
+    }
+    
+    .level-nav .reference-board {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}

@@ -15,7 +15,7 @@
     "isFor": "{{word}}의 {{letter}}"
   },
   "app": {
-    "description": "수학 학습, 퍼즐, 색칠 공부 등 다양한 재미가 가득한 이 멋진 앱을 확인해 보세요!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "종료하려면 뒤로 가기를 한 번 더 누르세요",
     "title": "Brain Games Hub",
     "orientationLockError": "이 기기에서는 화면 회전 잠금을 사용할 수 없습니다."
@@ -357,12 +357,6 @@
       "18": "열여덟",
       "19": "열아홉",
       "20": "스물"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "색칠된 캔버스",
-      "reference": "참조"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1266,6 @@
     "unlockWithStars": "{{cost}} ⭐ 사용",
     "watchFullAd": "이 레벨을 잠금 해제하려면 광고를 끝까지 시청해 주세요.",
     "adFailed": "광고 로드 실패 ({{code}}). 나중에 다시 시도하거나 별을 사용하세요."
-  },
-  "learningPath": {
-    "title": "모험 지도",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(목표: {{count}})",
-    "levelCompleteMessage": "레벨 완료",
-    "skipLevel": "광고 보고 건너뛰기",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 기초의 들판",
-      "expanding": "🌲 확장되는 숲",
-      "challenging": "🏔️ 도전의 정상",
-      "mastery": "🌊 숙달의 바다",
-      "grandmaster": "✨ 그랜드 마스터 은하",
-      "cosmic": "🚀 코즈믹 보이저",
-      "deepsea": "🐙 심해 발견",
-      "jungle": "🌿 정글 탐험",
-      "ancient": "🏺 고대 유적",
-      "legend": "👑 궁극의 전설",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Time to play! 🌟",

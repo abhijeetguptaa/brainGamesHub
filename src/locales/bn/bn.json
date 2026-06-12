@@ -15,7 +15,7 @@
     "isFor": "{{letter}} হলো {{word}} এর জন্য"
   },
   "app": {
-    "description": "গণিত শেখার, পাজল খেলা, রং করা এবং আরও অনেক মজার জন্য এই দারুণ অ্যাপটি দেখুন",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "বের হতে আবার পিছনে বোতাম টিপুন",
     "title": "স্মার্ট কিডস লার্নিং",
     "orientationLockError": "এই ডিভাইসে স্ক্রিন রোটেশন লক উপলব্ধ নয়।"
@@ -65,7 +65,6 @@
         "অসাধারণ!",
         "ব্রাভো!",
         "আপনি সেরা!",
-        "চমৎকার!",
         "হাই ফাইভ!"
       ],
       "looseMsg": [
@@ -357,12 +356,6 @@
       "18": "আঠারো",
       "19": "উনিশ",
       "20": "কুড়ি"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "রঙিন ক্যানভাস",
-      "reference": "রেফারেন্স"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1265,6 @@
     "unlockWithStars": "{{cost}} ⭐ ব্যবহার করুন",
     "watchFullAd": "এই লেভেলটি আনলক করতে দয়া করে পুরো বিজ্ঞাপনটি দেখুন।",
     "adFailed": "বিজ্ঞাপন লোড করতে ব্যর্থ হয়েছে ({{code}})। দয়া করে পরে আবার চেষ্টা করুন অথবা স্টার ব্যবহার করুন।"
-  },
-  "learningPath": {
-    "title": "অ্যাডভেঞ্চার ম্যাপ",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(লক্ষ্য: {{count}})",
-    "levelCompleteMessage": "লেভেল সম্পন্ন হয়েছে",
-    "skipLevel": "এড়িয়ে যেতে বিজ্ঞাপন দেখুন",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 ফাউন্ডেশন ফিল্ডস",
-      "expanding": "🌲 এক্সপ্যান্ডিং উডস",
-      "challenging": "🏔️ চ্যালেঞ্জ পিকস",
-      "mastery": "🌊 মাস্টারি ওশান",
-      "grandmaster": "✨ গ্র্যান্ড মাস্টার গ্যালাক্সি",
-      "cosmic": "🚀 কসমিক ভয়েজার",
-      "deepsea": "🐙 ডিপ সি ডিসকভারি",
-      "jungle": "🌿 জঙ্গল জার্নি",
-      "ancient": "🏺 প্রাচীন ধ্বংসাবশেষ",
-      "legend": "👑 আলটিমেট লিজেন্ড",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "খেলার সময় হয়েছে! 🌟",

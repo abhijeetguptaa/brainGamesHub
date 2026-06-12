@@ -1,0 +1,217 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.sudoku-container {
+  @include flex-center(column, $spacing-md);
+  padding: $spacing-md;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+
+  .sudoku-controls {
+    width: 100%;
+    @include flex-center(row, $spacing-md);
+    margin-bottom: $spacing-md;
+    
+    .sudoku-timer-display {
+      background-color: $color-bg-secondary;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $radius-md;
+      font-weight: 700;
+      color: $color-primary;
+      box-shadow: $shadow-soft;
+      border: 1px solid darken($color-bg-primary, 5%);
+    }
+  }
+
+  .sudoku-btn {
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $radius-md;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: $shadow-button;
+
+    &:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: $shadow-soft;
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    &.btn-action {
+      background-color: $color-primary;
+      color: $color-white;
+      &:hover:not(:disabled) { background-color: darken($color-primary, 5%); }
+    }
+
+    &.btn-success {
+      background-color: $color-success;
+      color: $color-white;
+      &:hover:not(:disabled) { background-color: darken($color-success, 5%); }
+    }
+
+    &.btn-danger {
+      background-color: $color-error;
+      color: $color-white;
+      &:hover:not(:disabled) { background-color: darken($color-error, 5%); }
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+  }
+
+  .sudoku-game-wrapper {
+    @include flex-center(column, $spacing-md);
+    width: 100%;
+
+    @media (min-width: $breakpoint-desktop) {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      gap: $spacing-xl;
+    }
+  }
+
+  .sudoku-board {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    background-color: $color-text-main; // Border color
+    border: 2px solid $color-text-main;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1;
+    box-shadow: $shadow-deep;
+    border-radius: $radius-sm;
+    overflow: hidden;
+
+    .sudoku-cell {
+      background-color: $color-bg-secondary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+      border: 0.5px solid lighten($color-text-muted, 20%);
+
+      &--border-bottom { border-bottom: 2px solid $color-text-main; }
+      &:nth-child(3n):not(:nth-child(9n)) { border-right: 2px solid $color-text-main; }
+
+      &.is-selected {
+        background-color: lighten($color-primary, 35%);
+      }
+
+      &.is-highlighted {
+        background-color: lighten($color-primary, 42%);
+      }
+
+      &.is-wrong {
+        background-color: lighten($color-error, 40%);
+        .sudoku-cell__value { color: $color-error; }
+      }
+
+      .sudoku-cell__value {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: $color-primary;
+
+        &.is-given {
+          color: $color-text-main;
+          font-weight: 700;
+        }
+      }
+
+      .sudoku-cell__notes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        height: 100%;
+        padding: 2px;
+        font-size: 0.6rem;
+        color: $color-text-muted;
+        line-height: 1;
+
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  .sudoku-numpad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: $spacing-xs;
+    width: 100%;
+    max-width: 400px;
+    padding: $spacing-sm;
+
+    &__item {
+      position: relative;
+      @include flex-center(column);
+    }
+
+    &__count {
+      font-size: 0.7rem;
+      color: $color-text-muted;
+      margin-bottom: 2px;
+    }
+
+    .sudoku-numpad-btn {
+      width: 100%;
+      aspect-ratio: 1;
+      @include flex-center;
+      padding: 0;
+      font-size: 1.2rem;
+      border-radius: $radius-md;
+      background-color: $color-bg-secondary;
+      color: $color-primary;
+      border: 1px solid darken($color-bg-primary, 10%);
+      box-shadow: $shadow-button;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover:not(:disabled) {
+        @include card-hover;
+        background-color: $color-bg-primary;
+      }
+
+      &.active {
+        background-color: $color-primary;
+        color: $color-white;
+        border-color: transparent;
+      }
+
+      &.btn-erase {
+        background-color: $color-bg-primary;
+        color: $color-text-main;
+      }
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: default;
+        transform: none !important;
+      }
+    }
+  }
+
+  @include mobile {
+    .sudoku-board .sudoku-cell .sudoku-cell__value {
+      font-size: 1.2rem;
+    }
+    
+    .sudoku-numpad {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+}

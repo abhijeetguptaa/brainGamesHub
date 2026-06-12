@@ -15,7 +15,7 @@
     "isFor": "{{letter}} er for {{word}}"
   },
   "app": {
-    "description": "Sjekk ut denne kule appen for å lære matematikk, legge puslespill, fargelegge og mye mer moro!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Trykk på tilbake igjen for å avslutte",
     "title": "Brain Games Hub",
     "orientationLockError": "Skjermrotasjonslås er ikke tilgjengelig på denne enheten."
@@ -59,14 +59,13 @@
         "Fantastisk!",
         "Utrolig!",
         "Strålende!",
-        "Så smart!",
         "Vidunderlig!",
         "Perfekt!",
         "Fremragende!",
         "Bravo!",
         "Du styrer!",
         "Eminent!",
-        "High Five!"
+        "Well Done!"
       ],
       "looseMsg": [
         "Godt forsøk!",
@@ -357,12 +356,6 @@
       "18": "Eighteen",
       "19": "Nineteen",
       "20": "Twenty"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Colored Canvas",
-      "reference": "Referanse"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1265,6 @@
     "unlockWithStars": "Bruk {{cost}} ⭐",
     "watchFullAd": "Vennligst se hele reklamen for å låse opp dette nivået.",
     "adFailed": "Kunne ikke laste reklame ({{code}}). Prøv igjen senere eller bruk stjerner."
-  },
-  "learningPath": {
-    "title": "Eventyrkart",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Mål: {{count}})",
-    "levelCompleteMessage": "Nivå fullført",
-    "skipLevel": "Se reklame for å hoppe over",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Grunnlagsmarker",
-      "expanding": "🌲 Utvidende skoger",
-      "challenging": "🏔️ Utfordringstopper",
-      "mastery": "🌊 Mestringshav",
-      "grandmaster": "✨ Stormestergalakse",
-      "cosmic": "🚀 Kosmisk reisende",
-      "deepsea": "🐙 Dyphavsoppdagelse",
-      "jungle": "🌿 Jungelreise",
-      "ancient": "🏺 Antikke ruiner",
-      "legend": "👑 Ultimativ legende",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Tid for å leke! 🌟",

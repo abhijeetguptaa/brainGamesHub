@@ -15,7 +15,7 @@
     "isFor": "{{letter}} 代表 {{word}}"
   },
   "app": {
-    "description": "快来看看这个超酷的数学学习应用！玩拼图、涂色，享受更多乐趣挑战",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "再次按返回键退出",
     "title": "Brain Games Hub",
     "orientationLockError": "此设备不支持屏幕旋转锁定。"
@@ -357,12 +357,6 @@
       "18": "十八",
       "19": "十九",
       "20": "二十"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "彩色画布",
-      "reference": "参考"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1266,6 @@
     "unlockWithStars": "使用 {{cost}} ⭐",
     "watchFullAd": "请完整观看广告以解锁此功能。",
     "adFailed": "广告加载失败 ({{code}})。请稍后再试或使用硬币。"
-  },
-  "learningPath": {
-    "title": "冒险地图",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(目标: {{count}})",
-    "levelCompleteMessage": "关卡完成",
-    "skipLevel": "观看广告跳过",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 基础原野",
-      "expanding": "🌲 扩张之森",
-      "challenging": "🏔️ 挑战之巅",
-      "mastery": "🌊 精通之海",
-      "grandmaster": "✨ 特级大师星系",
-      "cosmic": "🚀 宇宙漫游者",
-      "deepsea": "🐙 深海探索",
-      "jungle": "🌿 丛林之旅",
-      "ancient": "🏺 古代遗迹",
-      "legend": "👑 终极传奇",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "该玩游戏了！ 🌟",

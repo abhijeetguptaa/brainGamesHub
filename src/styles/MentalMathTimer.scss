@@ -1,0 +1,28 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.mental-math-timer-container {
+  @include flex-center(column, 4px);
+  margin-bottom: $spacing-sm;
+
+  .timer-display {
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: monospace;
+    color: $color-primary;
+    background: $color-bg-primary;
+    padding: 2px $spacing-md;
+    border-radius: $radius-md;
+    box-shadow: $shadow-soft;
+  }
+
+  .best-time {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $color-text-muted;
+    
+    .time-value {
+      color: $color-success;
+    }
+  }
+}

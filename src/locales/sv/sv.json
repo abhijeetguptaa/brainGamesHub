@@ -15,7 +15,7 @@
     "isFor": "{{letter}} is for {{word}}"
   },
   "app": {
-    "description": "Kolla in denna coola app för att lära dig matte, lägga pussel, färglägga och mycket mer kul!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Tryck på tillbaka igen för att avsluta",
     "title": "Brain Games Hub",
     "orientationLockError": "Skärmrotationslås är inte tillgängligt på den här enheten."
@@ -59,14 +59,13 @@
         "Fantastiskt!",
         "Otroligt!",
         "Strålande!",
-        "Så smart!",
         "Underbart!",
         "Perfekt!",
         "Enastående!",
         "Bravo!",
         "Du är bäst!",
         "Utmärkt!",
-        "High Five!"
+        "Well Done!"
       ],
       "looseMsg": [
         "Bra försök!",
@@ -357,12 +356,6 @@
       "18": "Arton",
       "19": "Nitton",
       "20": "Tjugo"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Färgad duk",
-      "reference": "Referens"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1265,6 @@
     "unlockWithStars": "Använd {{cost}} ⭐",
     "watchFullAd": "Vänligen se hela reklamen för att låsa upp denna funktion.",
     "adFailed": "Det gick inte att ladda reklamen ({{code}}). Försök igen senare eller använd mynt."
-  },
-  "learningPath": {
-    "title": "Äventyrskarta",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Mål: {{count}})",
-    "levelCompleteMessage": "Nivå slutförd",
-    "skipLevel": "Se annons för att hoppa över",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Grundmarker",
-      "expanding": "🌲 Expanderande skogar",
-      "challenging": "🏔️ Utmaningstoppar",
-      "mastery": "🌊 Mestringshav",
-      "grandmaster": "✨ Stormästargalax",
-      "cosmic": "🚀 Kosmisk resenär",
-      "deepsea": "🐙 Djuphavsupptäckt",
-      "jungle": "🌿 Djungelresa",
-      "ancient": "🏺 Antika ruiner",
-      "legend": "👑 Ultimata legenden",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Dags att leka! 🌟",

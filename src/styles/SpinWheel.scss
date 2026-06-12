@@ -1,0 +1,165 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.spin-wheel-container {
+  @include flex-center(column, $spacing-md);
+  padding: $spacing-md;
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.wheel-wrapper {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  cursor: pointer;
+  @include flex-center;
+
+  @include mobile {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+.wheel-pointer {
+  position: absolute;
+  top: -10px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 30px solid $color-error;
+  filter: drop-shadow($shadow-button);
+}
+
+.wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 8px solid $color-bg-secondary;
+  box-shadow: $shadow-deep;
+  position: relative;
+  overflow: hidden;
+  transition: transform 4s cubic-bezier(0.15, 0, 0.15, 1);
+  transform: rotate(var(--rotation));
+
+  &.is-autoplay {
+    border-color: $color-accent;
+  }
+}
+
+.segment {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  left: 50%;
+  top: 50%;
+  transform-origin: 0 0;
+  
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      transform: rotate(calc(60deg * (#{$i} - 1))) skewY(-30deg);
+      background-color: if($i % 2 == 0, $color-primary, $color-secondary);
+    }
+  }
+}
+
+.segment-content {
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  transform: skewY(30deg) rotate(30deg);
+  @include flex-center(column, $spacing-xs);
+  width: 80px;
+  color: $color-white;
+  text-align: center;
+  font-weight: 600;
+
+  .character-icon {
+    font-size: 1.5rem;
+  }
+
+  .star-reward {
+    @include flex-center(row, 2px);
+    font-size: 0.8rem;
+  }
+
+  .option-label {
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+}
+
+.center-button {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: $color-white;
+  border: 4px solid $color-bg-primary;
+  box-shadow: $shadow-soft;
+  @include flex-center;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+
+  .center-icon {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $color-primary;
+  }
+}
+
+.spin-result-message {
+  @include glass-panel;
+  padding: $spacing-sm $spacing-md;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .result-content {
+    p {
+      margin: 0;
+      font-weight: 600;
+      color: $color-text-main;
+    }
+  }
+
+  .multiplier-badge {
+    display: inline-block;
+    background: $grad-main;
+    color: $color-white;
+    padding: 2px $spacing-sm;
+    border-radius: $radius-full;
+    font-size: 0.9rem;
+    margin-top: $spacing-xs;
+    font-weight: 700;
+  }
+}
+
+.autoplay-button {
+  @include bouncy-button($color-bg-secondary, $color-text-main);
+  border: 1px solid rgba(0,0,0,0.1);
+  @include flex-center(row, $spacing-xs);
+
+  &.active {
+    background-color: $color-error;
+    color: $color-white;
+    border-color: $color-error;
+  }
+}

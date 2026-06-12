@@ -207,13 +207,13 @@ const Sudoku = () => {
   };
   return (
     <div className="sudoku-container">
-      <div className="w-full d-flex justify-content-around align-items-center my-2">
-        <button className="btn btn-primary" onClick={handleNewPuzzle}>
+      <div className="sudoku-controls">
+        <button className="sudoku-btn btn-action" onClick={handleNewPuzzle}>
           {t('common.newGame')}
         </button>
-        <div className="btn btn-secondary cursor-none">{formatElapsedTime(timer)}</div>
+        <div className="sudoku-timer-display">{formatElapsedTime(timer)}</div>
         <button
-          className={`btn ${autofillNotesEnabled ? 'btn-danger' : 'btn-success'}`}
+          className={`sudoku-btn ${autofillNotesEnabled ? 'btn-danger' : 'btn-success'}`}
           onClick={handleAutofillNotes}
           title={t('sudoku.autofillNotes')}
         >
@@ -262,14 +262,14 @@ const NumberPad = React.memo(function NumberPad({
 }) {
   const { t } = useTranslation();
   return (
-    <div className="sudoku-numpad d-flex flex-wrap justify-content-center align-items-end gap-2 mt-3 px-2">
+    <div className="sudoku-numpad">
       {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
         <div key={n} className="sudoku-numpad__item">
           <span className="sudoku-numpad__count">
             {typeof remainingCounts[n] === 'number' ? remainingCounts[n] : 9}
           </span>
           <button
-            className={`btn btn-primary sudoku-numpad-btn${selectedNumber === n ? ' active' : ''}`}
+            className={`sudoku-numpad-btn${selectedNumber === n ? ' active' : ''}`}
             onClick={() => onNumber(n)}
             disabled={disabledNumbers.includes(n)}
           >
@@ -278,7 +278,7 @@ const NumberPad = React.memo(function NumberPad({
         </div>
       ))}
       <button
-        className="btn btn-secondary sudoku-numpad-btn"
+        className="sudoku-numpad-btn btn-erase"
         onClick={onErase}
         title={t('sudoku.erase')}
       >

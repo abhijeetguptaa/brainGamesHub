@@ -15,7 +15,7 @@
     "isFor": "{{letter}} is voor {{word}}"
   },
   "app": {
-    "description": "Bekijk deze leuke app om rekenen te leren, puzzels te spelen, te kleuren en nog veel meer plezier te beleven",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Druk nogmaals op terug om af te sluiten",
     "title": "Slim Leren voor en",
     "orientationLockError": "Schermrotatie vergrendelen is niet beschikbaar op dit apparaat."
@@ -65,8 +65,7 @@
         "Uitstekend!",
         "Bravo!",
         "Jij bent geweldig!",
-        "Uitmuntend!",
-        "High five!"
+        "Uitmuntend!"
       ],
       "looseMsg": [
         "Goed geprobeerd!",
@@ -76,7 +75,7 @@
         "Jij kunt het!",
         "Ga door!",
         "Mooie poging!",
-        "You’re Learning!",
+        "Keep Trying!",
         "Blijf positief!"
       ]
     },
@@ -357,12 +356,6 @@
       "18": "Achttien",
       "19": "Negentien",
       "20": "Twintig"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Ingekleurd canvas",
-      "reference": "Referentie"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1265,6 @@
     "unlockWithStars": "Gebruik {{cost}} ⭐",
     "watchFullAd": "Bekijk de volledige advertentie om dit level te ontgrendelen.",
     "adFailed": "Laden van advertentie mislukt ({{code}}). Prøbeer het later opnieuw of gebruik sterren."
-  },
-  "learningPath": {
-    "title": "Avonturenkaart",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Doel: {{count}})",
-    "levelCompleteMessage": "Level voltooid",
-    "skipLevel": "Bekijk advertentie om over te slaan",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Fundamentvelden",
-      "expanding": "🌲 Uitbreidende bossen",
-      "challenging": "🏔️ Uitdagingspieken",
-      "mastery": "🌊 Meesterschapsoceaan",
-      "grandmaster": "✨ Grootmeester-stelsel",
-      "cosmic": "🚀 Kosmische reiziger",
-      "deepsea": "🐙 Diepzee-ontdekking",
-      "jungle": "🌿 Jungle-reis",
-      "ancient": "🏺 Oude ruïnes",
-      "legend": "👑 Ultieme legende",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Tijd om te spelen! 🌟",

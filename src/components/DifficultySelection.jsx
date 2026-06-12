@@ -26,7 +26,7 @@ const DifficultySelection = ({ difficulties, baseRoute, onSelect, className = ''
   const navigate = useNavigate();
 
   return (
-    <div className={`kids-bg flex-center column difficulty-selection ${className}`}>
+    <div className={`game-bg flex-center column difficulty-selection ${className}`}>
       <div className="difficulty-grid">
         {difficulties.map((d) => (
           <motion.div

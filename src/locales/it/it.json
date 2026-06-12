@@ -15,7 +15,7 @@
     "isFor": "{{letter}} sta per {{word}}"
   },
   "app": {
-    "description": "Scopri questa fantastica app per imparare la matematica, giocare ai puzzle, colorare e molto altro divertimento!",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Premi di nuovo indietro per uscire",
     "title": "Brain Games Hub",
     "orientationLockError": "Il blocco della rotazione dello schermo non è disponibile su questo dispositivo."
@@ -53,7 +53,7 @@
     "feedback": {
       "successMsg": [
         "Ottimo lavoro!",
-        "Super Star!",
+        "Great Job!",
         "Hai vinto!",
         "Ben fatto!",
         "Fantastico!",
@@ -357,12 +357,6 @@
       "18": "Diciotto",
       "19": "Diciannove",
       "20": "Venti"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Tela colorata",
-      "reference": "Riferimento"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1266,6 @@
     "unlockWithStars": "Usa {{cost}} ⭐",
     "watchFullAd": "Guarda l'annuncio completo per sbloccare questo livello.",
     "adFailed": "Caricamento annuncio fallito ({{code}}). Riprova più tardi o usa le stelle."
-  },
-  "learningPath": {
-    "title": "Mappa delle Avventure",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Obiettivo: {{count}})",
-    "levelCompleteMessage": "Livello Completato",
-    "skipLevel": "Guarda l'annuncio per saltare",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Campi di Fondazione",
-      "expanding": "🌲 Boschi in Espansione",
-      "challenging": "🏔️ Vette di Sfida",
-      "mastery": "🌊 Oceano di Maestria",
-      "grandmaster": "✨ Galassia del Gran Maestro",
-      "cosmic": "🚀 Viaggiatore Cosmico",
-      "deepsea": "🐙 Scoperta degli Abissi",
-      "jungle": "🌿 Viaggio nella Giungla",
-      "ancient": "🏺 Rovine Antiche",
-      "legend": "👑 Leggenda Suprema",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "È ora di giocare! 🌟",

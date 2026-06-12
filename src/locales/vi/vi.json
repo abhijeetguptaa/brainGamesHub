@@ -15,7 +15,7 @@
     "isFor": "{{letter}} dành cho {{word}}"
   },
   "app": {
-    "description": "Hãy xem ứng dụng thú vị này để học toán, chơi Giải đố, Tô màu và nhiều niềm vui khác",
+    "description": "Challenge your mind with Brain Games Hub! A collection of premium puzzles, mental math, and cognitive training exercises designed for all ages.",
     "pressBackToExit": "Nhấn quay lại lần nữa để thoát",
     "title": "Brain Games Hub",
     "orientationLockError": "Khóa xoay màn hình không khả dụng trên thiết bị này."
@@ -65,7 +65,6 @@
         "Xuất sắc!",
         "Bravo!",
         "Bạn thật tuyệt!",
-        "Tuyệt vời!",
         "Đập tay nào!"
       ],
       "looseMsg": [
@@ -357,12 +356,6 @@
       "18": "Mười tám",
       "19": "Mười chín",
       "20": "Hai mươi"
-    }
-  },
-  "genericColoring": {
-    "alt": {
-      "coloredCanvas": "Vải màu",
-      "reference": "Tham khảo"
     }
   },
   "englishWordsSpell": {
@@ -1272,46 +1265,6 @@
     "unlockWithStars": "Sử dụng {{cost}} ⭐",
     "watchFullAd": "Vui lòng xem hết quảng cáo để mở khóa tính năng này.",
     "adFailed": "Tải quảng cáo thất bại ({{code}}). Vui lòng thử lại sau hoặc sử dụng xu."
-  },
-  "learningPath": {
-    "title": "Bản đồ phiêu lưu",
-    "levelUnlock": "$t(passageSelection.level)",
-    "targetScore": "(Mục tiêu: {{count}})",
-    "levelCompleteMessage": "Hoàn thành cấp độ",
-    "skipLevel": "Xem quảng cáo để bỏ qua",
-    "games": "$t(home.categories.games)",
-    "phases": {
-      "foundation": "🌈 Cánh đồng Nền tảng",
-      "expanding": "🌲 Khu rừng Mở rộng",
-      "challenging": "🏔️ Đỉnh cao Thử thách",
-      "mastery": "🌊 Đại dương Bậc thầy",
-      "grandmaster": "✨ Thiên hà Đại sư",
-      "cosmic": "🚀 Lữ khách Vũ trụ",
-      "deepsea": "🐙 Khám phá Biển sâu",
-      "jungle": "🌿 Hành trình Rừng xanh",
-      "ancient": "🏺 Di tích Cổ đại",
-      "legend": "👑 Huyền thoại Cuối cùng",
-      "dragon": "🐲 Dragon's Lair",
-      "crystal": "💎 Crystal Cave",
-      "magic": "🪄 Magic Kingdom",
-      "future": "🏙️ Future City",
-      "robot": "🤖 Robotic Revolution",
-      "cyber": "🌐 Cyber Space",
-      "desert": "🏜️ Desert Mirage",
-      "arctic": "❄️ Arctic Tundra",
-      "volcano": "🌋 Volcano Valley",
-      "skycastle": "🏰 Sky Castle",
-      "diamond": "💎 Diamond Dunes",
-      "emerald": "🍃 Emerald Enclave",
-      "sapphire": "💧 Sapphire Springs",
-      "ruby": "🔥 Ruby Ridge",
-      "gold": "💰 Golden Garden",
-      "silver": "🥈 Silver Summit",
-      "platinum": "🛡️ Platinum Plateau",
-      "titanium": "🏗️ Titanium Tower",
-      "obsidian": "🌑 Obsidian Oasis",
-      "zenith": "🌌 Zenith Universe"
-    }
   },
   "notifications": {
     "reminderTitle": "Đến giờ chơi rồi! 🌟",

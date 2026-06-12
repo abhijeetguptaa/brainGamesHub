@@ -240,12 +240,12 @@ export const speakText = async (text, options = {}) => {
   try {
     isSpeaking = true;
 
-    // Kid voice defaults: pitch 1.6, rate 0.95 (natural but clear), increased volume
+    // Mature professional voice defaults: pitch 1.0, rate 0.9 (natural but clear)
     const finalOptions = {
       lang: i18n.language || 'en-US',
       rate: 0.9,
       pitch: 1.0,
-      volume: getGameVolume() * 16, // Was 4 * (0.3 + getGameVolume()) => 1.6 at max 0.1
+      volume: getGameVolume() * 16,
       ...options,
     };
 

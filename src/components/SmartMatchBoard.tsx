@@ -55,7 +55,6 @@ type CellProps = {
   isMatching: boolean;
   isHint: boolean;
   neighborOffset: { x: number; y: number };
-  zIndex: number;
   isProcessing: boolean;
   cellRefs: MutableRefObject<{ [key: string]: HTMLDivElement | null }>;
   setDragState: Dispatch<SetStateAction<DragState | null>>;
@@ -71,7 +70,6 @@ const SmartMatchCell = memo(function SmartMatchCell({
   isMatching,
   isHint,
   neighborOffset,
-  zIndex,
   isProcessing,
   cellRefs,
   setDragState,
@@ -85,7 +83,6 @@ const SmartMatchCell = memo(function SmartMatchCell({
         cellRefs.current[`${row}-${col}`] = el;
       }}
       className={`board-cell ${isSelected ? 'selected' : ''} ${isMatching ? 'is-matching' : ''} ${isHint ? 'is-hint' : ''} ${item?.special ? `is-special is-special-${item.special}` : ''}`}
-      style={{ '--z-index': zIndex } as React.CSSProperties}
       onClick={() => onCellClick(row, col)}
       drag={!isProcessing}
       dragConstraints={{ left: -60, right: 60, top: -60, bottom: 60 }}
@@ -150,14 +147,6 @@ function SmartMatchBoard({
             const isMatching = matchingItemSet.has(cellKey);
             const isHint = hintItemSet.has(cellKey);
             const neighborOffset = getNeighborOffset(r, c, dragState);
-            const zIndex =
-              dragState?.r === r && dragState?.c === c
-                ? 100
-                : isSelected
-                  ? 50
-                  : isMatching
-                    ? 10
-                    : 1;
 
             return (
               <SmartMatchCell
@@ -169,7 +158,6 @@ function SmartMatchBoard({
                 isMatching={isMatching}
                 isHint={isHint}
                 neighborOffset={neighborOffset}
-                zIndex={zIndex}
                 isProcessing={isProcessing}
                 cellRefs={cellRefs}
                 setDragState={setDragState}

@@ -1,0 +1,54 @@
+@use './variables' as *;
+
+@mixin flex-center($direction: row, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+  gap: $gap;
+}
+
+@mixin glass-panel {
+  background: $grad-glass;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-soft;
+}
+
+@mixin card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-deep;
+  }
+}
+
+@mixin bouncy-button($bg-color, $text-color: $color-white) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-md;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: $shadow-button;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  &:hover {
+    background-color: lighten($bg-color, 5%);
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
