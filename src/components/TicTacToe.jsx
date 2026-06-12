@@ -8,12 +8,11 @@ import LooseModal from './LooseModal';
 import TicTacToeBoard from './TicTacToeBoard';
 import { createInitialBoard, getWinner, getAiMove } from '../utils/ticTacToeUtils';
 
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { setScreen, trackExerciseComplete } from '../utils/analytics';
 
 const TicTacToe = ({ userName }) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
   const { difficulty: urlDifficulty } = useParams();
 
   useEffect(() => {
@@ -230,16 +229,14 @@ const TicTacToe = ({ userName }) => {
         <div className="ttt-info-section">
           <div className="mb-3 d-flex flex-wrap justify-content-center align-items-center gap-2">
             <div className="score-box bg-light border rounded px-3 py-1 shadow-sm">
-              <span className="fw-bold">{playerX}:</span>{' '}
-              <span className="fw-bold">{score.X}</span>
+              <span className="fw-bold">{playerX}:</span> <span className="fw-bold">{score.X}</span>
             </div>
             <div className="score-box bg-light border rounded px-3 py-1 shadow-sm">
               <span className="fw-bold">{t('ticTacToe.draws')}</span>{' '}
               <span className="fw-bold">{score.draw}</span>
             </div>
             <div className="score-box bg-light border rounded px-3 py-1 shadow-sm">
-              <span className="fw-bold">{oLabel}:</span>{' '}
-              <span className="fw-bold">{score.O}</span>
+              <span className="fw-bold">{oLabel}:</span> <span className="fw-bold">{score.O}</span>
             </div>
           </div>
 

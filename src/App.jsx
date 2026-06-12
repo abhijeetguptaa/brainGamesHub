@@ -11,7 +11,6 @@ import WelcomeScreen from './components/WelcomeScreen';
 import { STORAGE_KEYS } from './constants/appConstants';
 import { getPlayStoreAgeSignal, isKnownMinor } from './services/ageVerification';
 import useRetentionStore from './store/useRetentionStore';
-import { getCategoryBGColor, getCategoryColor } from './constants/colors';
 import { setScreen } from './utils/analytics';
 import { trackEvent } from './utils/firebaseAnalytics';
 
@@ -26,7 +25,8 @@ const loadSudokuDifficultySelector = () => import('./components/SudokuDifficulty
 const SudokuDifficultySelector = lazy(loadSudokuDifficultySelector);
 const loadTicTacToe = () => import('./components/TicTacToe.jsx');
 const TicTacToe = lazy(loadTicTacToe);
-const loadTicTacToeDifficultySelector = () => import('./components/TicTacToeDifficultySelector.jsx');
+const loadTicTacToeDifficultySelector = () =>
+  import('./components/TicTacToeDifficultySelector.jsx');
 const TicTacToeDifficultySelector = lazy(loadTicTacToeDifficultySelector);
 const loadSettings = () => import('./components/Settings.jsx');
 const Settings = lazy(loadSettings);
@@ -176,7 +176,7 @@ function Home() {
             aria-label={subject.title}
             title={subject.title}
             key={subject.to}
-            style={{ '--index': index } as React.CSSProperties}
+            style={{ '--index': index }}
           >
             <img className="subject-icon subject-icon--img" src={subject.src} alt={subject.label} />
             <div className="gameName">{subject.label}</div>
