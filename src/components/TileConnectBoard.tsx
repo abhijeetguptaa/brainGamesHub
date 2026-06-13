@@ -96,24 +96,11 @@ const TileConnectBoard = forwardRef<TileConnectBoardHandle, TileConnectBoardProp
   const [rows, setRows] = useState(4);
   const [cols, setCols] = useState(4);
   const [isShaking, setIsShaking] = useState(false);
-  const [fontSize, setFontSize] = useState<number>(40);
   const [matchingPair, setMatchingPair] = useState<{ p1: Point; p2: Point } | null>(null);
 
   const gridRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const suggestionTimeoutRef = useRef<any>(null);
-
-  const updateMeasurements = useCallback(() => {
-    if (gridRef.current) {
-      const cell = gridRef.current.querySelector('.tile-cell');
-      if (cell) {
-        const rect = cell.getBoundingClientRect();
-        // Dynamic font size: approx 60% of the smaller cell dimension.
-        const size = Math.floor(Math.min(rect.width, rect.height) * 2);
-        setFontSize(size);
-      }
-    }
-  }, []);
 
   const setupGame = useCallback(() => {
     const width = window.innerWidth;
@@ -150,10 +137,7 @@ const TileConnectBoard = forwardRef<TileConnectBoardHandle, TileConnectBoardProp
     setSuggestedTiles([]);
     setCanClick(true);
     onGridReady();
-
-    // Deferred measurement update after state set (deferred slightly more for reliable layout)
-    setTimeout(updateMeasurements, 150);
-  }, [level, onGridReady, updateMeasurements]);
+  }, [level, onGridReady]);
 
   useEffect(() => {
     if (isLevelComplete) {
@@ -298,8 +282,6 @@ const TileConnectBoard = forwardRef<TileConnectBoardHandle, TileConnectBoardProp
           {
             '--rows': rows,
             '--cols': cols,
-            '--max-width': (cols + 2) * 120 + 'px',
-            '--max-height': (rows + 2) * 120 + 'px',
           } as React.CSSProperties
         }
       >
@@ -326,20 +308,22 @@ const TileConnectBoard = forwardRef<TileConnectBoardHandle, TileConnectBoardProp
                     className="tile-inner-card"
                     style={
                       {
-                        '--font-size': `${fontSize}px`,
                         '--border-color':
                           (selectedTile?.x === r && selectedTile?.y === c) ||
                           (matchingPair?.p1.x === r && matchingPair?.p1.y === c) ||
                           (matchingPair?.p2.x === r && matchingPair?.p2.y === c)
                             ? '#000'
                             : TILE_COLORS[(type - 1) % TILE_COLORS.length],
+                        zIndex: selectedTile?.x === r && selectedTile?.y === c ? 10 : 1,
+                        transform: selectedTile?.x === r && selectedTile?.y === c ? 'scale(1.1) translateY(-5px)' : 'scale(1)',
+                        boxShadow: selectedTile?.x === r && selectedTile?.y === c ? '0 10px 20px rgba(0,0,0,0.2)' : '0 4px 8px rgba(0,0,0,0.1)',
                       } as React.CSSProperties
                     }
                     >
                       <motion.span
                         initial={{ scale: 0 }}
                         animate={{
-                          scale: selectedTile?.x === r && selectedTile?.y === c ? 1.25 : 1,
+                          scale: selectedTile?.x === r && selectedTile?.y === c ? 1.3 : 1,
                           rotate: suggestedTiles.some((p) => p.x === r && p.y === c)
                             ? [0, -10, 10, -10, 0]
                             : 0,

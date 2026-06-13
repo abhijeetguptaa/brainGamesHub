@@ -264,10 +264,7 @@ const SuccessModal = ({
                 </div>
               ))}
             </div>
-            <button
-              className="nav-button nav-button--back"
-              onClick={() => setShowMistakes(false)}
-            >
+            <button className="nav-button nav-button--back" onClick={() => setShowMistakes(false)}>
               <span className="text-white text-2xl rotate-180">➜</span>
             </button>
           </div>
@@ -281,17 +278,6 @@ const SuccessModal = ({
           disabled={isClosing}
         >
           <div className="close-timer-ring">
-            <svg viewBox="0 0 36 36">
-              <path
-                className="ring-bg"
-                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-              <path
-                className="ring-fg"
-                strokeDasharray={`${(timeLeft / 5) * 100}, 100`}
-                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-              />
-            </svg>
             <span className="close-x">✕</span>
           </div>
         </button>
