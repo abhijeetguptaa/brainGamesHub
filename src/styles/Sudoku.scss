@@ -12,7 +12,7 @@
     width: 100%;
     @include flex-center(row, $spacing-md);
     margin-bottom: $spacing-md;
-    
+
     .sudoku-timer-display {
       background-color: $color-bg-secondary;
       padding: $spacing-xs $spacing-sm;
@@ -45,19 +45,25 @@
     &.btn-action {
       background-color: $color-primary;
       color: $color-white;
-      &:hover:not(:disabled) { background-color: darken($color-primary, 5%); }
+      &:hover:not(:disabled) {
+        background-color: darken($color-primary, 5%);
+      }
     }
 
     &.btn-success {
       background-color: $color-success;
       color: $color-white;
-      &:hover:not(:disabled) { background-color: darken($color-success, 5%); }
+      &:hover:not(:disabled) {
+        background-color: darken($color-success, 5%);
+      }
     }
 
     &.btn-danger {
       background-color: $color-error;
       color: $color-white;
-      &:hover:not(:disabled) { background-color: darken($color-error, 5%); }
+      &:hover:not(:disabled) {
+        background-color: darken($color-error, 5%);
+      }
     }
 
     &:disabled {
@@ -70,13 +76,6 @@
   .sudoku-game-wrapper {
     @include flex-center(column, $spacing-md);
     width: 100%;
-
-    @media (min-width: $breakpoint-desktop) {
-      flex-direction: row;
-      align-items: flex-start;
-      justify-content: center;
-      gap: $spacing-xl;
-    }
   }
 
   .sudoku-board {
@@ -102,8 +101,12 @@
       user-select: none;
       border: 0.5px solid lighten($color-text-muted, 20%);
 
-      &--border-bottom { border-bottom: 2px solid $color-text-main; }
-      &:nth-child(3n):not(:nth-child(9n)) { border-right: 2px solid $color-text-main; }
+      &--border-bottom {
+        border-bottom: 2px solid $color-text-main;
+      }
+      &:nth-child(3n):not(:nth-child(9n)) {
+        border-right: 2px solid $color-text-main;
+      }
 
       &.is-selected {
         background-color: lighten($color-primary, 35%);
@@ -115,7 +118,9 @@
 
       &.is-wrong {
         background-color: lighten($color-error, 40%);
-        .sudoku-cell__value { color: $color-error; }
+        .sudoku-cell__value {
+          color: $color-error;
+        }
       }
 
       .sudoku-cell__value {
@@ -202,16 +207,6 @@
         cursor: default;
         transform: none !important;
       }
-    }
-  }
-
-  @include mobile {
-    .sudoku-board .sudoku-cell .sudoku-cell__value {
-      font-size: 1.2rem;
-    }
-    
-    .sudoku-numpad {
-      grid-template-columns: repeat(5, 1fr);
     }
   }
 }

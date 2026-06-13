@@ -19,11 +19,10 @@
 }
 
 .success-message {
-  @include glass-panel;
-  background: $color-bg-secondary;
+  @include playful-card($color-bg-secondary, rgba(0, 0, 0, 0.05));
   width: 100%;
   max-width: 600px;
-  padding: $spacing-md;
+  padding: $spacing-xl $spacing-md;
   text-align: center;
   position: relative;
   transition: opacity 0.3s;
@@ -38,7 +37,7 @@
 }
 
 .success-content-wrapper {
-  @include flex-center(column, $spacing-md);
+  @include flex-center(column, $spacing-lg);
 }
 
 .success-main-info {
@@ -46,111 +45,70 @@
   @include flex-center(column, $spacing-md);
 
   .applause {
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: 3rem;
+    font-weight: 900;
     margin: 0;
     color: $color-primary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 
     .letter {
       display: inline-block;
-      animation: bounce-in 0.5s ease backwards;
+      animation: bounce-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
       animation-delay: calc(var(--delay) * 0.05s);
     }
   }
 
   .success-desc {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 700;
     color: $color-text-muted;
     margin: 0;
   }
 
   .success-stars {
-    font-size: 2rem;
-    filter: drop-shadow(0 2px 4px rgba($color-warning, 0.3));
+    font-size: 2.5rem;
+    filter: drop-shadow(0 4px 8px rgba($color-warning, 0.4));
+    
+    .streak-count-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: $color-warning;
+      margin-left: $spacing-xs;
+    }
   }
 }
 
 .success-actions {
-  @include flex-center(row, $spacing-sm);
+  @include flex-center(row, $spacing-md);
   width: 100%;
-  margin-top: $spacing-sm;
-
-  @include mobile {
-    flex-direction: column;
-  }
+  margin-top: $spacing-md;
 
   button {
-    background-color: $color-primary;
-    color: $color-white;
-    padding: $spacing-sm $spacing-md;
-    border-radius: $radius-md;
-    border: none;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    box-shadow: $shadow-button;
-    transition: all 0.2s ease;
+    @include playful-button($color-primary);
+    font-size: 1.2rem;
     flex: 1;
-    width: 100%;
-
-    &:hover:not(:disabled) {
-      background-color: darken($color-primary, 5%);
-      transform: translateY(-1px);
-      box-shadow: $shadow-soft;
-    }
-
-    &:active:not(:disabled) {
-      transform: translateY(0);
-    }
 
     &.new-game-button {
-      background-color: $color-accent;
-      &:hover:not(:disabled) {
-        background-color: darken($color-accent, 5%);
-      }
+      @include playful-button($color-success);
     }
 
     &.show-mistakes-toggle {
-      background-color: $color-secondary;
-      &:hover:not(:disabled) {
-        background-color: darken($color-secondary, 5%);
-      }
+      @include playful-button($color-secondary);
     }
   }
 }
 
 .daily-bonus-actions {
-  @include flex-center(column, $spacing-sm);
+  @include flex-center(column, $spacing-md);
   width: 100%;
-  margin-top: $spacing-md;
+  margin-top: $spacing-lg;
 
   .btn-reward {
-    background: $grad-main;
-    color: $color-white;
-    padding: $spacing-xs;
-    border-radius: $radius-lg;
-    font-size: 1.25rem;
-    font-weight: 800;
-    border: none;
+    @include playful-button($color-success);
     width: 100%;
-    cursor: pointer;
-    box-shadow: $shadow-deep;
-    transition: all 0.2s ease;
-
-    &:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 20px -5px rgba($color-primary, 0.3);
-      filter: brightness(1.1);
-    }
-
-    &:active:not(:disabled) {
-      transform: translateY(0);
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
+    font-size: 1.5rem;
+    padding: $spacing-md;
   }
 }
 

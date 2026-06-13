@@ -136,16 +136,6 @@
       }
     }
   }
-
-  @include mobile {
-    .ttt-board-wrapper {
-      max-width: 90vw;
-    }
-    
-    .ttt-cell {
-      font-size: 2.5rem;
-    }
-  }
 }
 
 @keyframes pulse-red {

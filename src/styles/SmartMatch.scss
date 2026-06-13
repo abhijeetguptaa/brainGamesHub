@@ -152,10 +152,4 @@
     70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba($color-primary, 0); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba($color-primary, 0); }
   }
-
-  @include mobile {
-    .game-board .board-cell .item-emoji {
-      font-size: 1.4rem;
-    }
-  }
 }

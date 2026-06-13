@@ -185,15 +185,6 @@
       overflow: visible;
     }
   }
-
-  @include mobile {
-    padding: $spacing-xl $spacing-xs $spacing-xs;
-    
-    .tile-connect-grid {
-      gap: 4px;
-      padding: 4px;
-    }
-  }
 }
 
 @keyframes spin {

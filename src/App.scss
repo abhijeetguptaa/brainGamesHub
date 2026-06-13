@@ -12,7 +12,7 @@
 
 .landing-page {
   flex: 1;
-  padding: $spacing-xl $spacing-md;
+  padding: calc($spacing-xl + 40px) $spacing-md $spacing-xl;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -20,37 +20,35 @@
 
 .subject-selection {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: $spacing-md;
   width: 100%;
-  max-width: $max-width-content;
+  max-width: 600px;
   margin: 0 auto;
-
-  @include mobile {
-    grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-sm;
-  }
 }
 
 // Global Category Colors Logic
-$category-colors: $color-primary, $color-secondary, $color-accent, $color-success, $color-warning, $color-primary-dark, #7209b7, #4cc9f0, #ff006e, #3a0ca3, #4361ee;
+$category-colors:
+  $color-primary, $color-secondary, $color-accent, $color-success, $color-warning,
+  $color-primary-dark, #7209b7, #4cc9f0, #ff006e, #3a0ca3, #4361ee;
 
 .subject-icon-button {
-  @include glass-panel;
-  @include card-hover;
-  @include flex-center(column, $spacing-sm);
-  
-  width: 160px;
-  height: 160px;
-  padding: $spacing-md;
+  @include playful-card($color-white, var(--card-color, $color-primary));
+  @include flex-center(column);
+
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 2px;
   text-align: center;
   text-decoration: none;
-  
-  border: 2px solid var(--card-color, $color-primary);
-  box-shadow: $shadow-soft;
 
-  animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-  animation-delay: calc(var(--index) * 0.1s);
+  // Use a subtle tint of the card color for the background
+  background: linear-gradient(135deg, $color-white 0%, rgba(255, 255, 255, 0.9) 100%);
+  position: relative;
+  overflow: hidden;
+
+  animation: pop-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  animation-delay: calc(var(--index) * 0.05s);
 
   @for $i from 1 through length($category-colors) {
     &:nth-child(#{length($category-colors)}n + #{$i}) {
@@ -58,46 +56,70 @@ $category-colors: $color-primary, $color-secondary, $color-accent, $color-succes
     }
   }
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--card-color);
+  }
+
   .subject-icon {
-    width: 64px;
-    height: 64px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
     flex-shrink: 0;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+  }
+
+  &:hover .subject-icon {
+    transform: scale(1.1) rotate(5deg);
   }
 
   .gameName {
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: 800;
+    font-size: 1.1rem;
     color: $color-text-main;
     line-height: 1.2;
     margin-top: $spacing-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 }
 
 .nav-button {
+  @include playful-card($color-white, rgba(0, 0, 0, 0.05));
   @include flex-center;
-  background: white;
-  border: none;
+  width: 60px;
+  height: 60px;
   border-radius: $radius-full;
-  width: 56px;
-  height: 56px;
-  cursor: pointer;
-  box-shadow: $shadow-soft;
-  @include card-hover;
-  
+  position: fixed;
+  z-index: 1000;
+  padding: 0;
+
   img {
     width: 32px;
     height: 32px;
+    object-fit: contain;
+  }
+
+  .homeButton {
+    font-size: 2.2rem;
+    line-height: 1;
+    color: $color-primary;
+    font-weight: 900;
+    margin-right: 2px; // Visual adjustment for arrow centering
   }
 
   &--setting {
-    position: fixed;
-    bottom: $spacing-lg;
-    right: $spacing-lg;
+    top: $spacing-md;
+    left: $spacing-md;
   }
 
   &--home {
-    position: fixed;
     top: $spacing-md;
     left: $spacing-md;
   }

@@ -115,15 +115,4 @@
       }
     }
   }
-
-  @include mobile {
-    .target-board {
-      max-width: 90vw;
-    }
-    
-    .level-nav .reference-board {
-      width: 80px;
-      height: 80px;
-    }
-  }
 }

@@ -11,16 +11,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: $spacing-md;
-
-  @include mobile {
-    grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-sm;
-  }
 }
 
 .sticker-card {
   @include glass-panel;
-  padding: $spacing-sm;
+  padding: $spacing-xs;
   @include flex-center(column, $spacing-sm);
   cursor: pointer;
   @include card-hover;
@@ -39,6 +34,7 @@
     &.can-buy {
       border-color: $color-accent;
       animation: pulse-border 2s infinite;
+      opacity: 1;
     }
   }
 
@@ -50,7 +46,7 @@
   .sticker-visual {
     position: relative;
     font-size: 3rem;
-    
+
     .sticker-emoji {
       display: block;
     }
@@ -95,7 +91,13 @@
 }
 
 @keyframes pulse-border {
-  0% { border-color: rgba($color-accent, 0.4); }
-  50% { border-color: $color-accent; }
-  100% { border-color: rgba($color-accent, 0.4); }
+  0% {
+    border-color: rgba($color-accent, 0.4);
+  }
+  50% {
+    border-color: $color-accent;
+  }
+  100% {
+    border-color: rgba($color-accent, 0.4);
+  }
 }

@@ -26,79 +26,70 @@
       content: '';
       position: absolute;
       border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.5;
+      filter: blur(60px);
+      opacity: 0.6;
     }
 
     &::before {
-      width: 400px;
-      height: 400px;
-      background: $color-primary;
-      top: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, $color-primary 0%, transparent 70%);
+      top: -150px;
       right: -100px;
-      animation: float 8s infinite ease-in-out;
+      animation: float 10s infinite ease-in-out;
     }
 
     &::after {
-      width: 300px;
-      height: 300px;
-      background: $color-secondary;
-      bottom: -50px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, $color-accent 0%, transparent 70%);
+      bottom: -100px;
       left: -50px;
-      animation: float 6s infinite ease-in-out reverse;
+      animation: float 8s infinite ease-in-out reverse;
     }
   }
 
   &__content {
     position: relative;
     @include flex-center(column, $spacing-lg);
-    @include glass-panel;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 4px solid white;
+    border-radius: $radius-xl;
     padding: $spacing-xl;
     width: 90%;
     max-width: 500px;
     text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     animation: pop-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-    @include mobile {
-      padding: $spacing-lg $spacing-md;
-      background: transparent;
-      box-shadow: none;
-      border: none;
-    }
   }
 
   .game-logo {
-    width: 220px;
+    width: 260px;
     height: auto;
-    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
     animation: float 4s infinite ease-in-out;
-
-    @include mobile {
-      width: 180px;
-    }
   }
 
   .welcome-message {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 900;
     color: $color-text-main;
     margin: 0;
-    line-height: 1.2;
-    background: linear-gradient(135deg, $color-text-main, $color-primary-dark);
+    line-height: 1.1;
+    background: linear-gradient(135deg, $color-primary, $color-secondary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    @include mobile {
-      font-size: 2rem;
-    }
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
   }
 
   .play-button {
-    @include bouncy-button($color-success);
+    @include playful-button($color-success);
     width: 100%;
-    max-width: 300px;
-    font-size: 1.5rem;
-    padding: $spacing-xs;
+    max-width: 320px;
+    font-size: 1.8rem;
+    padding: $spacing-md;
     animation: fade-in-up 0.5s ease-out 0.5s both;
 
     &::before {
@@ -106,13 +97,8 @@
       margin-right: 12px;
     }
 
-    &.level-btn {
-      // Overriding potentially generic classes
-      border: none;
-    }
-
     &:hover {
-      animation: pulse-glow 2s infinite;
+      transform: scale(1.05) translateY(-2px);
     }
   }
 }

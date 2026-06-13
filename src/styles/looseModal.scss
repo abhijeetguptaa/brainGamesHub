@@ -14,11 +14,10 @@
 }
 
 .loose-message {
-  @include glass-panel;
-  background: $color-bg-secondary;
+  @include playful-card($color-bg-secondary, rgba(0, 0, 0, 0.05));
   width: 100%;
   max-width: 500px;
-  padding: $spacing-lg;
+  padding: $spacing-xl $spacing-md;
   text-align: center;
   position: relative;
 
@@ -27,56 +26,56 @@
   }
 
   .loose-icon {
-    font-size: 4rem;
-    margin-bottom: $spacing-sm;
+    font-size: 5rem;
+    margin-bottom: $spacing-md;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
   }
 
   h2 {
     color: $color-text-main;
-    margin-bottom: $spacing-xs;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: $spacing-sm;
+    text-transform: uppercase;
   }
 
   p {
     color: $color-text-muted;
-    margin-bottom: $spacing-md;
-  }
-
-  .loose-stars {
-    font-size: 1.5rem;
-    margin-bottom: $spacing-md;
-    opacity: 0.5;
-    filter: grayscale(1);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: $spacing-lg;
   }
 }
 
 .loose-actions {
-  @include flex-center(column, $spacing-sm);
+  @include flex-center(column, $spacing-md);
   width: 100%;
 
   button {
     width: 100%;
-    @include bouncy-button($color-primary);
+    @include playful-button($color-primary);
+    font-size: 1.2rem;
     
     &.new-game-button {
-      background-color: $color-accent;
+      @include playful-button($color-success);
     }
 
     &.show-mistakes-toggle {
-      background-color: $color-secondary;
+      @include playful-button($color-secondary);
     }
   }
 }
 
 .ad-reward-container {
   width: 100%;
-  margin-top: $spacing-md;
-  padding-top: $spacing-md;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: $spacing-lg;
+  padding-top: $spacing-lg;
+  border-top: 3px solid rgba(0, 0, 0, 0.05);
 
   .ad-reward-button {
     width: 100%;
-    @include bouncy-button($color-warning);
-    font-weight: 700;
+    @include playful-button($color-warning);
+    font-size: 1.3rem;
   }
 }
 

@@ -2,38 +2,26 @@
 @use 'mixins' as *;
 
 .stars-container {
-  @include glass-panel;
+  @include playful-card(rgba($color-white, 0.9), rgba($color-primary, 0.1));
   @include flex-center(row, $spacing-xs);
-  padding: $spacing-xs $spacing-sm;
-  background: rgba($color-white, 0.9);
-  border-radius: $radius-full;
-  border: 1px solid rgba($color-primary, 0.2);
-  min-width: 80px;
-  height: 40px;
-  
+  position: fixed;
+  top: $spacing-md;
+  right: $spacing-md;
+  z-index: 1000;
+  padding: $spacing-xs $spacing-md;
+  height: 48px;
+  min-width: 90px;
+
   .star-icon {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     line-height: 1;
-    filter: drop-shadow(0 2px 4px rgba($color-warning, 0.3));
+    filter: drop-shadow(0 4px 8px rgba($color-warning, 0.4));
   }
 
   .star-count {
-    font-weight: 700;
-    font-size: 1.125rem;
+    font-weight: 800;
+    font-size: 1.25rem;
     color: $color-text-main;
     font-variant-numeric: tabular-nums;
-  }
-
-  @include mobile {
-    height: 32px;
-    padding: 4px $spacing-xs;
-    
-    .star-icon {
-      font-size: 1rem;
-    }
-
-    .star-count {
-      font-size: 1rem;
-    }
   }
 }

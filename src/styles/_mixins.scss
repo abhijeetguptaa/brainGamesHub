@@ -10,45 +10,65 @@
 
 @mixin glass-panel {
   background: $grad-glass;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: $radius-lg;
   box-shadow: $shadow-soft;
 }
 
-@mixin card-hover {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+@mixin playful-card($bg-color: $color-white, $border-color: rgba(0, 0, 0, 0.05)) {
+  background: $bg-color;
+  border: 3px solid $border-color;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-playful;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+  
   &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 0px rgba(0, 0, 0, 0.08);
+  }
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 0px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@mixin playful-button($bg-color: $color-primary, $text-color: $color-white) {
+  background: $bg-color;
+  color: $text-color;
+  padding: $spacing-sm $spacing-lg;
+  border: none;
+  border-radius: $radius-full;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 6px 0px darken($bg-color, 15%);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  
+  &:hover {
+    background: lighten($bg-color, 5%);
     transform: translateY(-2px);
+    box-shadow: 0 8px 0px darken($bg-color, 15%);
+  }
+
+  &:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0px darken($bg-color, 15%);
+  }
+}
+
+@mixin card-hover {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  &:hover {
+    transform: scale(1.05) translateY(-5px);
     box-shadow: $shadow-deep;
   }
 }
 
 @mixin bouncy-button($bg-color, $text-color: $color-white) {
-  background-color: $bg-color;
-  color: $text-color;
-  padding: $spacing-xs $spacing-sm;
-  border-radius: $radius-md;
-  border: none;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: $shadow-button;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  
-  &:active {
-    transform: translateY(1px);
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  }
-
-  &:hover {
-    background-color: lighten($bg-color, 5%);
-  }
-}
-
-@mixin mobile {
-  @media (max-width: $breakpoint-tablet) {
-    @content;
-  }
+  @include playful-button($bg-color, $text-color);
 }

@@ -84,15 +84,4 @@
       }
     }
   }
-
-  @include mobile {
-    .game-board {
-      gap: $spacing-xs;
-      &.cols-4 { grid-template-columns: repeat(3, 1fr); } // Fallback for small screens
-    }
-    
-    .card .card-front {
-      font-size: 1.5rem;
-    }
-  }
 }

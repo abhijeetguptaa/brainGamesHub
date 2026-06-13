@@ -1,37 +1,38 @@
 // Typography
-$font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$font-main: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
-// Colors - Vibrant & Mature Modern Palette
-$color-bg-primary: #f8fafc;
+// Colors - Playful & Vibrant Palette
+$color-bg-primary: #fff9f0; // Warm, inviting cream
 $color-bg-secondary: #ffffff;
 
-$color-primary: #3b82f6;      // Vibrant Blue
-$color-primary-dark: #2563eb; // Deeper Blue
-$color-secondary: #8b5cf6;    // Vibrant Purple
-$color-accent: #10b981;       // Vibrant Green
-$color-success: #059669;      // Deep Green
-$color-warning: #f59e0b;      // Amber
-$color-error: #ef4444;        // Red
+$color-primary: #ff4d6d;      // Vibrant Pink/Red
+$color-primary-dark: #c9184a;
+$color-secondary: #7209b7;    // Vibrant Purple
+$color-accent: #4cc9f0;       // Vibrant Sky Blue
+$color-success: #38b000;      // Bubbly Green
+$color-warning: #ffb703;      // Sunny Orange
+$color-error: #d00000;        // Bold Red
 
-$color-text-main: #0f172a;
-$color-text-muted: #64748b;
+$color-text-main: #1a1a1a;
+$color-text-muted: #5a5a5a;
 $color-white: #ffffff;
 
 // Gradients
 $grad-main: linear-gradient(135deg, $color-primary 0%, $color-primary-dark 100%);
-$grad-welcome: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-$grad-glass: rgba(255, 255, 255, 0.8);
+$grad-welcome: linear-gradient(180deg, #fff9f0 0%, #ffe5d9 100%);
+$grad-glass: rgba(255, 255, 255, 0.9);
 
-// Shadows - Standard Modern UI
-$shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-$shadow-deep: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-$shadow-button: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+// Shadows - Playful & Tactile
+$shadow-soft: 0 8px 16px rgba(0, 0, 0, 0.05);
+$shadow-deep: 0 12px 24px rgba(0, 0, 0, 0.1);
+$shadow-button: 0 4px 0px rgba(0, 0, 0, 0.15);
+$shadow-playful: 0 8px 0px rgba(0, 0, 0, 0.1);
 
-// Border Radius
-$radius-sm: 4px;
-$radius-md: 8px;
-$radius-lg: 12px;
-$radius-xl: 16px;
+// Border Radius - Bubbly & Friendly
+$radius-sm: 8px;
+$radius-md: 16px;
+$radius-lg: 24px;
+$radius-xl: 32px;
 $radius-full: 9999px;
 
 // Layout
@@ -41,8 +42,3 @@ $spacing-sm: 16px;
 $spacing-md: 24px;
 $spacing-lg: 40px;
 $spacing-xl: 64px;
-
-// Breakpoints
-$breakpoint-mobile: 480px;
-$breakpoint-tablet: 768px;
-$breakpoint-desktop: 1024px;

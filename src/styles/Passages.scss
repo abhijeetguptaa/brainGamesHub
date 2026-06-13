@@ -31,53 +31,55 @@
   width: 100%;
   max-width: $max-width-content;
   margin: 0 auto;
-
-  @include mobile {
-    grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-sm;
-    padding: $spacing-sm;
-  }
 }
 
 .difficulty-card {
-  @include glass-panel;
-  @include card-hover;
+  @include playful-card($color-white, var(--difficulty-color, $color-primary));
   @include flex-center(column, $spacing-sm);
   padding: $spacing-md;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   text-align: center;
-  border-bottom: 4px solid var(--difficulty-color, $color-primary);
+  
+  // Custom chunky shadow using the difficulty color
+  box-shadow: 0 8px 0px rgba(var(--difficulty-color), 0.2);
 
   .emoji {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: $spacing-xs;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+  }
+
+  &:hover .emoji {
+    transform: scale(1.2) rotate(5deg);
   }
 
   .difficulty-image {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     object-fit: contain;
     margin-bottom: $spacing-xs;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
   }
 
   .label {
-    font-weight: 700;
-    font-size: 1.25rem;
+    font-weight: 800;
+    font-size: 1.4rem;
     color: $color-text-main;
-    text-transform: capitalize;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
   &.locked {
-    opacity: 0.7;
+    opacity: 0.6;
     cursor: not-allowed;
-    filter: grayscale(0.5);
-    border-bottom-color: $color-text-muted;
+    filter: grayscale(0.8);
+    box-shadow: 0 4px 0px rgba(0, 0, 0, 0.1);
 
     &:hover {
       transform: none;
-      box-shadow: $shadow-soft;
     }
   }
 }

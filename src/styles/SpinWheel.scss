@@ -16,11 +16,6 @@
   height: 320px;
   cursor: pointer;
   @include flex-center;
-
-  @include mobile {
-    width: 280px;
-    height: 280px;
-  }
 }
 
 .wheel-pointer {

@@ -14,50 +14,50 @@
 }
 
 .unlock-modal-content {
-  @include glass-panel;
-  background: $color-bg-secondary;
+  @include playful-card($color-bg-secondary, rgba(0, 0, 0, 0.05));
   width: 100%;
-  max-width: 400px;
-  padding: $spacing-lg;
+  max-width: 450px;
+  padding: $spacing-xl $spacing-md;
   text-align: center;
+  animation: pop-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   h2 {
     color: $color-primary;
-    margin-bottom: $spacing-sm;
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: $spacing-md;
+    text-transform: uppercase;
   }
 
   p {
     color: $color-text-main;
-    margin-bottom: $spacing-sm;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: $spacing-md;
     
     &.text-red {
       color: $color-error;
-      font-weight: 600;
     }
   }
 }
 
 .unlock-modal-actions {
-  @include flex-center(row, $spacing-sm);
-  margin-top: $spacing-md;
-
-  @include mobile {
-    flex-direction: column;
-  }
+  @include flex-center(row, $spacing-md);
+  margin-top: $spacing-lg;
 
   button {
     flex: 1;
     width: 100%;
-    @include bouncy-button($color-primary);
+    @include playful-button($color-primary);
+    font-size: 1.1rem;
 
     &.cancel-button {
-      background-color: $color-bg-primary;
-      color: $color-text-main;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      @include playful-button($color-bg-primary, $color-text-main);
+      box-shadow: 0 4px 0px rgba(0, 0, 0, 0.1);
     }
 
     &.confirm-button {
-      background-color: $color-accent;
+      @include playful-button($color-success);
       
       &:disabled {
         opacity: 0.5;
