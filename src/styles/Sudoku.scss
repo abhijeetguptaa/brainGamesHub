@@ -38,10 +38,6 @@
       box-shadow: $shadow-soft;
     }
 
-    &:active:not(:disabled) {
-      transform: translateY(0);
-    }
-
     &.btn-action {
       background-color: $color-primary;
       color: $color-white;
@@ -86,7 +82,6 @@
     border: 2px solid $color-text-main;
     width: 100%;
     max-width: 500px;
-    aspect-ratio: 1;
     box-shadow: $shadow-deep;
     border-radius: $radius-sm;
     overflow: hidden;
@@ -189,12 +184,6 @@
       &:hover:not(:disabled) {
         @include card-hover;
         background-color: $color-bg-primary;
-      }
-
-      &.active {
-        background-color: $color-primary;
-        color: $color-white;
-        border-color: transparent;
       }
 
       &.btn-erase {

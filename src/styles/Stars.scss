@@ -5,8 +5,8 @@
   @include playful-card(rgba($color-white, 0.9), rgba($color-primary, 0.1));
   @include flex-center(row, $spacing-xs);
   position: fixed;
-  top: $spacing-md;
-  right: $spacing-md;
+  top: $spacing-xs;
+  right: $spacing-xs;
   z-index: 1;
   padding: $spacing-xs $spacing-md;
   height: 48px;

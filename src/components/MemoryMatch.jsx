@@ -24,6 +24,7 @@ const MemoryMatch = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [isGameVisible, setIsGameVisible] = useState(true);
   const [solvedCount, setSolvedCount] = useState(0);
+  const [moves, setMoves] = useState(0);
 
   const levelUpLock = useRef(false);
   const selectedCardIndicesRef = useRef([]);
@@ -133,6 +134,10 @@ const MemoryMatch = () => {
 
     setCards(newCards);
     setFlippedCards((prev) => (prev.includes(index) ? prev : [...prev, index]));
+
+    if (currentFlippedCards.length === 1) {
+      setMoves((m) => m + 1);
+    }
   }, []);
 
   /** Match check */
@@ -188,6 +193,7 @@ const MemoryMatch = () => {
     setCardCount((p) =>
       p < MEMORY_MATCH_CONFIG.MAX_CARDS ? p + 2 : MEMORY_MATCH_CONFIG.INITIAL_CARD_COUNT,
     );
+    setMoves(0);
     levelUpLock.current = false;
     selectedCardIndicesRef.current = [];
     setFlippedCards([]);
@@ -203,17 +209,31 @@ const MemoryMatch = () => {
 
       trackExerciseComplete('memory-match', 'default', cards.length / 2);
 
-      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setShowSuccessMessage(true);
+      }, 500);
     }
   }, [allMatched, solvedCount, cards.length]);
 
   /** Grid columns class */
   const gridColsClass = useMemo(() => {
-    return cardCount < 6 ? 'cols-2' : cardCount < 13 ? 'cols-3' : 'cols-4';
+    if (cardCount <= 8) return 'cols-2';
+    return 'cols-3';
   }, [cardCount]);
 
   return (
     <div className="card-game-container">
+      <div className="game-header">
+        <div className="stat-pill">
+          <span className="label">{t('memoryMatch.level', 'Pairs')}:</span>
+          <span className="value">{cardCount / 2}</span>
+        </div>
+        <div className="stat-pill">
+          <span className="label">{t('memoryMatch.moves', 'Moves')}:</span>
+          <span className="value">{moves}</span>
+        </div>
+      </div>
+
       <div ref={gameBoardRef} className={`game-board ${gridColsClass}`}>
         {cards.map((card, i) => (
           <Card
@@ -229,7 +249,11 @@ const MemoryMatch = () => {
       </div>
 
       {showSuccessMessage && (
-        <SuccessModal handleClose={handleClose} message={''} starsWon={cards?.length / 2} />
+        <SuccessModal
+          handleClose={handleClose}
+          message={t('memoryMatch.successMessage', 'Great memory!')}
+          starsWon={cards?.length / 2}
+        />
       )}
       <SparkleRenderer />
     </div>
@@ -253,16 +277,14 @@ const Card = memo(function Card({ index, card, isFlipped, onClick, cardRefs, que
         '--card-tilt': cardTilt,
       }}
     >
-      {!card.isMatched && (
-        <div className="card-inner">
-          <div className="card-front">{questionMarkLabel}</div>
-          <div className="card-back">
-            {React.createElement(IconComponent, {
-              color: card.icon.color,
-            })}
-          </div>
+      <div className="card-inner">
+        <div className="card-front">{questionMarkLabel}</div>
+        <div className="card-back">
+          {React.createElement(IconComponent, {
+            color: card.icon.color,
+          })}
         </div>
-      )}
+      </div>
     </div>
   );
 });

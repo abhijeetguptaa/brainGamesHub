@@ -2,10 +2,17 @@
 import * as React from 'react';
 
 export const createCustomIcon = (emoji: string) => {
-  const Component = ({ size = 24, color }: { size?: number; color?: string }) =>
+  const Component = ({ size, color }: { size?: number | string; color?: string }) =>
     React.createElement(
       'span',
-      { style: { fontSize: size, display: 'inline-block', color: color || 'inherit' } },
+      {
+        style: {
+          fontSize: size,
+          display: 'inline-block',
+          color: color || 'inherit',
+          lineHeight: 1,
+        },
+      },
       emoji,
     );
   (Component as any).emoji = emoji;

@@ -85,7 +85,10 @@
   },
   "memoryMatch": {
     "label": "Memory Match",
-    "title": "Train your brain with Memory Match!"
+    "title": "Train your brain with Memory Match!",
+    "level": "Pairs",
+    "moves": "Moves",
+    "successMessage": "Great memory!"
   },
   "sudoku": {
     "label": "Sudoku",

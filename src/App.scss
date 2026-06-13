@@ -114,13 +114,9 @@ $category-colors:
     margin-right: 2px; // Visual adjustment for arrow centering
   }
 
-  &--setting {
-    top: $spacing-md;
-    left: $spacing-md;
-  }
-
+  &--setting,
   &--home {
-    top: $spacing-md;
-    left: $spacing-md;
+    top: $spacing-xs;
+    left: $spacing-xs;
   }
 }

@@ -40,3 +40,30 @@ a {
 ul, ol {
   list-style: none;
 }
+
+/* Global Sparkle Styles */
+.sparkle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  font-size: 1.5rem;
+  transform: translate(var(--x), var(--y));
+  color: var(--sparkle-color);
+  animation: sparkle-burst 1s cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+@keyframes sparkle-burst {
+  0% {
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(var(--x) + var(--dx)), calc(var(--y) + var(--dy))) scale(1.5) rotate(45deg);
+    opacity: 0;
+  }
+}
