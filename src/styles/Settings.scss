@@ -30,13 +30,13 @@
 .settings-card {
   width: 100%;
   @include flex-center(column, $spacing-sm);
-  
+
   &.profile-card {
     .input-group {
       width: 100%;
       input {
         width: 100%;
-        padding: $spacing-md;
+        padding: $spacing-sm;
         border-radius: $radius-lg;
         border: 3px solid rgba(0, 0, 0, 0.05);
         font-size: 1.1rem;
@@ -44,7 +44,7 @@
         background: $color-bg-primary;
         color: $color-text-main;
         transition: border-color 0.2s;
-        
+
         &:focus {
           outline: none;
           border-color: $color-primary;
@@ -54,7 +54,7 @@
 
     select {
       width: 100%;
-      padding: $spacing-md;
+      padding: $spacing-sm;
       border-radius: $radius-lg;
       border: 3px solid rgba(0, 0, 0, 0.05);
       background: $color-bg-primary;
@@ -70,7 +70,7 @@
   width: 100%;
   @include flex-center(row, $spacing-md);
   background: $color-bg-primary;
-  padding: $spacing-md;
+  padding: $spacing-sm;
   border-radius: $radius-lg;
   border: 3px solid rgba(0, 0, 0, 0.05);
 
@@ -80,7 +80,9 @@
     font-size: 1.5rem;
     cursor: pointer;
     transition: transform 0.2s;
-    &:hover { transform: scale(1.1); }
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   .volume-slider-container {
@@ -106,7 +108,7 @@
 
 .settings-actions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: $spacing-md;
   width: 100%;
 
@@ -115,9 +117,17 @@
     padding: $spacing-md;
     font-size: 1rem;
 
-    &.btn-feedback { @include playful-button($color-secondary); }
-    &.btn-facebook { @include playful-button(#1877F2); }
-    &.btn-share { @include playful-button($color-accent); }
-    &.btn-rate { @include playful-button($color-warning); }
+    &.btn-feedback {
+      @include playful-button($color-secondary);
+    }
+    &.btn-facebook {
+      @include playful-button(#1877f2);
+    }
+    &.btn-share {
+      @include playful-button($color-accent);
+    }
+    &.btn-rate {
+      @include playful-button($color-warning);
+    }
   }
 }

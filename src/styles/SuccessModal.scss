@@ -22,7 +22,7 @@
   @include playful-card($color-bg-secondary, rgba(0, 0, 0, 0.05));
   width: 100%;
   max-width: 600px;
-  padding: $spacing-xl $spacing-md;
+  padding: $spacing-sm;
   text-align: center;
   position: relative;
   transition: opacity 0.3s;
@@ -69,7 +69,7 @@
   .success-stars {
     font-size: 2.5rem;
     filter: drop-shadow(0 4px 8px rgba($color-warning, 0.4));
-    
+
     .streak-count-text {
       font-size: 1.5rem;
       font-weight: 800;
@@ -102,13 +102,13 @@
 .daily-bonus-actions {
   @include flex-center(column, $spacing-md);
   width: 100%;
-  margin-top: $spacing-lg;
+  margin-top: $spacing-sm;
 
   .btn-reward {
     @include playful-button($color-success);
     width: 100%;
-    font-size: 1.5rem;
-    padding: $spacing-md;
+    font-size: 1.1rem;
+    padding: $spacing-sm;
   }
 }
 

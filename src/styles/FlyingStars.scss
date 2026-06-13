@@ -9,7 +9,6 @@
   height: 100vh;
   pointer-events: none;
   overflow: hidden;
-  // No z-index, managed by being late in DOM or parent context
 }
 
 .flying-star {

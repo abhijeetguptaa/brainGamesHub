@@ -491,7 +491,10 @@ export default function App() {
       </Suspense>
 
       {location.pathname === '/' ? (
-        <button className="nav-button nav-button--setting" onClick={() => setIsSettingsOpen(true)}>
+        <button
+          className="nav-button nav-button--setting"
+          onClick={() => setIsSettingsOpen(!isSettingsOpen)}
+        >
           <img src="/setting.webp" alt={t('settings.title')} />
         </button>
       ) : (
